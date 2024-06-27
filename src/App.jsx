@@ -1,14 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 
 import Layout from "./components/Layout";
-import HomePage from "./pages/HomePage";
-import BlogPage from "./pages/BlogPage";
-import AboutUsPage from "./pages/AboutUsPage";
-import ContactUsPage from "./pages/ContactUsPage";
-import SearchPage from "./pages/SearchPage";
-import BasketPage from "./pages/BasketPage";
-import FavoritesPage from "./pages/FavoritesPage";
-import AccountPage from "./pages/AccountPage";
+import HomePage from "./pages/HomePage/HomePage";
+import BlogPage from "./pages/BlogPage/BlogPage";
+import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
+import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
+import SearchPage from "./pages/SearchPage/SearchPage";
+import BasketPage from "./pages/BasketPage/BasketPage";
+import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
+import AccountPage from "./pages/AccountPage/AccountPage";
 
 const App = () => {
   return <>

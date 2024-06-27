@@ -1,8 +1,20 @@
 @import './reset';
 @import './fonts';
 @import './variables';
+
+// Components
 @import '../components/Header/header';
 @import '../components/Footer/footer';
+
+// Pages
+@import '../pages/AboutUsPage/AboutUsPage';
+@import '../pages/AccountPage/AccountPage';
+@import '../pages/BasketPage/BasketPage';
+@import '../pages/BlogPage/BlogPage';
+@import '../pages/ContactUsPage/ContactUsPage';
+@import '../pages/FavoritesPage/FavoritesPage';
+@import '../pages/HomePage/HomePage';
+@import '../pages/SearchPage/SearchPage';
 
 * {
   margin: 0;
@@ -18,14 +30,21 @@
 
 .main {
   flex: 1 0 auto;
+  width: 100%;
 }
 
 .nav-title {
   margin-top: 38px;
+  color: $dark-black;
   font-family: Plus Jakarta Sans;
   font-size: 16px;
   font-weight: 700;
   line-height: 20.16px;
+  text-align: center;
+
+  a {
+    color: $dark-black;
+  }
 }
 
 .active-link {
