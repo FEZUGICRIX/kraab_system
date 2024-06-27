@@ -1,0 +1,53 @@
+@import './reset';
+@import './fonts';
+@import './variables';
+@import '../components/Header/header';
+@import '../components/Footer/footer';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+.nav-title {
+  margin-top: 38px;
+  font-family: Plus Jakarta Sans;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20.16px;
+}
+
+.active-link {
+  color: $dark !important;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1296px;
+  margin: auto;
+}
+
+@media (max-width: $breakpoint-xl) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  .container {
+    padding: 0 20px;
+  }
+}
