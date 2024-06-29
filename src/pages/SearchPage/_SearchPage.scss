@@ -37,4 +37,51 @@
       line-height: 30.24px;
     }
   }
+
+  @media (max-width: $breakpoint-lg) {
+    &__input {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background: #f9f9f9;
+      border-radius: 50px;
+      margin-bottom: 120px;
+
+      input {
+        padding: 28px 0 28px 32px;
+
+        border-radius: 0 50px 50px 0;
+
+        font-size: 21px;
+      }
+
+    }
+    &__img {
+      padding: 28px 25px 28px 32px;
+    }
+
+    &__title {
+      font-size: 34px;
+      margin: 59px 0 48px;
+    }
+  }
+
+  @media (max-width:$breakpoint-sm) {
+    &__title {
+      margin-bottom: 20px;
+    }
+
+    &__input {
+      margin-bottom: 65px;
+
+      input {
+        padding: 24px 0 24px 6px;
+        font-size: 21px;
+      }
+
+    }
+    &__img {
+      padding: 24px 26px 24px 24px;
+    }
+  }
 }
