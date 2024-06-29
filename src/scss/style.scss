@@ -6,8 +6,10 @@
 @import '../components/Header/header';
 @import '../components/Footer/footer';
 @import '../components/CardSwiper/CardSwiper';
+@import '../components/Singup/Singup';
 
 // Pages
+@import '../pages/BrandPage//BrandPage';
 @import '../pages/AboutUsPage/AboutUsPage';
 @import '../pages/AccountPage/AccountPage';
 @import '../pages/BasketPage/BasketPage';
@@ -27,6 +29,23 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.title {
+  font-family: Plus Jakarta Sans;
+  color: #222;
+  text-transform: uppercase;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 75.6px;
+  text-align: center;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 40px;
+  }
+  @media (max-width: $breakpoint-xs) {
+    font-size: 30px;
+  }
 }
 
 .main {

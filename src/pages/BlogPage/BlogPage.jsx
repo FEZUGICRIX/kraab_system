@@ -1,8 +1,9 @@
-
 const BlogPage = () => {
   return (
-    <div>BlogPage</div>
-  )
-}
+    <>
+      blogpage
+    </>
+  );
+};
 
-export default BlogPage
+export default BlogPage;

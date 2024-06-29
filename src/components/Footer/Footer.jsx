@@ -1,7 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
-  const setActive = ({ isActive }) => isActive ? 'active-link' : '';
+  const setActive = ({ isActive }) => (isActive ? 'active-link' : '');
 
   return (
     <footer className="footer">
@@ -24,7 +24,8 @@ const Footer = () => {
             </div>
 
             <div className="footer__info-social">
-              <a href="#">
+              {/* facebook */}
+              <a href="https://www.facebook.com/kraabmod.fin">
                 <svg
                   width="10"
                   height="20"
@@ -38,6 +39,7 @@ const Footer = () => {
                   />
                 </svg>
               </a>
+              {/* twitter */}
               <a href="#">
                 <svg
                   width="21"
@@ -52,7 +54,11 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              <a href="#">
+              {/* instagram */}
+              <a
+                href="
+https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
+              >
                 <svg
                   width="21"
                   height="20"
@@ -66,7 +72,8 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              <a href="#">
+              {/* youtube */}
+              <a href="https://www.youtube.com/watch?v=NyBBkh2iEBw">
                 <svg
                   width="21"
                   height="20"
@@ -111,18 +118,46 @@ const Footer = () => {
             <div className="link">
               <div className="link__title">SHOPPING</div>
               <ul className="link__list">
-                <li><a href="#" className="link__item">Tracking</a></li>
-                <li><a href="#" className="link__item">Reviews</a></li>
-                <li><NavLink to='account' className="link__item">Personal account</NavLink></li>
+                <li>
+                  <a href="#" className="link__item">
+                    Tracking
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="link__item">
+                    Reviews
+                  </a>
+                </li>
+                <li>
+                  <NavLink to="account" className="link__item">
+                    Personal account
+                  </NavLink>
+                </li>
               </ul>
             </div>
             <div className="link">
               <div className="link__title">MORE link</div>
               <ul className="link__list">
-                <li><NavLink to="blog" className={setActive}>Blog</NavLink></li>
-                <li><NavLink to="basket" className={setActive}>Shopping cart</NavLink></li>
-                <li><NavLink to="favorites" className={setActive}>Favorites</NavLink></li>
-                <li><NavLink to="about-us" className={setActive}>About us</NavLink></li>
+                <li>
+                  <NavLink to="blog" className={setActive}>
+                    Blog
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="basket" className={setActive}>
+                    Shopping cart
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="favorites" className={setActive}>
+                    Favorites
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="about-us" className={setActive}>
+                    About us
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </div>
@@ -132,17 +167,26 @@ const Footer = () => {
 
             <div className="blog__items">
               <div className="blog__item">
-                <div className="blog__item-title">26  <span>May</span></div>
-                <div className="blog__item-text">Posting the results of the latest project for a large enterprise!</div>
+                <div className="blog__item-title">
+                  26 <span>May</span>
+                </div>
+                <div className="blog__item-text">
+                  Posting the results of the latest project for a large
+                  enterprise!
+                </div>
                 <div className="blog__item-comments">3 comments</div>
               </div>
               <div className="blog__item">
-                <div className="blog__item-title">27  <span>May</span></div>
-                <div className="blog__item-text">Posting the results of the latest project for a large enterprise!</div>
+                <div className="blog__item-title">
+                  27 <span>May</span>
+                </div>
+                <div className="blog__item-text">
+                  Posting the results of the latest project for a large
+                  enterprise!
+                </div>
                 <div className="blog__item-comments">3 comments</div>
               </div>
             </div>
-
           </div>
         </div>
 
