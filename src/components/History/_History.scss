@@ -1,0 +1,15 @@
+.history {
+  &__title {
+    font-family: Montserrat;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 34.13px;
+    margin-bottom: 23px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 51px;
+  }
+}

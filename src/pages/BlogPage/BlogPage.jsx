@@ -1,7 +1,11 @@
+import { Link } from 'react-router-dom';
+
 const BlogPage = () => {
   return (
     <>
-      blogpage
+      <div className="nav-title">
+        <Link to="/">HOMEPAGE</Link>/BLOG
+      </div>
     </>
   );
 };

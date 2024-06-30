@@ -15,7 +15,7 @@ const Footer = () => {
             </div>
             <div className="footer__info-info">
               <div className="footer__info-address">
-                Finland, Helsinki, Keskuskatu 1
+                Veteraanintie 2, 06100 Porvoo, Finland
               </div>
               <a href=" tel:+35891234567">+358 9 1234567</a>
               <a href="mailto:info@flooranddecor.fi">
@@ -129,7 +129,7 @@ https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
                   </a>
                 </li>
                 <li>
-                  <NavLink to="account" className="link__item">
+                  <NavLink to="account/account" className="link__item">
                     Personal account
                   </NavLink>
                 </li>

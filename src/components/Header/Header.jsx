@@ -76,7 +76,7 @@ const Header = () => {
                 />
               </svg>
             </NavLink>
-            <NavLink to="account" className="header__button">
+            <NavLink to="account/profile" className="header__button">
               <svg
                 width="23"
                 height="30"

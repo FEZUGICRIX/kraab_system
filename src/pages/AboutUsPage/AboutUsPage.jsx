@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import aboutUsImage02 from './images/about-us-02.png';
 // import aboutUsImage03 from './images/about-us-03.png';
 
-import teamImage from './images/team.jpg'
+import teamImage from './images/team.jpg';
 
 const AboutUsPage = () => {
   return (
@@ -50,7 +50,7 @@ const AboutUsPage = () => {
       <section className="advantages">
         <div className="container">
           <div className="advantages__container">
-            <h4 className="advantages__title">Our advantages</h4>
+            <h4 className="advantages__title">Meidän etumme</h4>
             <div className="advantages__content">
               <div className="advantages__item line">
                 <div className="advantages__item-img">
@@ -67,11 +67,14 @@ const AboutUsPage = () => {
                     />
                   </svg>
                 </div>
-                <h5 className="advantages__item-title">Safe materials</h5>
+                <h5 className="advantages__item-title">
+                  Turvalliset materiaalit
+                </h5>
                 <div className="advantages__item-text">
-                  The safety of each of the materials used is confirmed by
-                  the relevant European standard certificate. We only use
-                  products from brands that have been proven brands.
+                  Käytettyjen materiaalien turvallisuus on vahvistettu
+                  asianmukaisilla eurooppalaisilla
+                  standardisertifikaateilla. Käytämme vain hyväksi
+                  todettujen merkkien tuotteita.
                 </div>
                 <a href="#" className="advantages__item-link">
                   Read More
@@ -120,12 +123,11 @@ const AboutUsPage = () => {
                     </defs>
                   </svg>
                 </div>
-                <h5 className="advantages__item-title">Quality wood</h5>
+                <h5 className="advantages__item-title">Laadukas puu</h5>
                 <div className="advantages__item-text">
-                  In creating unique interiors we use only high-quality,
-                  proven wood, which will serve you for many years,
-                  maintaining its impeccable pristine appearance.
-                  appearance.
+                  Ainutlaatuisten sisustusten luomisessa käytämme vain
+                  korkealaatuista, hyväksi todettua puuta, joka säilyttää
+                  virheettömän ulkonäkönsä ja palvelee sinua vuosien ajan.
                 </div>
                 <a href="#" className="advantages__item-link">
                   Read More
@@ -148,12 +150,13 @@ const AboutUsPage = () => {
                   </svg>
                 </div>
                 <h5 className="advantages__item-title">
-                  Professional team
+                  Ammattitaitoinen tiimi
                 </h5>
                 <div className="advantages__item-text">
-                  We only work with the highest level of professionals with
-                  in-depth experience. All our designers, planners,
-                  engineers and architects are certified professionals.
+                  Työskentelemme vain korkeimman tason ammattilaisten
+                  kanssa, joilla on syvällistä kokemusta. Kaikki
+                  suunnittelijamme, suunnittelijamme, insinöörimme ja
+                  arkkitehtimme ovat sertifioituja ammattilaisia.
                 </div>
                 <a href="#" className="advantages__item-link">
                   Read More
@@ -176,12 +179,13 @@ const AboutUsPage = () => {
                   </svg>
                 </div>
                 <h5 className="advantages__item-title">
-                  Best creative solutions
+                  Parhaat luovat ratkaisut
                 </h5>
                 <div className="advantages__item-text">
-                  The safety of each of the materials used is confirmed by
-                  the relevant European standard certificate. We only use
-                  products from brands that have been proven brands.
+                  Käytettyjen materiaalien turvallisuus on vahvistettu
+                  asianmukaisilla eurooppalaisilla
+                  standardisertifikaateilla. Käytämme vain hyväksi
+                  todettujen merkkien tuotteita.
                 </div>
                 <a href="#" className="advantages__item-link">
                   Read More
@@ -211,12 +215,13 @@ const AboutUsPage = () => {
                   </svg>
                 </div>
                 <h5 className="advantages__item-title">
-                  Quality materials
+                  Laadukkaat materiaalit
                 </h5>
                 <div className="advantages__item-text">
-                  In our work we pay special attention not only to the
-                  quality of wood and basic building materials, but also to
-                  the quality of consumables, varnishes, paints, chemicals.
+                  Työssämme kiinnitämme erityistä huomiota paitsi puun ja
+                  perusrakennusmateriaalien laatuun, myös
+                  kulutushyödykkeiden, lakkojen, maalien ja kemikaalien
+                  laatuun.
                 </div>
                 <a href="#" className="advantages__item-link">
                   Read More
@@ -246,12 +251,13 @@ const AboutUsPage = () => {
                   </svg>
                 </div>
                 <h5 className="advantages__item-title">
-                  Verified suppliers
+                  Varmennetut toimittajat
                 </h5>
                 <div className="advantages__item-text">
-                  The safety of each of the materials used is confirmed by
-                  the relevant European standard certificate. We only use
-                  products from brands that have been proven brands.
+                  Käytettyjen materiaalien turvallisuus on vahvistettu
+                  asianmukaisella eurooppalaisella
+                  standardisertifikaatilla. Käytämme vain tuotteita
+                  tunnetuilta ja luotettavilta merkeiltä.
                 </div>
                 <a href="#" className="advantages__item-link">
                   Read More
@@ -265,8 +271,8 @@ const AboutUsPage = () => {
       <section className="run-text">
         <div className="run-text__container">
           <div className="run-text__content">
-            . start a project . start a project . start a project . start a
-            project . start a project
+            ALOITA PROJEKTI. ALOITA PROJEKTI. ALOITA PROJEKTI. ALOITA
+            PROJEKTI. ALOITA PROJEKTI.
           </div>
         </div>
       </section>
@@ -297,14 +303,14 @@ const AboutUsPage = () => {
                 placeholder="Your question"
               ></textarea>
 
-              <input type="submit" id="submit" value='Send' />
+              <input type="submit" id="submit" value="Send" />
             </form>
 
             <div className="questions__text">
-              <h2 className="questions__title">Any questions?</h2>
+              <h2 className="questions__title">JOTAIN KYSYTTÄVÄÄ?</h2>
               <div className="questions__sub-title">
-                Write to us and we will be sure to answer all your
-                questions and give you a comprehensive consultation.
+                Kirjoita meille, niin varmistamme vastaavamme kaikkiin
+                kysymyksiisi ja annamme kattavan konsultaation.
               </div>
             </div>
           </div>
