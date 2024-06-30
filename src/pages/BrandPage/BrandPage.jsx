@@ -20,12 +20,12 @@ const BrandPage = () => {
             <img src={MiniImage} alt="brand" />
 
             <div className="brand__text">
-              We offer products such as aluminum profiles ideal for
-              drywall, architectural textiles for ceilings and walls,
-              cornices and luminaires. Of particular interest are our
-              solutions for backlit floating ceilings as well as for
-              concealed ceilings (shadow cornices) with and without LED
-              lighting.
+              Tarjoamme tuotteita kuten alumiiniprofiileja, jotka sopivat
+              täydellisesti kipsilevyjen kanssa, arkkitehtonista tekstiiliä
+              kattoihin ja seiniin, kattokruunuja ja valaisimia. Erityistä
+              kiinnostusta herättävät ratkaisumme upotetuille
+              valaistuksella varustetuille kelluville katoille sekä
+              piilokattokruunuille LED-valaistuksella tai ilman sitä.
             </div>
           </div>
         </div>

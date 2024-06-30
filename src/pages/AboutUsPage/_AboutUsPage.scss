@@ -17,6 +17,8 @@
   &__title {
     text-align: left !important;
   }
+  
+
 
   &__text {
     font-family: Montserrat;
@@ -163,6 +165,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: clamp(100px, 5vw, 186px);
+    justify-items: center;
     grid-row-gap: 34px;
   }
 
@@ -361,5 +364,18 @@
     & {
       margin-bottom: 50px;
     }
+  }
+}
+
+.account-title {
+  font-family: Montserrat;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 34.13px;
+}
+
+@media (max-width: $breakpoint-md) {
+  .account-title {
+    text-align: center;
   }
 }

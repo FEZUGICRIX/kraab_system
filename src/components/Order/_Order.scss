@@ -1,0 +1,114 @@
+.order {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__main {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 860px;
+    padding: 22px 34px 26px 36px;
+    background: #d9d9d9;
+    border-radius: 30px;
+  }
+
+  &__main.delivered::before,
+  &__main.not-delivered::before {
+    position: absolute;
+    top: 0;
+    left: -15px;
+    content: '';
+    width: 9px;
+    height: 92px;
+    border-radius: 30px;
+  }
+
+  &__main.delivered::before {
+    background: #f2c94c;
+  }
+
+  &__main.not-delivered::before {
+    background: #f2994a;
+  }
+
+  &__info {
+    display: flex;
+    gap: 48px;
+  }
+
+  &__column-title {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24.38px;
+  }
+
+  &__column-info {
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.5px;
+  }
+
+  &__deliver {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24.38px;
+  }
+
+  &__management {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 34px;
+    border: 1px solid;
+    border-radius: 36px;
+  }
+
+  &__button {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24.38px;
+    cursor: pointer;
+  }
+
+  @media (max-width: $breakpoint-xl) {
+    &__main {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-width: 550px;
+      width: 100%;
+      padding: 22px 34px 26px 36px;
+      background: #d9d9d9;
+      border-radius: 30px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    &__info {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    &__main {
+      min-width: 100%;
+    }
+
+    &__main.delivered::before,
+    &__main.not-delivered::before {
+      height: 203px;
+    }
+
+    &__management {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+}
