@@ -17,9 +17,12 @@ const Footer = () => {
               <div className="footer__info-address">
                 Veteraanintie 2, 06100 Porvoo, Finland
               </div>
-              <a href=" tel:+35891234567">+358 9 1234567</a>
-              <a href="mailto:info@flooranddecor.fi">
-                info@flooranddecor.fi
+              <a href=" tel:+358452525100">+358 45 2525100</a>
+              <a
+                href="mailto:info@kraabmod.fi
+"
+              >
+                info@kraabmod.fi
               </a>
             </div>
 
