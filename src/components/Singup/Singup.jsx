@@ -1,11 +1,11 @@
-import futuristicImage from './images/futuristic.png';
+
 
 const Singup = () => {
   return (
     <>
       <section className="futuristic">
         <img
-          src={futuristicImage}
+          src={'/img/components/singUp/futuristic.png'}
           alt="futuristic"
           className="futuristic__image"
         />

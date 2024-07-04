@@ -1,11 +1,8 @@
 import { Link } from 'react-router-dom';
+import Swiper from 'swiper';
 
 import CardSwiper from '../../components/CardSwiper/CardSwiper';
 import SingUp from '../../components/Singup/Singup';
-
-// Images
-import MiniImage from './images/mini.png';
-import Swiper from 'swiper';
 
 const BrandPage = () => {
   return (
@@ -17,7 +14,7 @@ const BrandPage = () => {
       <section className="brand">
         <div className="container">
           <div className="brand__container">
-            <img src={MiniImage} alt="brand" />
+            <img src={'./img/pages/brand/mini.png'} alt="brand" />
 
             <div className="brand__text">
               Tarjoamme tuotteita kuten alumiiniprofiileja, jotka sopivat
