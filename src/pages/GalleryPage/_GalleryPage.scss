@@ -10,14 +10,13 @@
   &__gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    
+
     gap: 10px;
   }
 
   &__item {
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
     gap: 20px;
   }
 
@@ -32,6 +31,21 @@
 
   &__item-img {
     width: 100%;
-    // max-height: 250px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &__gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: $breakpoint-sm) {
+    &__gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: $breakpoint-xs) {
+    &__gallery {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 }
