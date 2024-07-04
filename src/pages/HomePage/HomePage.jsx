@@ -2,12 +2,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 
-// Images
-import homePageImage from './images/dreams/home-page.png';
-import homePageMiniImage from './images/dreams/home-page-mini.png';
-import homePageSiderImage from './images/dreams/home-page-sider.png';
-import newsImage01 from './images/news/news01.png';
-
 import CardSwiper from '../../components/CardSwiper/CardSwiper';
 import Singup from '../../components/Singup/Singup';
 
@@ -20,9 +14,11 @@ const HomePage = () => {
             <h1 className="dreams__title main-title home-page-title">
               Me tuomme
             </h1>
-            {/* Me tuomme unelmasi  */}
 
-            <img className="dreams__mini-img" src={homePageMiniImage} />
+            <img
+              className="dreams__mini-img"
+              src={'./img/pages/home/dreams/home-page-mini.png'}
+            />
             <h1 className="dreams__title home-page-title">unelmasi</h1>
             <h1 className="dreams__title dreams__title-right home-page-title">
               eloon kauniisiin <br /> tiloihin.
@@ -30,11 +26,11 @@ const HomePage = () => {
           </div>
 
           <div className="dreams__img">
-            <img src={homePageImage} />
+            <img src={'./img/pages/home/dreams/home-page.png'} />
           </div>
 
           <div className="dreams__img-sider">
-            <img src={homePageSiderImage} />
+            <img src={'./img/pages/home/dreams/home-page-sider.png'} />
           </div>
         </div>
       </section>
@@ -103,7 +99,7 @@ const HomePage = () => {
                 <SwiperSlide>
                   <div className="news__item">
                     <img
-                      src={newsImage01}
+                      src={'./img/pages/home/news/news01.png'}
                       alt=""
                       className="news__item-img"
                     />
@@ -114,7 +110,7 @@ const HomePage = () => {
                 <SwiperSlide>
                   <div className="news__item">
                     <img
-                      src={newsImage01}
+                      src={'./img/pages/home/news/news01.png'}
                       alt=""
                       className="news__item-img"
                     />
@@ -125,7 +121,7 @@ const HomePage = () => {
                 <SwiperSlide>
                   <div className="news__item">
                     <img
-                      src={newsImage01}
+                      src={'./img/pages/home/news/news01.png'}
                       alt=""
                       className="news__item-img"
                     />

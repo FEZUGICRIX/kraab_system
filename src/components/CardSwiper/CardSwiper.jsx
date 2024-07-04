@@ -1,20 +1,15 @@
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
-
-import cardImage01 from './images/01.jpeg';
-import cardImage02 from './images/02.png';
-import cardImage03 from './images/03.png';
-import cardImage04 from './images/04.png';
-import cardImage05 from './images/05.png';
 
 const CardSwiper = () => {
   return (
     <section className="project">
       <div className="project__container container">
         <h1 className="project__title title home-page-title">
-        Projektiisi keskitytään parhaillaan.
+          Projektiisi keskitytään parhaillaan.
         </h1>
 
         <div className="card">
@@ -55,7 +50,7 @@ const CardSwiper = () => {
                   <div className="card__number">01</div>
                   <h5 className="card__title">Moduleo</h5>
                   <img
-                    src={cardImage01}
+                    src={'./img/components/cardSwiper/01.jpeg'}
                     className="card__img"
                     alt="card image"
                   />
@@ -88,7 +83,7 @@ const CardSwiper = () => {
                   <div className="card__number">02</div>
                   <h5 className="card__title">kraabmod</h5>
                   <img
-                    src={cardImage02}
+                    src={'./img/components/cardSwiper/02.png'}
                     className="card__img"
                     alt="card image"
                   />
@@ -121,7 +116,7 @@ const CardSwiper = () => {
                   <div className="card__number">03</div>
                   <h5 className="card__title">Denkirs</h5>
                   <img
-                    src={cardImage03}
+                    src={'./img/components/cardSwiper/03.png'}
                     className="card__img"
                     alt="card image"
                   />
@@ -150,11 +145,11 @@ const CardSwiper = () => {
               </SwiperSlide>
 
               <SwiperSlide>
-                <div className="card__item">
+                <Link to="/gallery" className="card__item">
                   <div className="card__number">04</div>
                   <h5 className="card__title">3D rendering</h5>
                   <img
-                    src={cardImage04}
+                    src={'./img/components/cardSwiper/04.png'}
                     className="card__img"
                     alt="card image"
                   />
@@ -179,7 +174,7 @@ const CardSwiper = () => {
                       />
                     </svg>
                   </div>
-                </div>
+                </Link>
               </SwiperSlide>
 
               <SwiperSlide>
@@ -187,7 +182,7 @@ const CardSwiper = () => {
                   <div className="card__number">05</div>
                   <h5 className="card__title">JM</h5>
                   <img
-                    src={cardImage05}
+                    src={'./img/components/cardSwiper/05.png'}
                     className="card__img"
                     alt="card image"
                   />

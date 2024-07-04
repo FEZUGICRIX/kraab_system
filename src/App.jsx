@@ -13,6 +13,7 @@ import SearchPage from './pages/SearchPage/SearchPage';
 import BasketPage from './pages/BasketPage/BasketPage';
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import AccountPage from './pages/AccountPage/AccountPage';
+import GalleryPage from './pages/GalleryPage/GalleryPage';
 
 // Components
 import Profile from './components/Profile/Profile';
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="about-us" element={<AboutUsPage />} />
           <Route path="contact-us" element={<ContactUsPage />} />
           <Route path="search" element={<SearchPage />} />
+          <Route path='gallery' element={<GalleryPage />} />
           <Route path="basket" element={<BasketPage />} />
           <Route path="favorites" element={<FavoritesPage />} />
           <Route path="account" element={<AccountPage />}>

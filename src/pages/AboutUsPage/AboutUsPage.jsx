@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 // import aboutUsImage02 from './images/about-us-02.png';
 // import aboutUsImage03 from './images/about-us-03.png';
 
-import teamImage from './images/team.jpg';
-
 const AboutUsPage = () => {
   return (
     <>
@@ -28,20 +26,7 @@ const AboutUsPage = () => {
             </div>
 
             <div className="about-us__images">
-              <img src={teamImage} alt="team" />
-              {/* <img
-                src={aboutUsImage01}
-                className="img-pictures"
-                alt="pictures"
-              />
-              <div className="img-sofa">
-                <img src={aboutUsImage02} alt="sofa" />
-              </div>
-              <img
-                src={aboutUsImage03}
-                className="img-armchair"
-                alt="pink armchair"
-              /> */}
+              <img src={'./img/pages/about-us/team.jpg'} alt="team" />
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import avatarImage from './images/avatar.png';
+
 
 const Profile = () => {
   return (
@@ -8,7 +8,7 @@ const Profile = () => {
 
         <div className="profile__content">
           <img
-            src={avatarImage}
+            src={'/img/components/profile/avatar.png'}
             alt="avatar"
             className="profile__avatar"
           />
