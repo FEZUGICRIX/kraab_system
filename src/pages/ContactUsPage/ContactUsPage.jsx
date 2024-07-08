@@ -1,11 +1,9 @@
-import { Link } from 'react-router-dom';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
 const ContactUsPage = () => {
   return (
     <>
-      <div className="nav-title">
-        <Link to="/">HOMEPAGE</Link>/ CONTACTS
-      </div>
+      <Breadcrumbs pageTitle="CONTACTS" />
 
       <section className="contacts">
         <div className="contacts__info">

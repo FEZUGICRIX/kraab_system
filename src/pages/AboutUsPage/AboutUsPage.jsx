@@ -1,16 +1,9 @@
-import { Link } from 'react-router-dom';
-
-// Images
-// import aboutUsImage01 from './images/about-us-01.png';
-// import aboutUsImage02 from './images/about-us-02.png';
-// import aboutUsImage03 from './images/about-us-03.png';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
 const AboutUsPage = () => {
   return (
     <>
-      <div className="nav-title">
-        <Link to="/">HOMEPAGE</Link>/ABOUT US
-      </div>
+      <Breadcrumbs pageTitle="ABOUT US" />
 
       <section className="about-us">
         <div className="container">

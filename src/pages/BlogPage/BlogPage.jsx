@@ -1,13 +1,10 @@
-import { Link } from 'react-router-dom';
-
 import catalogPdf from '../../pdf/Catalog_Gipps.pdf';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
 const BlogPage = () => {
   return (
     <>
-      <div className="nav-title">
-        <Link to="/">HOMEPAGE</Link>/BLOG
-      </div>
+      <Breadcrumbs pageTitle='blog' />
 
       <section className="blog">
         <div className="container">

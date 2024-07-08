@@ -1,14 +1,11 @@
-import { Link } from 'react-router-dom';
-
 import { galleryItems } from './galleryItems';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
 const GalleryPage = () => {
   console.log(galleryItems);
   return (
     <>
-      <div className="nav-title">
-        <Link to="/">HOMEPAGE</Link>/GALLERY
-      </div>
+      <Breadcrumbs pageTitle="GALLERY" />
 
       <section className="gallery">
         <div className="container">
