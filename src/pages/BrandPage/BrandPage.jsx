@@ -1,15 +1,11 @@
-import { Link } from 'react-router-dom';
-import Swiper from 'swiper';
-
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import CardSwiper from '../../components/CardSwiper/CardSwiper';
 import SingUp from '../../components/Singup/Singup';
 
 const BrandPage = () => {
   return (
     <>
-      <div className="nav-title">
-        <Link to="/">HOMEPAGE</Link>/BRAND
-      </div>
+      <Breadcrumbs pageTitle="BRAND" />
 
       <section className="brand">
         <div className="container">

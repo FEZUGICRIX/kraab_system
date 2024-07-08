@@ -46,7 +46,7 @@ const CardSwiper = () => {
           >
             <div className="cards__items">
               <SwiperSlide>
-                <div className="card__item">
+                <Link to="/moduleo" className="card__item">
                   <div className="card__number">01</div>
                   <h5 className="card__title">Moduleo</h5>
                   <img
@@ -75,7 +75,7 @@ const CardSwiper = () => {
                       />
                     </svg>
                   </div>
-                </div>
+                </Link>
               </SwiperSlide>
 
               <SwiperSlide>

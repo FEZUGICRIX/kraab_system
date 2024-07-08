@@ -1,12 +1,10 @@
-import { Link } from 'react-router-dom';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { favoritesItems } from './favoritesItems';
 
 const FavoritesPage = () => {
   return (
     <>
-      <div className="nav-title">
-        <Link to="/">HOMEPAGE</Link>/favorites
-      </div>
+      <Breadcrumbs pageTitle="favorites" />
 
       <section className="favorites">
         <div className="container">

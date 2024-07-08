@@ -1,13 +1,12 @@
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
 const AccountPage = () => {
   const setActive = ({ isActive }) => (isActive ? 'active-page' : '');
 
   return (
     <>
-      <div className="nav-title">
-        <Link to="/">HOMEPAGE</Link>/ACCOUNT
-      </div>
+      <Breadcrumbs pageTitle="ACCOUNT" />
 
       <section className="account-page">
         <div className="container">

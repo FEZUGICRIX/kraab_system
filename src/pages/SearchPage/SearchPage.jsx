@@ -1,11 +1,9 @@
-import { Link } from 'react-router-dom';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
 const SearchPage = () => {
   return (
     <>
-      <div className="nav-title">
-        <Link to="/">HOMEPAGE</Link>/SEARCH
-      </div>
+      <Breadcrumbs pageTitle="search" />
 
       <section className="search">
         <div className="search__container container">
