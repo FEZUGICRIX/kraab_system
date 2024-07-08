@@ -1,0 +1,115 @@
+.favorites {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 966px;
+    margin: auto;
+    padding-bottom: 120px;
+  }
+
+  &__title {
+    font-family: Plus Jakarta Sans;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 42.84px;
+    color: #323334;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 39px 0 56px 0;
+  }
+
+  &__count {
+    font-family: Plus Jakarta Sans;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22.68px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 86px;
+  }
+
+  &__filter {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: Plus Jakarta Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.16px;
+    color: #323334;
+  }
+
+  .filter {
+    text-transform: uppercase;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .product {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 74px;
+    column-gap: 24px;
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &__img {
+      width: 100%;
+    }
+
+    &__title {
+      font-family: Plus Jakarta Sans;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 22.68px;
+      color: #323334;
+    }
+
+    &__colors {
+      display: flex;
+      gap: 4px;
+    }
+
+    &__price {
+      font-family: Roboto;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 28.13px;
+      color: #323334;
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &__container {
+      max-width: 100%;
+    }
+  }
+  @media (max-width: $breakpoint-sm) {
+    .product {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 40px;
+    }
+
+    &__count {
+      margin-bottom: 40px;
+    }
+  }
+  @media (max-width: 500px) {
+    .product {
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: 40px;
+
+      &__item {
+        gap: 14px;
+      }
+    }
+  }
+}
