@@ -1,4 +1,5 @@
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import Products from '../../components/Products/Products';
 import { favoritesItems } from './favoritesItems';
 
 const FavoritesPage = () => {
@@ -19,32 +20,7 @@ const FavoritesPage = () => {
               </div>
 
               <div className="favorites__products product">
-                {favoritesItems.map((item) => (
-                  <div className="product__item" key={item.id}>
-                    <img
-                      src={item.img}
-                      alt="product image"
-                      className="product__img"
-                    />
-
-                    <div className="product__title">{item.title}</div>
-
-                    <div className="product__colors">
-                      {item.colors.map((item) => (
-                        <div
-                          style={{
-                            width: 10,
-                            height: 10,
-                            background: item,
-                            borderRadius: 10,
-                          }}
-                        ></div>
-                      ))}
-                    </div>
-
-                    <div className="product__price">{item.price}€</div>
-                  </div>
-                ))}
+                <Products products={favoritesItems} />
               </div>
             </div>
           </div>

@@ -11,6 +11,7 @@
 @import '../components/History/History';
 @import '../components/Feedback/Feedback';
 @import '../components/Order/Order';
+@import '../components/Products/Products';
 
 // Pages
 @import '../pages/BrandPage//BrandPage';
@@ -72,6 +73,20 @@
   a {
     color: $dark-black;
   }
+}
+
+.black-btn {
+  padding: 16px 0;
+  color: $white;
+  background: #222;
+
+  font-family: Roboto;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18.75px;
+  border-radius: 30px;
 }
 
 .active-link {
