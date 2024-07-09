@@ -4,30 +4,30 @@ export const galleryItems = [
     title: 'toimisto',
     img: './img/pages/gallery/toimisto.jpeg',
   },
-  {
-    id: 1,
-    title: 'äänistudio',
-    img: './img/pages/gallery/äänistudio.jpeg',
-  },
+  // {
+  //   id: 1,
+  //   title: 'äänistudio',
+  //   img: './img/pages/gallery/äänistudio.jpeg',
+  // },
   {
     id: 2,
     title: 'lääkärin',
-    img: './img/pages/gallery/lääkärin.jpeg',
+    img: './img/pages/gallery/laakarin.jpg',
   },
   {
     id: 3,
     title: 'ravintola',
     img: './img/pages/gallery/ravintola.jpeg',
   },
-  {
-    id: 4,
-    title: 'äänistudio',
-    img: './img/pages/gallery/äänistudio.jpeg',
-  },
+  // {
+  //   id: 4,
+  //   title: 'äänistudio',
+  //   img: './img/pages/gallery/äänistudio.jpeg',
+  // },
   {
     id: 5,
     title: 'käytävä',
-    img: './img/pages/gallery/käytävä.jpeg',
+    img: './img/pages/gallery/kaytava.jpeg',
   },
   {
     id: 6,
@@ -52,16 +52,16 @@ export const galleryItems = [
   {
     id: 10,
     title: 'Parturikampaamo',
-    img: './img/pages/gallery/Parturikampaamo.jpeg',
+    img: './img/pages/gallery/parturikampaamo.jpeg',
   },
   {
     id: 11,
     title: 'hotelli',
-    img: './img/pages/gallery/hotelli.jpeg',
+    img: './img/pages/gallery/hoteli.jpeg',
   },
   {
     id: 11,
-    title: '3d-konsepti moderniin olohuoneeseen',
-    img: './img/pages/gallery/3d-konsepti moderniin olohuoneeseen.png',
+    title: '3d-konsepti olohuoneeseen',
+    img: './img/pages/gallery/3d-konspecti.jpeg',
   },
 ];

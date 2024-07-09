@@ -49,67 +49,14 @@
     gap: 32px;
   }
 
-  .product {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 74px;
-    column-gap: 24px;
-
-    &__item {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    &__img {
-      width: 100%;
-    }
-
-    &__title {
-      font-family: Plus Jakarta Sans;
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 22.68px;
-      color: #323334;
-    }
-
-    &__colors {
-      display: flex;
-      gap: 4px;
-    }
-
-    &__price {
-      font-family: Roboto;
-      font-size: 24px;
-      font-weight: 700;
-      line-height: 28.13px;
-      color: #323334;
-    }
-  }
-
   @media (max-width: $breakpoint-md) {
     &__container {
       max-width: 100%;
     }
   }
   @media (max-width: $breakpoint-sm) {
-    .product {
-      grid-template-columns: repeat(2, 1fr);
-      row-gap: 40px;
-    }
-
     &__count {
       margin-bottom: 40px;
-    }
-  }
-  @media (max-width: 500px) {
-    .product {
-      grid-template-columns: repeat(1, 1fr);
-      row-gap: 40px;
-
-      &__item {
-        gap: 14px;
-      }
     }
   }
 }
