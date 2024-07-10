@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import Breadcrumbs from '@Breadcrumbs';
 
 const AccountPage = () => {
   const setActive = ({ isActive }) => (isActive ? 'active-page' : '');

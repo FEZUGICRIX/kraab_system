@@ -12,6 +12,7 @@
 
   &__img {
     width: 100%;
+    cursor: pointer;
   }
 
   &__title {
@@ -20,6 +21,12 @@
     font-weight: 700;
     line-height: 22.68px;
     color: #323334;
+    cursor: pointer;
+
+    &:hover {
+      transition: 0.5s all ease;
+      color: #838588;
+    }
   }
 
   &__colors {

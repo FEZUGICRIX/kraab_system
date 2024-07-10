@@ -2,8 +2,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 
-import CardSwiper from '../../components/CardSwiper/CardSwiper';
-import Singup from '../../components/Singup/Singup';
+import CardSwiper from '@components/CardSwiper/CardSwiper';
+import Singup from '@components/Singup/Singup';
 
 const HomePage = () => {
   return (

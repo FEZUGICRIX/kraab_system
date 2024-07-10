@@ -1,4 +1,4 @@
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import Breadcrumbs from '@Breadcrumbs';
 
 const SearchPage = () => {
   return (

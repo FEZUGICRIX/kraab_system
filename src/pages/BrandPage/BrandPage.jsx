@@ -1,6 +1,6 @@
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
-import CardSwiper from '../../components/CardSwiper/CardSwiper';
-import SingUp from '../../components/Singup/Singup';
+import Breadcrumbs from '@Breadcrumbs';
+import CardSwiper from '@components/CardSwiper/CardSwiper';
+import SingUp from '@components/Singup/Singup';
 
 const BrandPage = () => {
   return (

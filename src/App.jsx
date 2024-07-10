@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 
 // Layout
-import Layout from './components/Layout';
+import Layout from '@components/Layout';
 
 // Pages
 import HomePage from './pages/HomePage/HomePage';
@@ -17,9 +17,9 @@ import GalleryPage from './pages/GalleryPage/GalleryPage';
 import ModuleoPage from './pages/ModuleoPage/ModuleoPage';
 
 // Components
-import Profile from './components/Profile/Profile';
-import History from './components/History/History';
-import Feedback from './components/Feedback/Feedback';
+import Profile from '@components/Profile/Profile';
+import History from '@components/History/History';
+import Feedback from '@components/Feedback/Feedback';
 
 const App = () => {
   return (
