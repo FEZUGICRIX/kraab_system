@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 
-const Breadcrumbs = ({ pageTitle, previousPage }) => {
+const Breadcrumbs = ({ pageTitle, previousPages }) => {
   return (
     <div className="nav-title">
       <Link to="/">HOMEPAGE</Link>
-      {previousPage && (
-        <Link to={`/${previousPage}`}>/{previousPage}</Link>
-      )}
+      {previousPages && previousPages.map((page, index) => (
+        <span key={index}>
+          <Link to={`/${page}`}>/{page}</Link>
+        </span>
+      ))}
       /{pageTitle}
     </div>
   );

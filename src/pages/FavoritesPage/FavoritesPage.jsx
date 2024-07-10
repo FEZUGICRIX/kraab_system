@@ -1,6 +1,6 @@
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
-import Products from '../../components/Products/Products';
-import { favoritesItems } from './favoritesItems';
+import Breadcrumbs from '@Breadcrumbs';
+import Products from '@components/Products/Products';
+import { PRODUCTS } from '@PRODUCTS';
 
 const FavoritesPage = () => {
   return (
@@ -14,13 +14,13 @@ const FavoritesPage = () => {
             <div className="favorites__count">38 products</div>
 
             <div className="favorites__content">
-              <div className="favorites__filter">
-                <div className="filter">filter & sort</div>
-                <span>Products</span>
+              <div className="filter">
+                <span className="filter__title">filter & sort</span>
+                <span className='filter__products'>Products</span>
               </div>
 
               <div className="favorites__products product">
-                <Products products={favoritesItems} />
+                <Products products={PRODUCTS.favoritesItems} />
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import catalogPdf from '../../pdf/Catalog_Gipps.pdf';
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import Breadcrumbs from '@Breadcrumbs';
 
 const BlogPage = () => {
   return (

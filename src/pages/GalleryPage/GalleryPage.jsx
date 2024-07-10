@@ -1,5 +1,5 @@
-import { galleryItems } from './galleryItems';
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import Breadcrumbs from '@Breadcrumbs';
+import { PRODUCTS } from '@PRODUCTS';
 
 const GalleryPage = () => {
   return (
@@ -10,7 +10,7 @@ const GalleryPage = () => {
         <div className="container">
           <div className="gallery__container">
             <div className="gallery__gallery">
-              {galleryItems.map((item) => (
+              {PRODUCTS.galleryItems.map((item) => (
                 <div className="gallery__item">
                   <div className="gallery__item-title">{item.title}</div>
                   <img

@@ -1,12 +1,12 @@
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
-import Products from '../../components/Products/Products';
-import Singup from '../../components/Singup/Singup';
-import { moduleoProducts } from './moduleoProducts';
+import Breadcrumbs from '@Breadcrumbs';
+import Products from '@components/Products/Products';
+import Singup from '@components/Singup/Singup';
+import { PRODUCTS } from '@PRODUCTS';
 
 const ModuleoPage = () => {
   return (
     <>
-      <Breadcrumbs pageTitle="Moduleo" previousPage="brand" />
+      <Breadcrumbs pageTitle="Moduleo" previousPages={['brand']} />
 
       <section className="info">
         <div className="container">
@@ -35,29 +35,23 @@ const ModuleoPage = () => {
       <section className="products">
         <div className="container">
           <div className="products__container">
-            <div className="products__banners banner">
-              <div className="banner__item">
-                <img src="./img/pages/moduleo/01.png" alt="banner" />
-              </div>
-              <div className="banner__item">
-                <img src="./img/pages/moduleo/02.png" alt="banner" />
-              </div>
+            <div className="favorites__filter">
+              <div className="filter">filter & sort</div>
+              <span>Products</span>
+            </div>
+
+            <div className="product">
+              <Products products={PRODUCTS.moduleoPage} />
             </div>
           </div>
-
-  
-            <div className="product">
-              <Products products={moduleoProducts} />
-            </div>
-       
         </div>
       </section>
 
-      <section className="load-more">
+      {/* <section className="load-more">
         <div className="container">
           <button className="black-btn">load more products</button>
         </div>
-      </section>
+      </section> */}
 
       <Singup />
     </>
