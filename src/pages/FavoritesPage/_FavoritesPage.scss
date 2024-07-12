@@ -4,7 +4,6 @@
     flex-direction: column;
     max-width: 966px;
     margin: auto;
-    padding-bottom: 120px;
   }
 
   &__title {
@@ -28,20 +27,6 @@
     margin-bottom: 86px;
   }
 
-  &__filter {
-    display: flex;
-    justify-content: space-between;
-
-    font-family: Plus Jakarta Sans;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20.16px;
-    color: #323334;
-  }
-
-  .filter {
-    text-transform: uppercase;
-  }
 
   &__content {
     display: flex;

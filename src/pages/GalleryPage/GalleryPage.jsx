@@ -1,7 +1,13 @@
+import { useEffect } from 'react';
+
 import Breadcrumbs from '@Breadcrumbs';
 import { PRODUCTS } from '@PRODUCTS';
 
 const GalleryPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Breadcrumbs pageTitle="GALLERY" />

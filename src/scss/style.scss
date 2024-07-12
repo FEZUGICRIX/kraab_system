@@ -25,6 +25,7 @@
 @import '../pages/SearchPage/SearchPage';
 @import '../pages/GalleryPage/GalleryPage';
 @import '../pages/ModuleoPage/ModuleoPage';
+@import '../pages/ProductPage/ProductPage';
 
 // Products Pages
 
@@ -88,7 +89,7 @@
   color: #323334;
 
   text-transform: uppercase;
-} 
+}
 
 .black-btn {
   padding: 16px 0;
@@ -102,6 +103,14 @@
   font-weight: 700;
   line-height: 18.75px;
   border-radius: 30px;
+  border: 1px solid transparent;
+  transition: 0.4s all ease;
+
+  &:hover {
+    background: $white;
+    color: #222;
+    border: 1px solid #222;
+  }
 }
 
 .active-link {

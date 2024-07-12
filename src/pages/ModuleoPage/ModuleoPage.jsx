@@ -34,15 +34,8 @@ const ModuleoPage = () => {
 
       <section className="products">
         <div className="container">
-          <div className="products__container">
-            <div className="favorites__filter">
-              <div className="filter">filter & sort</div>
-              <span>Products</span>
-            </div>
-
-            <div className="product">
-              <Products products={PRODUCTS.moduleoPage} />
-            </div>
+          <div className="product">
+            <Products products={PRODUCTS.moduleoPage} root='moduleo' />
           </div>
         </div>
       </section>
