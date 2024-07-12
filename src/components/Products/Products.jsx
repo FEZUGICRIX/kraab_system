@@ -27,7 +27,7 @@ const Products = ({ products, root, extra = true }) => {
                 />
               </Link>
 
-              <Link to={`product/${item.id}`}>
+              <Link to={`/${root}/product/${item.id}`}>
                 <div className="product__title">{item.title}</div>
               </Link>
 
