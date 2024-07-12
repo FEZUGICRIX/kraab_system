@@ -15,6 +15,7 @@ import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import AccountPage from './pages/AccountPage/AccountPage';
 import GalleryPage from './pages/GalleryPage/GalleryPage';
 import ModuleoPage from './pages/ModuleoPage/ModuleoPage';
+import ProductPage from './pages/ProductPage/ProductPage';
 
 // Components
 import Profile from '@components/Profile/Profile';
@@ -33,9 +34,20 @@ const App = () => {
           <Route path="contact-us" element={<ContactUsPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="gallery" element={<GalleryPage />} />
+
           <Route path="moduleo" element={<ModuleoPage />} />
-          <Route path="basket" element={<BasketPage />} />
+          <Route
+            path="moduleo/product/:id"
+            element={<ProductPage source={['brand', 'moduleo']} />}
+          />
+
           <Route path="favorites" element={<FavoritesPage />} />
+          <Route
+            path="favorites/product/:id"
+            element={<ProductPage source={['favorites']} />}
+          />
+
+          <Route path="basket" element={<BasketPage />} />
           <Route path="account" element={<AccountPage />}>
             <Route path="profile" element={<Profile />} />
             <Route path="history" element={<History />} />

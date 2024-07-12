@@ -9,7 +9,7 @@ const CardSwiper = () => {
     <section className="project">
       <div className="project__container container">
         <h1 className="project__title title home-page-title">
-          Projektiisi keskitytään parhaillaan.
+          Projektiisi keskitytään parhaillaan
         </h1>
 
         <div className="card">

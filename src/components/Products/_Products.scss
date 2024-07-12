@@ -1,45 +1,58 @@
-.product {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: 74px;
-  column-gap: 24px;
-
-  &__item {
+.products {
+  &__container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    max-width: 966px;
+    margin: auto;
+    padding-bottom: 120px;
   }
 
-  &__img {
-    width: 100%;
-    cursor: pointer;
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 74px;
+    column-gap: 24px;
   }
 
-  &__title {
-    font-family: Plus Jakarta Sans;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 22.68px;
-    color: #323334;
-    cursor: pointer;
-
-    &:hover {
-      transition: 0.5s all ease;
-      color: #838588;
+  .product {
+    &__item {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
-  }
 
-  &__colors {
-    display: flex;
-    gap: 4px;
-  }
+    &__img {
+      width: 100%;
+      cursor: pointer;
+      border-radius: 30px;
+    }
 
-  &__price {
-    font-family: Roboto;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 28.13px;
-    color: #323334;
+    &__title {
+      font-family: Plus Jakarta Sans;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 22.68px;
+      color: #323334;
+      cursor: pointer;
+
+      &:hover {
+        transition: 0.5s all ease;
+        color: #838588;
+      }
+    }
+
+    &__colors {
+      display: flex;
+      gap: 4px;
+    }
+
+    &__price {
+      font-family: Roboto;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 28.13px;
+      color: #323334;
+    }
   }
 }
 
@@ -54,6 +67,7 @@
   .product {
     grid-template-columns: repeat(1, 1fr);
     row-gap: 40px;
+    padding: 0 8vw;
 
     &__item {
       gap: 14px;
