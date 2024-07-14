@@ -28,6 +28,34 @@
     gap: 40px;
   }
 
+  #basket-img {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      right: -3px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+
+      background: #f2994a;
+    }
+
+    .basket-amount {
+      position: absolute;
+      bottom: 0.5px;
+      right: 1.5px;
+
+      color: $white;
+      font-family: Roboto;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 11.72px;
+    }
+  }
+
   &__nav {
     display: flex;
     justify-content: center;
