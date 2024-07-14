@@ -48,6 +48,11 @@ const App = () => {
           />
 
           <Route path="basket" element={<BasketPage />} />
+          <Route
+            path="basket/product/:id"
+            element={<ProductPage source={['basket']} />}
+          />
+
           <Route path="account" element={<AccountPage />}>
             <Route path="profile" element={<Profile />} />
             <Route path="history" element={<History />} />

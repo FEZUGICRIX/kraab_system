@@ -231,7 +231,7 @@ const PRODUCT_DATA = {
     },
   ],
 
-  productPage: [
+  AlsoLike: [
     {
       id: 0,
       img: '/img/pages/productPage/Rectangle 65.jpeg',
