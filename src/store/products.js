@@ -261,6 +261,17 @@ const PRODUCT_DATA = {
       price: 30,
     },
   ],
+
+  Denkirs: [
+    {
+      id: 0,
+      img: '',
+      title: 'DK/EU-8001-BK',
+      article: 'DK/EU-8001-BK',
+      price: 120,
+      // tuote: 
+    },
+  ]
 };
 
 // Function for automatic assignment of unique IDs
