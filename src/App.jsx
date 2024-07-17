@@ -15,6 +15,7 @@ import AccountPage from './pages/AccountPage/AccountPage';
 import GalleryPage from './pages/GalleryPage/GalleryPage';
 import ModuleoPage from './pages/ModuleoPage/ModuleoPage';
 import ProductPage from './pages/ProductPage/ProductPage';
+import DenkirsPage from './pages/DenkirsPage/DenkirsPage';
 
 // Components
 import Profile from '@components/Profile/Profile';
@@ -37,6 +38,12 @@ const App = () => {
           <Route
             path="moduleo/product/:id"
             element={<ProductPage source={['brand', 'moduleo']} />}
+          />
+
+          <Route path="denkirs" element={<DenkirsPage />} />
+          <Route
+            path="denkirs/product/:id"
+            element={<ProductPage source={['brand', 'denkirs']} />}
           />
 
           <Route path="favorites" element={<FavoritesPage />} />

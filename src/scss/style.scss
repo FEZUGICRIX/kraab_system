@@ -26,8 +26,7 @@
 @import '../pages/GalleryPage/GalleryPage';
 @import '../pages/ModuleoPage/ModuleoPage';
 @import '../pages/ProductPage/ProductPage';
-
-// Products Pages
+@import '../pages/DenkirsPage/DenkirsPage';
 
 * {
   margin: 0;
@@ -117,6 +116,16 @@
   color: $dark !important;
   font-weight: bold;
 }
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mySwiper {
+  width: 100%;
+}
+
 
 .container {
   display: flex;

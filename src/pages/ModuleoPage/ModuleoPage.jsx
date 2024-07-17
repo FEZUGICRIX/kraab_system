@@ -1,9 +1,29 @@
+import { useEffect, useState } from 'react';
+
+import { getProducts } from '@api/getProducts';
 import Breadcrumbs from '@Breadcrumbs';
 import Products from '@components/Products/Products';
 import Singup from '@components/Singup/Singup';
-import { PRODUCTS } from '@PRODUCTS';
 
 const ModuleoPage = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const data = await getProducts({
+          catalog: 'moduleo_products',
+          type: 'get_products',
+        });
+        setProducts(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchProduct();
+  }, []);
+
   return (
     <>
       <Breadcrumbs pageTitle="Moduleo" previousPages={['brand']} />
@@ -11,22 +31,41 @@ const ModuleoPage = () => {
       <section className="info">
         <div className="container">
           <div className="info__container">
-            <div className="info__block">
-              <span>MODULEO Ylelliset vinyylilattiat.</span>
-              <span>
-                Vedenpitävä – täydellinen valinta kylpyhuoneisiin ja
-                keittiöihin.
-              </span>
-            </div>
-            <div className="info__block">
-              <span>
-                Naarmuuntumaton – kestävä materiaali suojaa koristepintaa
-                paksun kulutusta kestävän kerroksen ansiosta.
-              </span>
-              <span>
-                Monipuoliset asennustavat – voidaan asentaa liimalla tai
-                helposti napsauttamalla.
-              </span>
+            <h1 className="info__block-title">
+              MODULEO Ylelliset vinyylilattiat
+            </h1>
+
+            <div className="info__blocks">
+              <div className="info__block">
+                MODULEO tarjoaa ylellisiä vinyylilattioita, jotka ovat
+                täydellinen valinta niin kylpyhuoneisiin kuin
+                keittiöihinkin niiden vedenpitävyyden ansiosta. Materiaalin
+                kestävyys varmistaa, että lattiat pysyvät
+                naarmuuntumattomina, sillä ne on suojattu paksulla
+                kulutusta kestävällä kerroksella. Asennus on monipuolista
+                ja kätevää, sillä lattiat voidaan asentaa joko liimalla tai
+                helposti napsauttamalla paikalleen.
+                <br />
+                <br />
+                Erityisesti MODULEO:n puolikelluvaan asennukseen
+                suunniteltu aluskate on paksuudeltaan 1,8 mm ja
+                itseliimautuva. Tämä innovatiivinen ratkaisu yhdistää
+                liimatun asennuksen lopullisen laadun ja napsauttamalla
+                asennuksen helppouden. Xtrafloor Flex Pro korjaa pienet
+                epätasaisuudet aluslattiassa ja tarjoaa paremman akustisen
+                eristyksen (13 dB tai 10 dB liimalla). Se on sopiva
+                käytettäväksi myös viherhuoneissa ja kestää kaupallisessa
+                käytössä enintään 250 kg painavan liikkuvan kaluston.
+                Lisäksi lattia kestää pyörillä olevia tuoleja.
+                <br />
+                <br />
+                Tämän asennusratkaisun etuna on lähes 40 % ajansäästö, ja
+                lattiat ovat heti kulkukelpoisia. Ne on myös helppo ja
+                puhdas irrottaa vahingoittamatta tukipintaa. Lattiat
+                soveltuvat niin lattialämmitykseen (max 27°C) kuin
+                lattiajäähdytykseenkin. Jokaisessa paketissa on 2,5 metriä
+                lattiamateriaalia.
+              </div>
             </div>
           </div>
         </div>
@@ -35,16 +74,10 @@ const ModuleoPage = () => {
       <section className="products">
         <div className="container">
           <div className="product">
-            <Products products={PRODUCTS.moduleoPage} root='moduleo' />
+            <Products products={products} root="moduleo" />
           </div>
         </div>
       </section>
-
-      {/* <section className="load-more">
-        <div className="container">
-          <button className="black-btn">load more products</button>
-        </div>
-      </section> */}
 
       <Singup />
     </>

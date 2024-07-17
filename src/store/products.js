@@ -1,91 +1,4 @@
 const PRODUCT_DATA = {
-  favoritesItems: [
-    {
-      id: 0,
-      img: '/img/pages/favorites/Rectangle 62.jpeg',
-      title: 'Velvet Covvered',
-      colors: ['#9E6344', '#8F8E73'],
-      price: 30,
-    },
-    {
-      id: 1,
-      img: '/img/pages/favorites/Rectangle 47.jpeg',
-      title: 'CANDLE IN GLASS HOLDER',
-      colors: ['#9F9189'],
-      price: 30,
-    },
-    {
-      id: 2,
-      img: '/img/pages/favorites/Rectangle 48.jpeg',
-      title: 'METAL PHOTO FRAME',
-      colors: ['#F2C94C', '#828282'],
-      price: 30,
-    },
-    {
-      id: 3,
-      img: '/img/pages/favorites/Rectangle 65.jpeg',
-      title: 'Round flo or mat',
-      colors: ['#ACAD92 ', '#D4CEBF'],
-      price: 30,
-    },
-    {
-      id: 4,
-      img: '/img/pages/favorites/Rectangle 66.jpeg',
-      title: 'Class light holder',
-      colors: ['#A04F48', '#7B3D39'],
-      price: 30,
-    },
-    {
-      id: 5,
-      img: '/img/pages/favorites/Rectangle 67.jpeg',
-      title: 'Flannel Duvet Cover Set',
-      colors: ['#9B9A98', '#A2A285 '],
-      price: 30,
-    },
-    {
-      id: 6,
-      img: '/img/pages/favorites/Rectangle 62.jpeg',
-      title: 'Fitted Cotton Sheet',
-      colors: ['#DDEDD6', '#F3DDD8', '#C4BDB6'],
-      price: 30,
-    },
-    {
-      id: 7,
-      img: '/img/pages/favorites/Rectangle 67.jpeg',
-      title: 'Small Candle in a Small Jar',
-      colors: ['#633733', '#BBBAC0', '#D8B4A2'],
-      price: 30,
-    },
-    {
-      id: 8,
-      img: '/img/pages/favorites/Rectangle 72.jpeg',
-      title: 'Checked Duvet Cover Set',
-      colors: ['#81352D', '#A7A689 '],
-      price: 30,
-    },
-    {
-      id: 9,
-      img: '/img/pages/favorites/Rectangle 47.jpeg',
-      title: 'Washed Linen Pillowcase',
-      colors: ['#888687', '#B6A899', '#A6A68B '],
-      price: 30,
-    },
-    {
-      id: 10,
-      img: '/img/pages/favorites/Rectangle 65.jpeg',
-      title: 'Ribbed Wool-blend Throw',
-      colors: ['#D1C3B1', '#DDC1B2 '],
-      price: 30,
-    },
-    {
-      id: 11,
-      img: '/img/pages/favorites/Rectangle 77.jpeg',
-      title: 'Mini Porcelain Dish',
-      colors: ['#DDEDD6', '#F3DDD8', '#C4BDB6'],
-      price: 30,
-    },
-  ],
-
   galleryItems: [
     {
       id: 0,
@@ -144,134 +57,63 @@ const PRODUCT_DATA = {
     },
   ],
 
-  moduleoPage: [
-    {
-      id: 0,
-      img: '/img/pages/moduleo/Rectangle 62.jpeg',
-      title: 'Velvet Covvered',
-      colors: ['#9E6344', '#8F8E73'],
-      price: 30,
-    },
-    {
-      id: 1,
-      img: '/img/pages/moduleo/Rectangle 47.jpeg',
-      title: 'CANDLE IN GLASS HOLDER',
-      colors: ['#9F9189'],
-      price: 30,
-    },
-    {
-      id: 2,
-      img: '/img/pages/moduleo/Rectangle 48.jpeg',
-      title: 'METAL PHOTO FRAME',
-      colors: ['#F2C94C', '#828282'],
-      price: 30,
-    },
-    {
-      id: 3,
-      img: '/img/pages/moduleo/Rectangle 65.jpeg',
-      title: 'Round flo or mat',
-      colors: ['#ACAD92 ', '#D4CEBF'],
-      price: 30,
-    },
-    {
-      id: 4,
-      img: '/img/pages/moduleo/Rectangle 66.jpeg',
-      title: 'Class light holder',
-      colors: ['#A04F48', '#7B3D39'],
-      price: 30,
-    },
-    {
-      id: 5,
-      img: '/img/pages/moduleo/Rectangle 67.jpeg',
-      title: 'Flannel Duvet Cover Set',
-      colors: ['#9B9A98', '#A2A285 '],
-      price: 30,
-    },
-    {
-      id: 6,
-      img: '/img/pages/moduleo/Rectangle 62.jpeg',
-      title: 'Fitted Cotton Sheet',
-      colors: ['#DDEDD6', '#F3DDD8', '#C4BDB6'],
-      price: 30,
-    },
-    {
-      id: 7,
-      img: '/img/pages/moduleo/Rectangle 67.jpeg',
-      title: 'Small Candle in a Small Jar',
-      colors: ['#633733', '#BBBAC0', '#D8B4A2'],
-      price: 30,
-    },
-    {
-      id: 8,
-      img: '/img/pages/moduleo/Rectangle 72.jpeg',
-      title: 'Checked Duvet Cover Set',
-      colors: ['#81352D', '#A7A689 '],
-      price: 30,
-    },
-    {
-      id: 9,
-      img: '/img/pages/moduleo/Rectangle 47.jpeg',
-      title: 'Washed Linen Pillowcase',
-      colors: ['#888687', '#B6A899', '#A6A68B '],
-      price: 30,
-    },
-    {
-      id: 10,
-      img: '/img/pages/moduleo/Rectangle 65.jpeg',
-      title: 'Ribbed Wool-blend Throw',
-      colors: ['#D1C3B1', '#DDC1B2 '],
-      price: 30,
-    },
-    {
-      id: 11,
-      img: '/img/pages/moduleo/Rectangle 77.jpeg',
-      title: 'Mini Porcelain Dish',
-      colors: ['#DDEDD6', '#F3DDD8', '#C4BDB6'],
-      price: 30,
-    },
-  ],
-
-  AlsoLike: [
-    {
-      id: 0,
-      img: '/img/pages/productPage/Rectangle 65.jpeg',
-      title: 'Flannel Duvet Cover Set',
-      colors: ['#DDEDD6', '#F3DDD8', '#C4BDB6'],
-      price: 30,
-    },
-    {
-      id: 1,
-      img: '/img/pages/productPage/Rectangle 65.jpeg',
-      title: 'Ribbed Wool-blend Throw',
-      colors: ['#DDEDD6', '#F3DDD8', '#C4BDB6'],
-      price: 30,
-    },
-    {
-      id: 2,
-      img: '/img/pages/productPage/Rectangle 65.jpeg',
-      title: 'Fitted Cotton Sheet',
-      colors: ['#DDEDD6', '#F3DDD8', '#C4BDB6'],
-      price: 30,
-    },
-    {
-      id: 3,
-      img: '/img/pages/productPage/Rectangle 65.jpeg',
-      title: 'Washed Linen Pillowcase',
-      colors: ['#DDEDD6', '#F3DDD8', '#C4BDB6'],
-      price: 30,
-    },
-  ],
-
   Denkirs: [
+
+
+
+
+
+
+
     {
-      id: 0,
-      img: '',
-      title: 'DK/EU-8001-BK',
-      article: 'DK/EU-8001-BK',
-      price: 120,
-      // tuote: 
+      SKU: 'DK/EU-8060-BK',
+      title: 'DK/EU-8060-BK',
+      img: '/img/pages/denkers/8060-BK',
+      img2: '/img/pages/denkers/8060-BK 2',
+      img3: '/img/pages/denkers/8060-BK 3',
+      material: 'alumiini',
+      price: 380,
+      length: null,
+      dimmable: false,
+      color_of_light: 'valkoinen säädettävä',
+      description:
+        'Yleisvalaistukseen suunniteltu älykäs kiskovalo. Runko on suunniteltu joustavaksi silikoniputkeksi, jonka pituus on 150 cm. Ohjataan mobiilisovelluksen, ohjauspaneelin, kaukosäätimen ja ääniavustajan kautta. Säädettävä kirkkaus ja värilämpötila välillä 3000 - 6000 K. Pystyy asettamaan valoskenaarioita. Lamput on varustettu LEDeillä, joilla on korkea värintoistoindeksi. Helppo ja luotettava asennus DENKIRS SMART -telineeseen mekaanisilla salpoilla. DK/EU-8064-BK lampun pidike ostetaan erikseen.',
+      height: null,
+      angle_of_dispersion: null,
     },
-  ]
+    {
+      SKU: 'DK/EU-8004-BK',
+      title: 'DK/EU-8004-BK',
+      img: '/img/pages/denkers/8004-BK',
+      img2: '/img/pages/denkers/8004-BK 2',
+      img3: '/img/pages/denkers/8004-BK 3',
+      material: 'alumiini',
+      price: 160,
+      length: 406,
+      dimmable: true,
+      color_of_light: 'valkoinen säädettävä',
+      description:
+        'Malli perusvalaistukseen. Laajakulmainen (120°) Säädettävä kirkkaus ja värilämpötila välillä 3000-6000 K. Se asennetaan DENKIRS SMART -kiskojärjestelmään. Lampun säätö ja kauko-ohjaus voidaan suorittaa kosketuspaneelien DK/EU-7500-BK tai DK/EU-7500-WH, kaukosäätimen DK/EU-7300-BK tai Wi-Fi-muuntimen DK/EU-7700 kautta. -WF älypuhelimen ohjaukseen ja mahdollisuus ääniohjauksen avustajiin: Siri, Google Assistant.',
+      height: null,
+      angle_of_dispersion: null,
+    },
+    {
+      SKU: 'DK/EU-8005-BK',
+      title: 'DK/EU-8005-BK',
+      img: '/img/pages/denkers/8005-BK',
+      img2: '/img/pages/denkers/8005-BK 2',
+      img3: '/img/pages/denkers/8005-BK 3',
+      material: 'alumiini',
+      price: 220,
+      length: 600,
+      dimmable: true,
+      color_of_light: 'säädettävä',
+      description:
+        'Malli perusvalaistukseen. Laajakulmainen (120°) Säädettävä kirkkaus ja värilämpötila välillä 3000–6000 K. Se asennetaan DENKIRS SMART -kiskojärjestelmään. Lampun säätö ja kauko-ohjaus voidaan suorittaa kosketuspaneelien DK/EU-7500-BK tai DK/EU-7500-WH, kaukosäätimen DK/EU-7300-BK tai Wi-Fi-muuntimen DK/EU-7700 kautta. -WF älypuhelimen ohjaukseen ja mahdollisuus ääniohjauksen avustajiin: Siri, Google Assistant.',
+      height: null,
+      angle_of_dispersion: null,
+    },
+  ],
 };
 
 // Function for automatic assignment of unique IDs

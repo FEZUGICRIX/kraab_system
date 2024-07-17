@@ -9,7 +9,6 @@ import { PRODUCTS } from '@PRODUCTS';
 const BasketContext = createContext({
   amount: 0,
   basketItems: [],
-  totalPrice: 0,
   setLocalStorageItems: null,
   removeLocalStorageItem: null,
 });
@@ -36,17 +35,10 @@ export const BasketContextProvider = ({ children }) => {
   // We get all the products in the form of a one-dimensional array
   const allProducts = Object.values(PRODUCTS).flat();
 
-  // Calculate the total cost of the goods in the basket
-  const totalPrice = allProducts
-    .filter((item) => basketItems.includes(String(item.id)))
-    .map((item) => item.price)
-    .reduce((total, price) => total + (price || 0), 0);
-
   return (
     <BasketContext.Provider
       value={{
         basketAmount: basketItems.length,
-        totalPrice,
         basketItems,
         setLocalStorageItems,
         removeLocalStorageItem,

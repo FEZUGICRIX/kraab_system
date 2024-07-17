@@ -14,6 +14,10 @@ export default defineConfig({
           replacement: path.resolve(__dirname, 'src/store/products.js'),
         },
         {
+          find: '@api',
+          replacement: path.resolve(__dirname, 'src/api/'),
+        },
+        {
           find: '@components',
           replacement: path.resolve(__dirname, 'src/components'),
         },
