@@ -3,18 +3,20 @@ import { useEffect, useState } from 'react';
 import { getProducts } from '@api/getProducts';
 import Breadcrumbs from '@Breadcrumbs';
 import Products from '@components/Products/Products';
+import Singup from '@components/Singup/Singup';
 
-const FavoritesPage = () => {
+const KraabmodPage = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const data = await getProducts({
-          catalog: 'favorite_products',
+          catalog: 'kraabmod_products',
           type: 'get_products',
         });
         setProducts(data);
+        console.log(data);
       } catch (error) {
         console.error(error);
       }
@@ -25,19 +27,18 @@ const FavoritesPage = () => {
 
   return (
     <>
-      <Breadcrumbs pageTitle="favorites" />
-
-      <section className="favorites">
+      <Breadcrumbs pageTitle="Kraabmod" previousPages={['brand']} />
+      <section className="products denkirs">
         <div className="container">
-          <div className="favorites__container">
-            <h3 className="favorites__title">Favorites</h3>
-            <div className="favorites__count">38 products</div>
-            <Products products={products} root="favorites" />
+          <div className="product">
+            <Products products={products} root="kraabmod" />
           </div>
         </div>
       </section>
+
+      <Singup />
     </>
   );
 };
 
-export default FavoritesPage;
+export default KraabmodPage;

@@ -3,6 +3,11 @@ import { Route, Routes } from 'react-router-dom';
 // Layout
 import Layout from '@components/Layout';
 
+// Components
+import Profile from '@components/Profile/Profile';
+import History from '@components/History/History';
+import Feedback from '@components/Feedback/Feedback';
+
 // Pages
 import HomePage from './pages/HomePage/HomePage';
 import BrandPage from './pages/BrandPage/BrandPage';
@@ -15,11 +20,8 @@ import AccountPage from './pages/AccountPage/AccountPage';
 import GalleryPage from './pages/GalleryPage/GalleryPage';
 import ModuleoPage from './pages/ModuleoPage/ModuleoPage';
 import ProductPage from './pages/ProductPage/ProductPage';
-
-// Components
-import Profile from '@components/Profile/Profile';
-import History from '@components/History/History';
-import Feedback from '@components/Feedback/Feedback';
+import DenkirsPage from './pages/DenkirsPage/DenkirsPage';
+import KraabmodPage from './pages/KraabmodPage/KraabmodPage';
 
 const App = () => {
   return (
@@ -37,6 +39,18 @@ const App = () => {
           <Route
             path="moduleo/product/:id"
             element={<ProductPage source={['brand', 'moduleo']} />}
+          />
+
+          <Route path="denkirs" element={<DenkirsPage />} />
+          <Route
+            path="denkirs/product/:id"
+            element={<ProductPage source={['brand', 'denkirs']} />}
+          />
+
+          <Route path="kraabmod" element={<KraabmodPage />} />
+          <Route
+            path="kraabmod/product/:id"
+            element={<ProductPage source={['brand', 'kraabmod']} />}
           />
 
           <Route path="favorites" element={<FavoritesPage />} />

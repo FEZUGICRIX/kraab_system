@@ -1,7 +1,27 @@
-import { PRODUCTS } from '@PRODUCTS';
+import { useEffect, useState } from 'react';
+
+import { getProducts } from '@api/getProducts';
 import Products from '@components/Products/Products';
 
 const AlsoLike = ({ root }) => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const data = await getProducts({
+          catalog: 'alsoLike_products',
+          type: 'get_products',
+        });
+        setProducts(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchProduct();
+  }, []);
+
   return (
     <section className="like">
       <div className="container">
@@ -9,11 +29,7 @@ const AlsoLike = ({ root }) => {
           <div className="like__title">Also You May Buy:</div>
 
           <div className="like__products">
-            <Products
-              products={PRODUCTS.AlsoLike}
-              root={root}
-              extra={false}
-            />
+            <Products products={products} root={root} extra={false} />
           </div>
         </div>
       </div>

@@ -1,14 +1,39 @@
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+import { getProducts } from '@api/getProducts';
 import Breadcrumbs from '@Breadcrumbs';
 import useBasket from '../../hooks/useBasket';
-import { PRODUCTS } from '@PRODUCTS';
-import AlsoLike from '../../components/AlsoLike/AlsoLike';
+import AlsoLike from '@components/AlsoLike/AlsoLike';
 
 const BasketPage = () => {
-  const { basketItems, removeLocalStorageItem, totalPrice } = useBasket();
+  const { basketItems, removeLocalStorageItem } = useBasket();
+  const [basketProducts, setBasketProducts] = useState([]);
 
-  const allProducts = Object.values(PRODUCTS).flat();
-  const basketProductItems = allProducts.filter((item) =>
-    basketItems.includes(String(item.id))
+  useEffect(() => {
+    const fetchBasketProducts = async () => {
+      try {
+        const promises = basketItems.map(async (id) => {
+          const product = await getProducts({ type: 'get_product', id });
+          return product;
+        });
+
+        const products = await Promise.all(promises);
+        const filteredProducts = products.filter(
+          (product) => product !== null
+        );
+        setBasketProducts(filteredProducts);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchBasketProducts();
+  }, [basketItems]);
+
+  const totalPrice = basketProducts.reduce(
+    (total, item) => total + Number(item.price),
+    0
   );
 
   const handleRemoveItem = (id) => {
@@ -17,19 +42,19 @@ const BasketPage = () => {
 
   return (
     <>
-      <Breadcrumbs pageTitle="shopping bag" />
+      <Breadcrumbs pageTitle="Shopping Bag" />
 
       <section className="basket">
         <div className="container">
-          <h3 className="basket__title">Shopping bag</h3>
+          <h3 className="basket__title">Shopping Bag</h3>
 
           <div className="basket__container">
             <div className="basket-products">
               <div className="basket__products">
-                {basketProductItems.map((item) => (
+                {basketProducts.map((item) => (
                   <div className="basket__product" key={item.id}>
                     <div className="basket__product-img">
-                      <img src={item.img} alt="product" />
+                      <img src={item.img} alt="Product" />
                     </div>
 
                     <div className="basket__product-content">
@@ -49,7 +74,7 @@ const BasketPage = () => {
                         </div>
 
                         <div className="basket__product-color">
-                          Color: white
+                          Color: White
                         </div>
 
                         <div className="basket__product-total">
@@ -116,7 +141,7 @@ const BasketPage = () => {
               <div className="basket__order order">
                 <div className="order__info">
                   <div className="order__value">
-                    <span>Order value:</span>
+                    <span>Order Value:</span>
                     <span>
                       {totalPrice} <span className="euro">€</span>
                     </span>
