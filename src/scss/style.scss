@@ -27,6 +27,8 @@
 @import '../pages/ModuleoPage/ModuleoPage';
 @import '../pages/ProductPage/ProductPage';
 @import '../pages/DenkirsPage/DenkirsPage';
+@import '../pages/KraabmodPage/KraabmodPage';
+@import '../pages/JmPage/JmPage';
 
 * {
   margin: 0;
@@ -125,7 +127,6 @@
 .mySwiper {
   width: 100%;
 }
-
 
 .container {
   display: flex;

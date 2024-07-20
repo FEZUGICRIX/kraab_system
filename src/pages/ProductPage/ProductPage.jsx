@@ -56,7 +56,7 @@ const ProductPage = ({ source }) => {
   };
 
   if (!product) {
-    return <div>Loading...</div>;
+    return <div className='container'>Loading...</div>;
   }
 
   const {
@@ -74,7 +74,6 @@ const ProductPage = ({ source }) => {
     height,
     angle_of_dispersion,
   } = product;
-  console.log(sku);
 
   // Create an array of images, filtering out null and undefined values
   const images = [img, img2, img3].filter((img) => img);
@@ -112,7 +111,6 @@ const ProductPage = ({ source }) => {
                 ))}
               </Swiper>
             </div>
-
             <div className="product-info__content content">
               <div className="content__title">{title}</div>
               <div className="content__price">{price}€</div>
@@ -123,7 +121,10 @@ const ProductPage = ({ source }) => {
                     {sku && (
                       <span className="specifications__title">
                         SKU:
-                        <span className="specifications__item">{sku}</span>
+                        <span className="specifications__item">
+                          {' '}
+                          {sku}
+                        </span>
                       </span>
                     )}
                     {material && (

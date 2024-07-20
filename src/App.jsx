@@ -3,6 +3,11 @@ import { Route, Routes } from 'react-router-dom';
 // Layout
 import Layout from '@components/Layout';
 
+// Components
+import Profile from '@components/Profile/Profile';
+import History from '@components/History/History';
+import Feedback from '@components/Feedback/Feedback';
+
 // Pages
 import HomePage from './pages/HomePage/HomePage';
 import BrandPage from './pages/BrandPage/BrandPage';
@@ -16,11 +21,7 @@ import GalleryPage from './pages/GalleryPage/GalleryPage';
 import ModuleoPage from './pages/ModuleoPage/ModuleoPage';
 import ProductPage from './pages/ProductPage/ProductPage';
 import DenkirsPage from './pages/DenkirsPage/DenkirsPage';
-
-// Components
-import Profile from '@components/Profile/Profile';
-import History from '@components/History/History';
-import Feedback from '@components/Feedback/Feedback';
+import KraabmodPage from './pages/KraabmodPage/KraabmodPage';
 
 const App = () => {
   return (
@@ -44,6 +45,12 @@ const App = () => {
           <Route
             path="denkirs/product/:id"
             element={<ProductPage source={['brand', 'denkirs']} />}
+          />
+
+          <Route path="kraabmod" element={<KraabmodPage />} />
+          <Route
+            path="kraabmod/product/:id"
+            element={<ProductPage source={['brand', 'kraabmod']} />}
           />
 
           <Route path="favorites" element={<FavoritesPage />} />

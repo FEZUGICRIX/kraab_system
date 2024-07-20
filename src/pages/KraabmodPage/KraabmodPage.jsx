@@ -5,17 +5,18 @@ import Breadcrumbs from '@Breadcrumbs';
 import Products from '@components/Products/Products';
 import Singup from '@components/Singup/Singup';
 
-const DenkirsPage = () => {
+const KraabmodPage = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const data = await getProducts({
-          catalog: 'denkirs_products',
+          catalog: 'kraabmod_products',
           type: 'get_products',
         });
         setProducts(data);
+        console.log(data);
       } catch (error) {
         console.error(error);
       }
@@ -26,19 +27,18 @@ const DenkirsPage = () => {
 
   return (
     <>
-      <Breadcrumbs pageTitle="Denkirs" previousPages={['brand']} />
-      
+      <Breadcrumbs pageTitle="Kraabmod" previousPages={['brand']} />
       <section className="products denkirs">
         <div className="container">
           <div className="product">
-            <Products products={products} root="denkirs" />
+            <Products products={products} root="kraabmod" />
           </div>
         </div>
       </section>
 
       <Singup />
     </>
-  )
-}
+  );
+};
 
-export default DenkirsPage
+export default KraabmodPage;

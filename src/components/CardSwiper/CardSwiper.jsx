@@ -79,7 +79,7 @@ const CardSwiper = () => {
               </SwiperSlide>
 
               <SwiperSlide>
-                <div className="card__item">
+                <Link to="/kraabmod" className="card__item">
                   <div className="card__number">02</div>
                   <h5 className="card__title">kraabmod</h5>
                   <img
@@ -108,7 +108,7 @@ const CardSwiper = () => {
                       />
                     </svg>
                   </div>
-                </div>
+                </Link>
               </SwiperSlide>
 
               <SwiperSlide>

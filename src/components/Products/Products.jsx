@@ -17,7 +17,6 @@ const Products = ({ products, root, extra = true }) => {
             <span className="filter__products">Products</span>
           </div>
         )}
-
         <div className="products__items product">
           {products.map((item) => {
             const { id, img, title, colors, price } = item;
