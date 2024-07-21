@@ -22,6 +22,7 @@ import ModuleoPage from './pages/ModuleoPage/ModuleoPage';
 import ProductPage from './pages/ProductPage/ProductPage';
 import DenkirsPage from './pages/DenkirsPage/DenkirsPage';
 import KraabmodPage from './pages/KraabmodPage/KraabmodPage';
+import JmPage from './pages/JmPage/JmPage';
 
 const App = () => {
   return (
@@ -51,6 +52,12 @@ const App = () => {
           <Route
             path="kraabmod/product/:id"
             element={<ProductPage source={['brand', 'kraabmod']} />}
+          />
+
+          <Route path="jm" element={<JmPage />} />
+          <Route
+            path="jm/product/:id"
+            element={<ProductPage source={['brand', 'jm']} />}
           />
 
           <Route path="favorites" element={<FavoritesPage />} />
