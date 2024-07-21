@@ -40,6 +40,10 @@ const BasketPage = () => {
     removeLocalStorageItem(String(id));
   };
 
+  const orderValue = totalPrice * 0.86;
+  const tax = totalPrice * 0.24;
+
+
   return (
     <>
       <Breadcrumbs pageTitle="Shopping Bag" />
@@ -143,7 +147,13 @@ const BasketPage = () => {
                   <div className="order__value">
                     <span>Order Value:</span>
                     <span>
-                      {totalPrice} <span className="euro">€</span>
+                      {orderValue.toFixed(2)} <span className="euro">€</span>
+                    </span>
+                  </div>
+                  <div className="order__tax">
+                    <span>Tax:</span>
+                    <span>
+                      {tax.toFixed(2)} <span className="euro">€</span>
                     </span>
                   </div>
                   <div className="order__shipping">
