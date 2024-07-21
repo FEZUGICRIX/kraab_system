@@ -256,7 +256,7 @@ const ProductPage = ({ source }) => {
         </div>
       </section>
 
-      <AlsoLike root={root} />
+      {/* <AlsoLike root={root} /> */}
     </>
   );
 };
