@@ -11,7 +11,7 @@ const Footer = () => {
             <h3 className="footer__title">KRAAB_SYSTEM</h3>
 
             <div className="footer__info-text">
-              We make your dreams come true in beautiful spaces!
+              Toteutamme unelmasi kauniissa tiloissa!
             </div>
             <div className="footer__info-info">
               <div className="footer__info-address">
@@ -119,46 +119,46 @@ https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
 
           <div className="footer__links">
             <div className="link">
-              <div className="link__title">SHOPPING</div>
+              <div className="link__title">SHOPPAILU</div>
               <ul className="link__list">
                 <li>
                   <a href="#" className="link__item">
-                    Tracking
+                    Seuranta
                   </a>
                 </li>
                 <li>
                   <a href="#" className="link__item">
-                    Reviews
+                    Arvostelut
                   </a>
                 </li>
                 <li>
                   <NavLink to="account/account" className="link__item">
-                    Personal account
+                    Henkilökohtainen tili
                   </NavLink>
                 </li>
               </ul>
             </div>
             <div className="link">
-              <div className="link__title">MORE link</div>
+              <div className="link__title">LISÄÄ LINKKI</div>
               <ul className="link__list">
                 <li>
                   <NavLink to="blog" className={setActive}>
-                    Blog
+                    Blogi
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="basket" className={setActive}>
-                    Shopping cart
+                    Ostoskori
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="favorites" className={setActive}>
-                    Favorites
+                    Suosikit
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="about-us" className={setActive}>
-                    About us
+                    Tietoa meistä
                   </NavLink>
                 </li>
               </ul>
@@ -166,7 +166,7 @@ https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
           </div>
 
           <div className="footer__blog blog">
-            <div className="blog__title title">FROM THE BLOG</div>
+            <div className="blog__title title">BLOGISTA</div>
 
             <div className="blog__items">
               <div className="blog__item">
@@ -174,20 +174,20 @@ https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
                   26 <span>May</span>
                 </div>
                 <div className="blog__item-text">
-                  Posting the results of the latest project for a large
-                  enterprise!
+                  Suuren yrityksen viimeisimmän projektin tulosten
+                  lähettäminen!
                 </div>
-                <div className="blog__item-comments">3 comments</div>
+                <div className="blog__item-comments">3 kommentit</div>
               </div>
               <div className="blog__item">
                 <div className="blog__item-title">
                   27 <span>May</span>
                 </div>
                 <div className="blog__item-text">
-                  Posting the results of the latest project for a large
-                  enterprise!
+                  Suuren yrityksen viimeisimmän projektin tulosten
+                  lähettäminen!
                 </div>
-                <div className="blog__item-comments">3 comments</div>
+                <div className="blog__item-comments">3 kommentit</div>
               </div>
             </div>
           </div>

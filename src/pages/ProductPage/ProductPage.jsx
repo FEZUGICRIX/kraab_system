@@ -56,7 +56,7 @@ const ProductPage = ({ source }) => {
   };
 
   if (!product) {
-    return <div className='container'>Loading...</div>;
+    return <div className="container">Loading...</div>;
   }
 
   const {
@@ -80,7 +80,7 @@ const ProductPage = ({ source }) => {
 
   return (
     <>
-      <Breadcrumbs pageTitle="Product" previousPages={source} />
+      <Breadcrumbs pageTitle="TUOTTEET" previousPages={source} />
 
       <section className="product-info">
         <div className="container">
@@ -194,7 +194,7 @@ const ProductPage = ({ source }) => {
                   />
                 </svg>
 
-                <span>Not available in stores</span>
+                <span>Ei saatavilla myymälöissä</span>
               </div>
 
               <div className="content__buttons">
@@ -205,7 +205,7 @@ const ProductPage = ({ source }) => {
                   className="content__size"
                 >
                   <option value="" disabled>
-                    Select Size
+                    Valitse koko
                   </option>
                   <option value={1}>1</option>
                   <option value={2}>2</option>
@@ -217,14 +217,14 @@ const ProductPage = ({ source }) => {
                     onClick={handleRemoveFromBasket}
                     className="bag-btn black-btn"
                   >
-                    Remove from shopping bag
+                    Poista roskakorista
                   </button>
                 ) : (
                   <button
                     onClick={handleAddToBasket}
                     className="bag-btn black-btn"
                   >
-                    Add to shopping bag
+                    Lisää ostoskassiin
                   </button>
                 )}
               </div>
@@ -236,7 +236,7 @@ const ProductPage = ({ source }) => {
       <section className="conscious" style={{ display: 'none' }}>
         <div className="container">
           <div className="conscious__container">
-            <div className="conscious__title">Conscious</div>
+            <div className="conscious__title">Tietoinen</div>
 
             <div className="conscious__text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -245,11 +245,11 @@ const ProductPage = ({ source }) => {
 
             <div className="conscious__info">
               <div className="conscious__composition">
-                Composition — <span>Cotton 50%, Lyocell 50%</span>
+                Koostumus — <span>Cotton 50%, Lyocell 50%</span>
               </div>
 
               <div className="conscious__art">
-                Art. No. — <span>{id}</span>
+                Art. Nro. — <span>{id}</span>
               </div>
             </div>
           </div>

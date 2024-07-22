@@ -12,16 +12,16 @@ const HomePage = () => {
         <div className="dreams__container container">
           <div className="dreams__content">
             <h1 className="dreams__title main-title home-page-title">
-              Me tuomme
+              tuomme unelmia
             </h1>
 
             <img
               className="dreams__mini-img"
               src={'./img/pages/home/dreams/home-page-mini.png'}
             />
-            <h1 className="dreams__title home-page-title">unelmasi</h1>
+            <h1 className="dreams__title home-page-title dreams__title-left">elämään</h1>
             <h1 className="dreams__title dreams__title-right home-page-title">
-              eloon kauniisiin <br /> tiloihin
+              kauniissa <br /> tiloissa
             </h1>
           </div>
 
@@ -40,7 +40,7 @@ const HomePage = () => {
 
       <section className="about">
         <div className="about__container container">
-          <h1 className="about__title home-page-title">about us</h1>
+          <h1 className="about__title home-page-title">meistä</h1>
 
           <div className="about__content">
             <div className="about__item">
@@ -62,7 +62,7 @@ const HomePage = () => {
 
       <section className="news">
         <div className="news__container container">
-          <h1 className="news__title home-page-title">NEWS</h1>
+          <h1 className="news__title home-page-title">UUTISIA</h1>
           <div className="news__swiper">
             <Swiper
               spaceBetween={30}

@@ -1,5 +1,3 @@
-
-
 const Singup = () => {
   return (
     <>
@@ -15,9 +13,9 @@ const Singup = () => {
         <div className="container">
           <div className="singup__container">
             <div className="singup__content">
-              <h5 className="singup__title">SING UP FOR THE NEWSLETTER</h5>
+              <h5 className="singup__title">TILAA UUTISKIRJE</h5>
               <span className="singup__text">
-                Subscribe for the latest stories and promotions
+                Tilaa uusimmat tarinat ja kampanjat
               </span>
             </div>
 
@@ -27,7 +25,7 @@ const Singup = () => {
             >
               <input
                 type="email"
-                placeholder="Enter your e-mail address"
+                placeholder="Kirjoita sähköpostiosoitteesi..."
                 className="singup__input"
               />
               <button className="singup__button">

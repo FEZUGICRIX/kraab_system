@@ -26,7 +26,7 @@ const AlsoLike = ({ root }) => {
     <section className="like">
       <div className="container">
         <div className="like__container">
-          <div className="like__title">Also You May Buy:</div>
+          <div className="like__title">Saatat myös pitää:</div>
 
           <div className="like__products">
             <Products products={products} root={root} extra={false} />

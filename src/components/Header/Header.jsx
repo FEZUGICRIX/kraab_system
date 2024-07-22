@@ -89,22 +89,22 @@ const Header = () => {
           <ul className="header__list">
             <li className="header__list-item">
               <NavLink to="brand" className={setActive}>
-                BRAND
+                BRÄNDI
               </NavLink>
             </li>
             <li className="header__list-item">
               <NavLink to="blog" className={setActive}>
-                BLOG
+                BLOGI
               </NavLink>
             </li>
             <li className="header__list-item">
               <NavLink to="about-us" className={setActive}>
-                ABOUT US
+                MEISTÄ
               </NavLink>
             </li>
             <li className="header__list-item">
               <NavLink to="contact-us" className={setActive}>
-                CONTACT US
+                OTA YHTEYTTÄ
               </NavLink>
             </li>
           </ul>
