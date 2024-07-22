@@ -115,6 +115,25 @@
   }
 }
 
+.white-btn {
+  padding: 16px 0; 
+  color: #222;
+
+  font-family: Roboto;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18.75px;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  transition: 0.4s all ease;
+
+  &:hover {
+    color: #999292;
+  }
+}
+
 .active-link {
   color: $dark !important;
   font-weight: bold;

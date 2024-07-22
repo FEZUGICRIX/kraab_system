@@ -5,7 +5,7 @@ import SingUp from '@components/Singup/Singup';
 const BrandPage = () => {
   return (
     <>
-      <Breadcrumbs pageTitle="BRAND" />
+      <Breadcrumbs pageTitle="BRÄNDI" />
 
       <section className="brand">
         <div className="container">

@@ -43,14 +43,13 @@ const BasketPage = () => {
   const orderValue = totalPrice * 0.86;
   const tax = totalPrice * 0.24;
 
-
   return (
     <>
-      <Breadcrumbs pageTitle="Shopping Bag" />
+      <Breadcrumbs pageTitle="ostoskassi" />
 
       <section className="basket">
         <div className="container">
-          <h3 className="basket__title">Shopping Bag</h3>
+          <h3 className="basket__title">Ostoskassi</h3>
 
           <div className="basket__container">
             <div className="basket-products">
@@ -70,19 +69,19 @@ const BasketPage = () => {
                       </div>
                       <div className="basket__product-specifications">
                         <div className="basket__product-art">
-                          Art. No.: {item.id}
+                          Art. No: {item.id}
                         </div>
 
                         <div className="basket__product-size">
-                          Size: 21*45
+                          Koko: 21*45
                         </div>
 
                         <div className="basket__product-color">
-                          Color: White
+                          Väri: White
                         </div>
 
                         <div className="basket__product-total">
-                          Total: {item.price}
+                          Yhteensä: {item.price}
                         </div>
                       </div>
 
@@ -118,7 +117,7 @@ const BasketPage = () => {
                 ))}
               </div>
               <div className="basket__total">
-                <span>Total</span>
+                <span>Yhteensä</span>
                 <div className="line"></div>
                 <div>
                   {totalPrice} <span className="euro">€</span>
@@ -128,42 +127,43 @@ const BasketPage = () => {
 
             <div className="basket__form">
               <div className="basket__discount">
-                <span>Add A DISCOUNT CODE</span>
+                <span>Lisää ALENNUSKOODI</span>
                 <div className="basket__input">
                   <input type="text" id="discount" />
                   <button className="black-btn" id="add-discount">
-                    ADD
+                    LISÄÄ
                   </button>
                 </div>
               </div>
 
               <div className="basket__login">
-                <span>Log in to use your member offers.</span>
-                <button id="login">LOG IN</button>
+                <span>Kirjaudu sisään käyttääksesi jäsentarjouksiasi</span>
+                <button id="login">KIRJAUDU SISÄÄN</button>
               </div>
 
               <div className="basket__order order">
                 <div className="order__info">
                   <div className="order__value">
-                    <span>Order Value:</span>
+                    <span>Tilauksen arvo:</span>
                     <span>
-                      {orderValue.toFixed(2)} <span className="euro">€</span>
+                      {orderValue.toFixed(2)}{' '}
+                      <span className="euro">€</span>
                     </span>
                   </div>
                   <div className="order__tax">
-                    <span>Tax:</span>
+                    <span>ALV:</span>
                     <span>
                       {tax.toFixed(2)} <span className="euro">€</span>
                     </span>
                   </div>
                   <div className="order__shipping">
-                    <span>Shipping:</span>
+                    <span>Toimitus:</span>
                     <span>
                       0 <span className="euro">€</span>
                     </span>
                   </div>
                   <div className="order__total">
-                    <span>Total:</span>
+                    <span>Yhteensä:</span>
                     <span>
                       {totalPrice} <span className="euro">€</span>
                     </span>
@@ -172,14 +172,14 @@ const BasketPage = () => {
               </div>
 
               <button className="black-btn checkout">
-                Continue to checkout
+                Jatka kassalle
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      <AlsoLike root="basket" />
+      {/* <AlsoLike root="basket" /> */}
     </>
   );
 };

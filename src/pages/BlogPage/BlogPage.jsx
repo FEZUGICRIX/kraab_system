@@ -10,7 +10,7 @@ import catalogDenkirs from '../../pdf/Catalog DENKIRS (1) (1).pdf';
 const BlogPage = () => {
   return (
     <>
-      <Breadcrumbs pageTitle="blog" />
+      <Breadcrumbs pageTitle="BLOGI" />
 
       <section className="blog">
         <div className="container">

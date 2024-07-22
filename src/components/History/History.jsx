@@ -5,7 +5,7 @@ const History = () => {
     <>
       <div className="history">
         <div className="history__container">
-          <h4 className="history__title account-title">Order history</h4>
+          <h4 className="history__title account-title">Tilaushistoria</h4>
 
           <div className="history__content">
             <Order number={1} price={230} payment='Apple Pay' delivered={true} />

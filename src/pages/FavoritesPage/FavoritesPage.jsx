@@ -25,13 +25,13 @@ const FavoritesPage = () => {
 
   return (
     <>
-      <Breadcrumbs pageTitle="favorites" />
+      <Breadcrumbs pageTitle="Suosikit" />
 
       <section className="favorites">
         <div className="container">
           <div className="favorites__container">
-            <h3 className="favorites__title">Favorites</h3>
-            <div className="favorites__count">38 products</div>
+            <h3 className="favorites__title">Suosikit</h3>
+            <div className="favorites__count">{products.length} tuotetta</div>
             <Products products={products} root="favorites" />
           </div>
         </div>

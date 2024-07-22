@@ -6,20 +6,20 @@ const AccountPage = () => {
 
   return (
     <>
-      <Breadcrumbs pageTitle="ACCOUNT" />
+      <Breadcrumbs pageTitle="Tili" />
 
       <section className="account-page">
         <div className="container">
           <div className="account-page__container">
             <nav className="account-page__nav">
               <NavLink to="profile" className={setActive}>
-                Account
+                Tili
               </NavLink>
               <NavLink to="history" className={setActive}>
-                Order history
+                Tilaushistoria
               </NavLink>
               <NavLink to="feedback" className={setActive}>
-                Feedback
+                Palaute
               </NavLink>
             </nav>
 

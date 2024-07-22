@@ -4,18 +4,18 @@ const Feedback = () => {
   return (
     <div className="feedback">
       <div className="feedback__container">
-        <h4 className="feedback__title account-title">Feedback</h4>
+        <h4 className="feedback__title account-title">Palaute</h4>
 
         <form
           onSubmit={(e) => e.preventDefault()}
           className="feedback__form"
         >
           <textarea
-            placeholder="Your feedback..."
+            placeholder="Palautteesi..."
             name="feedback"
             id="feedback"
           ></textarea>
-          <input id="submit" type="submit" value="Send" />
+          <input id="submit" type="submit" value="Lähetä" className=' ' />
         </form>
       </div>
     </div>

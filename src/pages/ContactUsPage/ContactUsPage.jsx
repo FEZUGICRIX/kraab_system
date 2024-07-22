@@ -3,11 +3,11 @@ import Breadcrumbs from '@Breadcrumbs';
 const ContactUsPage = () => {
   return (
     <>
-      <Breadcrumbs pageTitle="CONTACTS" />
+      <Breadcrumbs pageTitle="YHTEYDET" />
 
       <section className="contacts">
         <div className="contacts__info">
-          <h1 className="contacts__title">contacts</h1>
+          <h1 className="contacts__title">yhteydet</h1>
 
           <div className="contacts__info-details">
             <div className="contacts__tel contacts__text">

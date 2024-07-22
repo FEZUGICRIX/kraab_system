@@ -6,15 +6,13 @@ const Products = ({ products, root, extra = true }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const { id, img, title, colors, price } = products;
-
   return (
     <div className="products">
       <div className="products__container">
         {extra && (
           <div className="filter">
-            <span className="filter__title">filter & sort</span>
-            <span className="filter__products">Products</span>
+            <span className="filter__title">suodatus & lajittelu</span>
+            <span className="filter__products">tuotteet</span>
           </div>
         )}
         <div className="products__items product">

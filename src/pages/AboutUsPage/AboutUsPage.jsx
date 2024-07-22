@@ -3,13 +3,13 @@ import Breadcrumbs from '@Breadcrumbs';
 const AboutUsPage = () => {
   return (
     <>
-      <Breadcrumbs pageTitle="ABOUT US" />
+      <Breadcrumbs pageTitle="MEISTÄ" />
 
       <section className="about-us">
         <div className="container">
           <div className="about-us__container">
             <div className="about-us__content">
-              <h1 className="about-us__title title">About us</h1>
+              <h1 className="about-us__title title">Tietoa meistä</h1>
               <div className="about-us__text">
                 Meillä on 26 insinööriä, jotka työskentelevät tuotteen
                 laadun parissa, ja kaikki työntekijämme suorittavat
@@ -249,8 +249,8 @@ const AboutUsPage = () => {
       <section className="run-text">
         <div className="run-text__container">
           <div className="run-text__content">
-            ALOITA PROJEKTI. ALOITA PROJEKTI. ALOITA PROJEKTI. ALOITA
-            PROJEKTI. ALOITA PROJEKTI.
+            käynnistä hanke. käynnistä hanke. käynnistä hanke. käynnistä
+            hanke. käynnistä hanke.
           </div>
         </div>
       </section>
@@ -266,22 +266,22 @@ const AboutUsPage = () => {
                 type="text"
                 id="name"
                 className="questions__input"
-                placeholder="Yourname"
+                placeholder="Nimesi"
               />
               <input
                 type="tel"
                 id="telephone"
                 className="questions__input"
-                placeholder="Your telephone number"
+                placeholder="Puhelinnumerosi"
               />
               <textarea
                 // type="text"
                 id="question"
                 className="questions__input"
-                placeholder="Your question"
+                placeholder="Kysymyksesi"
               ></textarea>
 
-              <input type="submit" id="submit" value="Send" />
+              <input type="submit" id="submit" value="Lähetä" />
             </form>
 
             <div className="questions__text">
