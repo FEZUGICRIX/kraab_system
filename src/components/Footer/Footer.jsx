@@ -131,11 +131,6 @@ https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
                     Arvostelut
                   </a>
                 </li>
-                <li>
-                  <NavLink to="account/account" className="link__item">
-                    Henkilökohtainen tili
-                  </NavLink>
-                </li>
               </ul>
             </div>
             <div className="link">
