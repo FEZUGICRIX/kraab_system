@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getProducts } from '@api/getProducts';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -6,6 +9,31 @@ import CardSwiper from '@components/CardSwiper/CardSwiper';
 import Singup from '@components/Singup/Singup';
 
 const HomePage = () => {
+  const [newsProducts, setNewsProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchBasketProducts = async () => {
+      try {
+        const promises = [306, 405, 507].map(async (id) => {
+          const product = await getProducts({ type: 'get_product', id });
+          return product;
+        });
+
+        const products = await Promise.all(promises);
+        const filteredProducts = products.filter(
+          (product) => product !== null
+        );
+        setNewsProducts(filteredProducts);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchBasketProducts();
+  }, []);
+
+  console.log(newsProducts);
+
   return (
     <>
       <section className="dreams">
@@ -19,7 +47,9 @@ const HomePage = () => {
               className="dreams__mini-img"
               src={'./img/pages/home/dreams/home-page-mini.png'}
             />
-            <h1 className="dreams__title home-page-title dreams__title-left">elämään</h1>
+            <h1 className="dreams__title home-page-title dreams__title-left">
+              elämään
+            </h1>
             <h1 className="dreams__title dreams__title-right home-page-title">
               kauniissa <br /> tiloissa
             </h1>
@@ -81,11 +111,9 @@ const HomePage = () => {
                 },
                 500: {
                   slidesPerView: 1,
-                  // centeredSlides: true,
                 },
                 0: {
                   slidesPerView: 1,
-                  // centeredSlides: true,
                 },
               }}
               autoplay={{
@@ -96,39 +124,35 @@ const HomePage = () => {
               className="mySwiper"
             >
               <div className="news__items">
-                <SwiperSlide>
-                  <div className="news__item">
-                    <img
-                      src={'./img/pages/home/news/news01.png'}
-                      alt=""
-                      className="news__item-img"
-                    />
-                    <div className="news__item-title">floor covering</div>
-                    <div className="news__price">30€</div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="news__item">
-                    <img
-                      src={'./img/pages/home/news/news01.png'}
-                      alt=""
-                      className="news__item-img"
-                    />
-                    <div className="news__item-title">floor covering</div>
-                    <div className="news__price">30€</div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="news__item">
-                    <img
-                      src={'./img/pages/home/news/news01.png'}
-                      alt=""
-                      className="news__item-img"
-                    />
-                    <div className="news__item-title">floor covering</div>
-                    <div className="news__price">30€</div>
-                  </div>
-                </SwiperSlide>
+                {newsProducts.map((item) => {
+                  const catalogMap = {
+                    306: 'denkirs',
+                    405: 'kraabmod',
+                    507: 'jm',
+                  };
+
+                  const catalog = catalogMap[item.id] || '';
+
+                  return (
+                    <SwiperSlide>
+                      <div className="news__item">
+                        <Link to={`${catalog}/product/${item.id}`}>
+                          <img
+                            src={item.img}
+                            alt=""
+                            className="news__item-img"
+                          />
+                        </Link>
+                        <div className="news__item-title">
+                          <Link to={`${catalog}/product/${item.id}`}>
+                            {item.title}
+                          </Link>
+                        </div>
+                        <div className="news__price">{item.price}€</div>
+                      </div>
+                    </SwiperSlide>
+                  );
+                })}
               </div>
             </Swiper>
           </div>
