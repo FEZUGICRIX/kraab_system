@@ -3,11 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 // Layout
 import Layout from '@components/Layout';
 
-// Components
-import Profile from '@components/Profile/Profile';
-import History from '@components/History/History';
-import Feedback from '@components/Feedback/Feedback';
-
 // Pages
 import HomePage from './pages/HomePage/HomePage';
 import BrandPage from './pages/BrandPage/BrandPage';
@@ -16,7 +11,6 @@ import AboutUsPage from './pages/AboutUsPage/AboutUsPage';
 import ContactUsPage from './pages/ContactUsPage/ContactUsPage';
 import BasketPage from './pages/BasketPage/BasketPage';
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
-import AccountPage from './pages/AccountPage/AccountPage';
 import GalleryPage from './pages/GalleryPage/GalleryPage';
 import ModuleoPage from './pages/ModuleoPage/ModuleoPage';
 import ProductPage from './pages/ProductPage/ProductPage';
@@ -71,12 +65,6 @@ const App = () => {
             path="basket/product/:id"
             element={<ProductPage source={['basket']} />}
           />
-
-          <Route path="account" element={<AccountPage />}>
-            <Route path="profile" element={<Profile />} />
-            <Route path="history" element={<History />} />
-            <Route path="feedback" element={<Feedback />} />
-          </Route>
         </Route>
       </Routes>
     </>
