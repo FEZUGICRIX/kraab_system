@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const Products = ({ products, root, extra = true }) => {
+const Products = ({ products, root, basePath, extra = true }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -17,13 +17,14 @@ const Products = ({ products, root, extra = true }) => {
         )}
         <div className="products__items product">
           {products.map((item) => {
-            const { id, img, title, colors, price } = item;
+            const { id, images, title, colors, price } = item;
+            const imagesParse = JSON.parse(images);
 
             return (
               <div className="product__item" key={id}>
                 <Link to={`/${root}/product/${id}`}>
                   <img
-                    src={img}
+                    src={`${basePath}${imagesParse[0]}`}
                     alt="product image"
                     className="product__img"
                   />
@@ -33,19 +34,21 @@ const Products = ({ products, root, extra = true }) => {
                   <div className="product__title">{title}</div>
                 </Link>
 
-                <div className="product__colors">
-                  {colors?.map((color, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        width: 10,
-                        height: 10,
-                        background: color,
-                        borderRadius: 10,
-                      }}
-                    ></div>
-                  ))}
-                </div>
+                {colors && (
+                  <div className="product__colors">
+                    {colors.map((color, index) => (
+                      <div
+                        key={index}
+                        style={{
+                          width: 10,
+                          height: 10,
+                          background: color,
+                          borderRadius: 10,
+                        }}
+                      ></div>
+                    ))}
+                  </div>
+                )}
 
                 <div className="product__price">{price}€</div>
               </div>

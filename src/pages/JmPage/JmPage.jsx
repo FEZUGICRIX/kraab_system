@@ -7,6 +7,7 @@ import Singup from '@components/Singup/Singup';
 
 const JmPage = () => {
   const [products, setProducts] = useState([]);
+  const basePath = '/img/pages/jm/';
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -15,7 +16,7 @@ const JmPage = () => {
           catalog: 'jm_products',
           type: 'get_products',
         });
-        setProducts(data);
+        setProducts(data.data);
       } catch (error) {
         console.error(error);
       }
@@ -31,9 +32,7 @@ const JmPage = () => {
       <section className="info">
         <div className="container">
           <div className="info__container">
-            <h1 className="info__block-title">
-              JM
-            </h1>
+            <h1 className="info__block-title">JM</h1>
 
             <div className="info__blocks">
               <div className="info__block">
@@ -54,7 +53,7 @@ const JmPage = () => {
       <section className="products jm">
         <div className="container">
           <div className="product">
-            <Products products={products} root="jm" />
+            <Products products={products} root="jm" basePath={basePath} />
           </div>
         </div>
       </section>
