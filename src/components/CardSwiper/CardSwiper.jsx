@@ -112,9 +112,9 @@ const CardSwiper = () => {
               </SwiperSlide>
 
               <SwiperSlide>
-                <Link to="/denkirs" className="card__item">
+                <Link to="/valot" className="card__item">
                   <div className="card__number">03</div>
-                  <h5 className="card__title">Denkirs</h5>
+                  <h5 className="card__title">Valot</h5>
                   <img
                     src={'./img/components/cardSwiper/03.png'}
                     className="card__img"

@@ -176,7 +176,23 @@ const ProductPage = ({ source }) => {
                   </div>
                 </div>
 
-                <div className="content__description">{description}</div>
+                <div className="content__description">
+                  {description}
+                  {title === '3d-Konsepti Olohuoneeseen' && (
+                    <div id="special-description">
+                      <div>
+                        <span>Sähköisesti:</span>{' '}
+                        <a href="mailto:Tanjachernova.fi@gmail.com">
+                          Tanjachernova.fi@gmail.com
+                        </a>
+                      </div>
+                      <div>
+                        <span>Puhelinnumero:</span>{' '}
+                        <a href="tel:+358408601517">+358408601517</a>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div className="content__available">
