@@ -7,6 +7,7 @@ import Singup from '@components/Singup/Singup';
 
 const DenkirsPage = () => {
   const [products, setProducts] = useState([]);
+  const basePath = '/img/pages/denkirs/';
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -15,7 +16,7 @@ const DenkirsPage = () => {
           catalog: 'denkirs_products',
           type: 'get_products',
         });
-        setProducts(data);
+        setProducts(data.data);
       } catch (error) {
         console.error(error);
       }
@@ -27,18 +28,22 @@ const DenkirsPage = () => {
   return (
     <>
       <Breadcrumbs pageTitle="Valot" previousPages={['brand']} />
-      
+
       <section className="products denkirs">
         <div className="container">
           <div className="product">
-            <Products products={products} root="valot" />
+            <Products
+              products={products}
+              root="valot"
+              basePath={basePath}
+            />
           </div>
         </div>
       </section>
 
       <Singup />
     </>
-  )
-}
+  );
+};
 
-export default DenkirsPage
+export default DenkirsPage;

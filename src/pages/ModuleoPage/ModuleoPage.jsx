@@ -7,6 +7,7 @@ import Singup from '@components/Singup/Singup';
 
 const ModuleoPage = () => {
   const [products, setProducts] = useState([]);
+  const basePath = '/img/pages/moduleo/';
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -15,7 +16,7 @@ const ModuleoPage = () => {
           catalog: 'moduleo_products',
           type: 'get_products',
         });
-        setProducts(data);
+        setProducts(data.data);
       } catch (error) {
         console.error(error);
       }
@@ -74,7 +75,7 @@ const ModuleoPage = () => {
       <section className="products">
         <div className="container">
           <div className="product">
-            <Products products={products} root="moduleo" />
+            <Products products={products} root="moduleo" basePath={basePath} />
           </div>
         </div>
       </section>

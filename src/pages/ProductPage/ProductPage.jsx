@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { json, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import { getProducts } from '@api/getProducts';
@@ -29,6 +29,7 @@ const ProductPage = ({ source }) => {
       try {
         const data = await getProducts({ type: 'get_product', id });
         setProduct(data);
+        console.log(data);
       } catch (error) {
         console.error(error);
       }
@@ -60,11 +61,10 @@ const ProductPage = ({ source }) => {
   }
 
   const {
+    catalog,
     sku,
     title,
-    img,
-    img2,
-    img3,
+    images,
     material,
     price,
     length,
@@ -73,10 +73,19 @@ const ProductPage = ({ source }) => {
     description,
     height,
     angle_of_dispersion,
+    quantity,
   } = product;
 
-  // Create an array of images, filtering out null and undefined values
-  const images = [img, img2, img3].filter((img) => img);
+  const basePath = {
+    moduleo_products: '/img/pages/moduleo/',
+    denkirs_products: '/img/pages/denkirs/',
+    kraabmod_products: '/img/pages/kraabmod/',
+    jm_products: '/img/pages/jm/',
+    favorite_products: '/img/pages/favorites/',
+    alsoLike_products: '/img/pages/productPage/',
+  };
+
+  const imagesParse = JSON.parse(images);
 
   return (
     <>
@@ -98,12 +107,12 @@ const ProductPage = ({ source }) => {
                 modules={[Navigation, Pagination, Mousewheel, Keyboard]}
                 className="mySwiper"
               >
-                {images.map((img) => (
+                {imagesParse.map((img) => (
                   <SwiperSlide>
                     <div className="image-container">
                       <img
                         className="images__item"
-                        src={img}
+                        src={`${basePath[catalog]}${img}`}
                         alt="product images"
                       />
                     </div>
@@ -196,21 +205,30 @@ const ProductPage = ({ source }) => {
               </div>
 
               <div className="content__available">
-                <svg
-                  width="15"
-                  height="20"
-                  viewBox="0 0 15 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.5 0C3.35357 0 0 3.2152 0 7.19055C0 11.4741 4.73571 17.3806 6.68571 19.6302C7.11429 20.1233 7.89643 20.1233 8.325 19.6302C10.2643 17.3806 15 11.4741 15 7.19055C15 3.2152 11.6464 0 7.5 0ZM7.5 9.7586C6.7896 9.7586 6.10829 9.48804 5.60596 9.00644C5.10363 8.52483 4.82143 7.87164 4.82143 7.19055C4.82143 6.50946 5.10363 5.85626 5.60596 5.37466C6.10829 4.89306 6.7896 4.6225 7.5 4.6225C8.2104 4.6225 8.89171 4.89306 9.39404 5.37466C9.89637 5.85626 10.1786 6.50946 10.1786 7.19055C10.1786 7.87164 9.89637 8.52483 9.39404 9.00644C8.89171 9.48804 8.2104 9.7586 7.5 9.7586Z"
-                    fill="black"
-                    fillOpacity="0.5"
-                  />
-                </svg>
-
-                <span>Ei saatavilla myymälöissä</span>
+                {quantity == 0 && (
+                  <>
+                    <svg
+                      width="15"
+                      height="20"
+                      viewBox="0 0 15 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.5 0C3.35357 0 0 3.2152 0 7.19055C0 11.4741 4.73571 17.3806 6.68571 19.6302C7.11429 20.1233 7.89643 20.1233 8.325 19.6302C10.2643 17.3806 15 11.4741 15 7.19055C15 3.2152 11.6464 0 7.5 0ZM7.5 9.7586C6.7896 9.7586 6.10829 9.48804 5.60596 9.00644C5.10363 8.52483 4.82143 7.87164 4.82143 7.19055C4.82143 6.50946 5.10363 5.85626 5.60596 5.37466C6.10829 4.89306 6.7896 4.6225 7.5 4.6225C8.2104 4.6225 8.89171 4.89306 9.39404 5.37466C9.89637 5.85626 10.1786 6.50946 10.1786 7.19055C10.1786 7.87164 9.89637 8.52483 9.39404 9.00644C8.89171 9.48804 8.2104 9.7586 7.5 9.7586Z"
+                        fill="black"
+                        fillOpacity="0.5"
+                      />
+                    </svg>
+                    <span>Ei saatavilla myymälöissä</span>
+                  </>
+                )}
+                {quantity >= 1 && (
+                  <div className="available-amount">
+                    <span>Saatavilla:</span>
+                    <span>{quantity}</span>
+                  </div>
+                )}
               </div>
 
               <div className="content__buttons">

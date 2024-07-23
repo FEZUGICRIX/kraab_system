@@ -32,8 +32,6 @@ const HomePage = () => {
     fetchBasketProducts();
   }, []);
 
-  console.log(newsProducts);
-
   return (
     <>
       <section className="dreams">
@@ -126,20 +124,27 @@ const HomePage = () => {
               <div className="news__items">
                 {newsProducts.map((item) => {
                   const catalogMap = {
-                    306: 'denkirs',
+                    306: 'valot',
                     405: 'kraabmod',
                     507: 'jm',
                   };
 
+                  const basePate = {
+                    306: '/img/pages/denkirs/',
+                    405: '/img/pages/kraabmod/',
+                    507: '/img/pages/jm/',
+                  };
+
+                  const imagesParse = JSON.parse(item.images);
                   const catalog = catalogMap[item.id] || '';
 
                   return (
-                    <SwiperSlide>
+                    <SwiperSlide key={item.id}>
                       <div className="news__item">
                         <Link to={`${catalog}/product/${item.id}`}>
                           <img
-                            src={item.img}
-                            alt=""
+                            src={`${basePate[item.id]}${imagesParse[0]}`}
+                            alt="product image"
                             className="news__item-img"
                           />
                         </Link>
