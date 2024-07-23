@@ -36,10 +36,10 @@ const App = () => {
             element={<ProductPage source={['brand', 'moduleo']} />}
           />
 
-          <Route path="denkirs" element={<DenkirsPage />} />
+          <Route path="valot" element={<DenkirsPage />} />
           <Route
-            path="denkirs/product/:id"
-            element={<ProductPage source={['brand', 'denkirs']} />}
+            path="valot/product/:id"
+            element={<ProductPage source={['brand', 'valot']} />}
           />
 
           <Route path="kraabmod" element={<KraabmodPage />} />

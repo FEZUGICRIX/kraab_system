@@ -26,12 +26,12 @@ const DenkirsPage = () => {
 
   return (
     <>
-      <Breadcrumbs pageTitle="Denkirs" previousPages={['brand']} />
+      <Breadcrumbs pageTitle="Valot" previousPages={['brand']} />
       
       <section className="products denkirs">
         <div className="container">
           <div className="product">
-            <Products products={products} root="denkirs" />
+            <Products products={products} root="valot" />
           </div>
         </div>
       </section>

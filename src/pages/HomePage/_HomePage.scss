@@ -351,18 +351,29 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    &-img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 20px;
+    }
   }
 
   &__item-title {
+    margin-top: auto;
     font-family: Roboto;
     font-size: 18px;
     font-weight: 700;
     line-height: 21.09px;
     text-transform: uppercase;
-    color: $dark-black;
+
+    a {
+      color: $dark-black;
+    }
   }
 
   &__price {
+    margin-top: auto;
     font-family: Roboto;
     font-size: 24px;
     font-weight: 700;
