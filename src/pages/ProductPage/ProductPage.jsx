@@ -29,7 +29,6 @@ const ProductPage = ({ source }) => {
       try {
         const data = await getProducts({ type: 'get_product', id });
         setProduct(data);
-        console.log(data);
       } catch (error) {
         console.error(error);
       }

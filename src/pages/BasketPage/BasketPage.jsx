@@ -54,73 +54,93 @@ const BasketPage = () => {
           <div className="basket__container">
             <div className="basket-products">
               <div className="basket__products">
-                {basketProducts.map((item) => (
-                  <div className="basket__product" key={item.id}>
-                    <div className="basket__product-img">
-                      <img src={item.img} alt="Product" />
-                    </div>
+                {basketProducts.map((item) => {
+                  const basePath = {
+                    moduleo_products: '/img/pages/moduleo/',
+                    denkirs_products: '/img/pages/denkirs/',
+                    kraabmod_products: '/img/pages/kraabmod/',
+                    jm_products: '/img/pages/jm/',
+                    favorite_products: '/img/pages/favorites/',
+                    alsoLike_products: '/img/pages/productPage/',
+                  };
+                  const rawImages = item.images;
+                  const images = JSON.parse(rawImages);
 
-                    <div className="basket__product-content">
-                      <div className="basket__product-title">
-                        {item.title}
-                      </div>
-                      <div className="basket__product-price">
-                        {item.price} <span>€</span>
-                      </div>
-                      <div className="basket__product-specifications">
-                        <div className="basket__product-art">
-                          Art. No: {item.id}
-                        </div>
-
-                        <div className="basket__product-size">
-                          Koko: 21*45
-                        </div>
-
-                        <div className="basket__product-color">
-                          Väri: White
-                        </div>
-
-                        <div className="basket__product-total">
-                          Yhteensä: {item.price}
-                        </div>
-                      </div>
-
-                      <div className="basket__product-amount">
-                        <select name="amount" id="amount">
-                          <option value="1">1</option>
-                          <option value="1">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <button
-                      className="basket__product-close"
-                      onClick={() => handleRemoveItem(item.id)}
-                    >
-                      <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M1 1L17.3167 17.3167" stroke="#323334" />
-                        <path
-                          d="M17.3167 1L0.999983 17.3167"
-                          stroke="#323334"
+                  return (
+                    <div className="basket__product" key={item.id}>
+                      <div className="basket__product-img">
+                        <img
+                          src={`${basePath[item.catalog]}${images[0]}`}
+                          alt="Product"
                         />
-                      </svg>
-                    </button>
-                  </div>
-                ))}
+                      </div>
+                      {console.log()}
+
+                      <div className="basket__product-content">
+                        <div className="basket__product-title">
+                          {item.title}
+                        </div>
+                        <div className="basket__product-price">
+                          {item.price} <span>€</span>
+                        </div>
+                        <div className="basket__product-specifications">
+                          <div className="basket__product-art">
+                            Art. No: {item.id}
+                          </div>
+
+                          <div className="basket__product-size">
+                            Koko: 21*45
+                          </div>
+
+                          <div className="basket__product-color">
+                            Väri: White
+                          </div>
+
+                          <div className="basket__product-total">
+                            Yhteensä: {item.price}
+                          </div>
+                        </div>
+
+                        <div className="basket__product-amount">
+                          <select name="amount" id="amount">
+                            <option value="1">1</option>
+                            <option value="1">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <button
+                        className="basket__product-close"
+                        onClick={() => handleRemoveItem(item.id)}
+                      >
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 18 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M1 1L17.3167 17.3167"
+                            stroke="#323334"
+                          />
+                          <path
+                            d="M17.3167 1L0.999983 17.3167"
+                            stroke="#323334"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  );
+                })}
               </div>
               <div className="basket__total">
                 <span>Yhteensä</span>
                 <div className="line"></div>
                 <div>
-                  {totalPrice} <span className="euro">€</span>
+                  {totalPrice.toFixed(2)} <span className="euro">€</span>
                 </div>
               </div>
             </div>
