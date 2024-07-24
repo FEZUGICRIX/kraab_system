@@ -1,45 +1,52 @@
-import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
 import { getProducts } from '@api/getProducts';
 import Breadcrumbs from '@Breadcrumbs';
 import useBasket from '../../hooks/useBasket';
-import AlsoLike from '@components/AlsoLike/AlsoLike';
 
 const BasketPage = () => {
   const { basketItems, removeLocalStorageItem } = useBasket();
   const [basketProducts, setBasketProducts] = useState([]);
 
+  // Получение идентификаторов товаров из корзины
+  const rawProducts = basketItems.map((item) => item.id);
+
+  // Функция для получения продуктов из API
   useEffect(() => {
     const fetchBasketProducts = async () => {
       try {
-        const promises = basketItems.map(async (id) => {
-          const product = await getProducts({ type: 'get_product', id });
-          return product;
-        });
-
-        const products = await Promise.all(promises);
-        const filteredProducts = products.filter(
-          (product) => product !== null
+        const products = await Promise.all(
+          rawProducts.map((id) => getProducts({ type: 'get_product', id }))
         );
+        const filteredProducts = products.filter(Boolean);
         setBasketProducts(filteredProducts);
       } catch (error) {
-        console.error(error);
+        console.error('Ошибка при получении продуктов:', error);
       }
     };
 
     fetchBasketProducts();
   }, [basketItems]);
 
-  const totalPrice = basketProducts.reduce(
-    (total, item) => total + Number(item.price),
-    0
-  );
+  // Создание карты продуктов для быстрого доступа
+  const basketItemsMap = basketItems.reduce((map, item) => {
+    map[item.id] = item;
+    return map;
+  }, {});
 
-  const handleRemoveItem = (id) => {
-    removeLocalStorageItem(String(id));
+  // Расчет общей стоимости
+  const calculateTotalPrice = () => {
+    return basketProducts.reduce((total, item) => {
+      const basketItem = basketItemsMap[item.id];
+      const quantity = basketItem?.packages || 1;
+      const packingVolume = item.packing_volume || 1; // Убедитесь, что packing_volume не undefined
+      return total + Number(item.price) * quantity * packingVolume;
+    }, 0);
   };
 
+  const totalPrice = calculateTotalPrice();
+  const handleRemoveItem = (id) => {
+    removeLocalStorageItem(id);
+  };
   const orderValue = totalPrice * 0.86;
   const tax = totalPrice * 0.24;
 
@@ -63,19 +70,24 @@ const BasketPage = () => {
                     favorite_products: '/img/pages/favorites/',
                     alsoLike_products: '/img/pages/productPage/',
                   };
-                  const rawImages = item.images;
-                  const images = JSON.parse(rawImages);
+                  let images = [];
+                  try {
+                    images = JSON.parse(item.images || '[]'); // Обработка возможных ошибок при JSON.parse
+                  } catch (error) {
+                    console.error('Ошибка при разборе JSON:', error);
+                  }
+                  const basketItem = basketItemsMap[item.id];
+                  const quantity = basketItem?.packages || 1;
+                  const totalProductPrice = Number(item.price) * quantity * (item.packing_volume || 1);
 
                   return (
                     <div className="basket__product" key={item.id}>
                       <div className="basket__product-img">
                         <img
-                          src={`${basePath[item.catalog]}${images[0]}`}
+                          src={`${basePath[item.catalog]}${images[0] || 'default.jpg'}`}
                           alt="Product"
                         />
                       </div>
-                      {console.log()}
-
                       <div className="basket__product-content">
                         <div className="basket__product-title">
                           {item.title}
@@ -87,30 +99,17 @@ const BasketPage = () => {
                           <div className="basket__product-art">
                             Art. No: {item.id}
                           </div>
-
-                          <div className="basket__product-size">
-                            Koko: 21*45
-                          </div>
-
-                          <div className="basket__product-color">
-                            Väri: White
-                          </div>
-
+                          {basketItem?.packages && (
+                            <div className="basket__product-size">
+                              packages: {basketItem.packages}
+                            </div>
+                          )}
                           <div className="basket__product-total">
-                            Yhteensä: {item.price}
+                            Yhteensä: {totalProductPrice.toFixed(2)}{' '}
+                            <span>€</span>
                           </div>
-                        </div>
-
-                        <div className="basket__product-amount">
-                          <select name="amount" id="amount">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                          </select>
                         </div>
                       </div>
-
                       <button
                         className="basket__product-close"
                         onClick={() => handleRemoveItem(item.id)}
@@ -185,7 +184,8 @@ const BasketPage = () => {
                   <div className="order__total">
                     <span>Yhteensä:</span>
                     <span>
-                      {totalPrice} <span className="euro">€</span>
+                      {totalPrice.toFixed(2)}{' '}
+                      <span className="euro">€</span>
                     </span>
                   </div>
                 </div>
@@ -198,8 +198,6 @@ const BasketPage = () => {
           </div>
         </div>
       </section>
-
-      {/* <AlsoLike root="basket" /> */}
     </>
   );
 };

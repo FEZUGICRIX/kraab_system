@@ -6,7 +6,7 @@ import Layout from '@components/Layout';
 // Pages
 import HomePage from './pages/HomePage/HomePage';
 import BrandPage from './pages/BrandPage/BrandPage';
-import BlogPage from './pages/BlogPage/BlogPage';
+import CatalogsPage from './pages/CatalogsPage/CatalogsPage'
 import AboutUsPage from './pages/AboutUsPage/AboutUsPage';
 import ContactUsPage from './pages/ContactUsPage/ContactUsPage';
 import BasketPage from './pages/BasketPage/BasketPage';
@@ -25,7 +25,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="brand" element={<BrandPage />} />
-          <Route path="blog" element={<BlogPage />} />
+          <Route path="catalogs" element={<CatalogsPage />} />
           <Route path="about-us" element={<AboutUsPage />} />
           <Route path="contact-us" element={<ContactUsPage />} />
           <Route path="gallery" element={<GalleryPage />} />

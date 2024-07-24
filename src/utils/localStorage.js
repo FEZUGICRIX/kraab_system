@@ -4,18 +4,31 @@ export const getLocalStorage = (key) => {
 };
 
 export const setLocalStorage = (key, data) => {
-  const existingData = getLocalStorage(key);
-
-  const index = existingData.indexOf(data);
-  if (index === -1) {
-    existingData.push(data);
-    localStorage.setItem(key, JSON.stringify(existingData));
+  try {
+    const existingData = getLocalStorage(key);
+    const hasIndex = existingData.some((item) => item.id === data.id);
+    if (!hasIndex) {
+      localStorage.setItem(key, JSON.stringify(data));
+    }
+  } catch (error) {
+    console.error('Ошибка при установке элемента в localStorage:', error);
   }
 };
 
-export const removeLocalStorageItemById = (key, id) => {
-  const existingData = getLocalStorage(key);
+// export const setLocalStorage = (key, data) => {
+// if (data.length === 0) {
+//   setLocalStorage(key, data);
+// }
 
-  const newArray = existingData.filter((item) => item !== id);
-  localStorage.setItem(key, JSON.stringify(newArray));
+// const existingData = getLocalStorage(key);
+// const hasIndex = existingData.some((item) => item.id === data.id);
+// if (!hasIndex) {
+//   localStorage.setItem(key, JSON.stringify(data));
+// }
+// };
+
+export const removeLocalStorageItemById = (key, data) => {
+  const items = getLocalStorage(key);
+  const updateItems = items.filter((item) => item.id != data.id);
+  setLocalStorage(key, updateItems);
 };

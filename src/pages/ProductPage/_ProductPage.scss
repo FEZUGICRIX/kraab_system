@@ -138,7 +138,11 @@
       width: 50vw;
     }
   }
-  @media (max-width: 750px) {
+  @media (max-width: 840px) {
+    .calculator {
+      margin: auto;
+      min-width: 550px;
+    }
     .images {
       width: 100%;
     }
@@ -154,6 +158,12 @@
 
     .content {
       width: 100%;
+    }
+  }
+
+  @media (max-width: 630px) {
+    .calculator {
+      min-width: 100%;
     }
   }
 }
@@ -205,10 +215,82 @@
   }
 }
 
+.calculator {
+  max-width: 550px;
+  font-family: Plus Jakarta Sans;
+  &__container {
+    padding: 20px 15px;
+    box-shadow: 0px 5px 14px 4px rgba(34, 60, 80, 0.2);
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: 20px;
+    font-family: Plus Jakarta Sans;
+    font-size: clamp(21px, 5vw, 24px);
+    font-weight: 500;
+    line-height: 35.28px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 45%;
+      height: 1px;
+      background-color: #475558;
+    }
+  }
+
+  &__subtitle {
+    font-size: clamp(16.5px, 5vw, 19px);
+    font-weight: 400;
+    line-height: 35.28px;
+  }
+
+  &__input {
+    #packages {
+      padding: 8px;
+      border: 1px solid;
+      border-radius: 7px;
+    }
+    border-bottom: 0.1px solid;
+    padding-bottom: 20px;
+  }
+  &__price-meter {
+    border-bottom: 1px solid;
+    padding-bottom: 20px;
+  }
+  &__product-price {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+
+    #product-price {
+      font-size: 40px;
+    }
+  }
+
+  .order {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 10px 0;
+
+    .packing-volume {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    #total-price {
+      font-size: 35px;
+    }
+  }
+}
+
 #special-description {
   margin-top: 25px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-
 }

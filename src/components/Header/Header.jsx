@@ -68,8 +68,8 @@ const Header = () => {
               </NavLink>
             </li>
             <li className="header__list-item">
-              <NavLink to="blog" className={setActive}>
-                BLOGI
+              <NavLink to="catalogs" className={setActive}>
+                luettelot
               </NavLink>
             </li>
             <li className="header__list-item">
