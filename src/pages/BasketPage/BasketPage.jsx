@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { getProducts } from '@api/getProducts';
 import Breadcrumbs from '@Breadcrumbs';
 import useBasket from '../../hooks/useBasket';
@@ -44,6 +46,8 @@ const BasketPage = () => {
   };
 
   const totalPrice = calculateTotalPrice();
+  const shippingValue = totalPrice >= 500 ? 0 : 19.9;
+
   const handleRemoveItem = (id) => {
     removeLocalStorageItem(id);
   };
@@ -78,20 +82,30 @@ const BasketPage = () => {
                   }
                   const basketItem = basketItemsMap[item.id];
                   const quantity = basketItem?.packages || 1;
-                  const totalProductPrice = Number(item.price) * quantity * (item.packing_volume || 1);
+                  const totalProductPrice =
+                    Number(item.price) *
+                    quantity *
+                    (item.packing_volume || 1);
 
                   return (
                     <div className="basket__product" key={item.id}>
-                      <div className="basket__product-img">
-                        <img
-                          src={`${basePath[item.catalog]}${images[0] || 'default.jpg'}`}
-                          alt="Product"
-                        />
-                      </div>
-                      <div className="basket__product-content">
-                        <div className="basket__product-title">
-                          {item.title}
+                      <Link to={`/basket/product/${item.id}`}>
+                        <div className="basket__product-img">
+                          <img
+                            src={`${basePath[item.catalog]}${
+                              images[0] || 'default.jpg'
+                            }`}
+                            alt="Product"
+                          />
                         </div>
+                      </Link>
+
+                      <div className="basket__product-content">
+                        <Link to={`/basket/product/${item.id}`}>
+                          <div className="basket__product-title">
+                            {item.title}
+                          </div>
+                        </Link>
                         <div className="basket__product-price">
                           {item.price} <span>€</span>
                         </div>
@@ -155,9 +169,8 @@ const BasketPage = () => {
                 </div>
               </div>
 
-              <div className="basket__login">
-                <span>Kirjaudu sisään käyttääksesi jäsentarjouksiasi</span>
-                <button id="login">KIRJAUDU SISÄÄN</button>
+              <div className="basket__hint">
+                Ilmainen toimitus alkaen 500€
               </div>
 
               <div className="basket__order order">
@@ -178,7 +191,7 @@ const BasketPage = () => {
                   <div className="order__shipping">
                     <span>Toimitus:</span>
                     <span>
-                      0 <span className="euro">€</span>
+                      {shippingValue} <span className="euro">€</span>
                     </span>
                   </div>
                   <div className="order__total">

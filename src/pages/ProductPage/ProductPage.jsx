@@ -43,7 +43,7 @@ const ProductPage = ({ source }) => {
   const { basketItems, setLocalStorageItems, removeLocalStorageItem } =
     useBasket();
   const [inBasket, setInBasket] = useState(
-    basketItems.some((item) => item === id)
+    basketItems.some((item) => item.id === id)
   );
 
   const handleAddToBasket = () => {
@@ -81,8 +81,6 @@ const ProductPage = ({ source }) => {
     packing_volume,
   } = product;
 
-  console.log(packing_volume);
-
   const basePath = {
     moduleo_products: '/img/pages/moduleo/',
     denkirs_products: '/img/pages/denkirs/',
@@ -96,7 +94,6 @@ const ProductPage = ({ source }) => {
 
   const handlePackagesChange = (event) => {
     const value = parseInt(event.target.value);
-    console.log(value);
     setPackages(value);
   };
 
