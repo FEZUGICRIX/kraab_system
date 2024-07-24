@@ -4,7 +4,6 @@ import {
   removeLocalStorageItemById,
   setLocalStorage,
 } from '../utils/localStorage';
-import { PRODUCTS } from '@PRODUCTS';
 
 const BasketContext = createContext({
   amount: 0,
@@ -18,22 +17,34 @@ export const BasketContextProvider = ({ children }) => {
     getLocalStorage('basket') || []
   );
 
-  const setLocalStorageItems = (id) => {
-    const index = basketItems.indexOf(Number(id));
+  const setLocalStorageItems = ({ id, packages }) => {
+    const localStorateItems = getLocalStorage('basket');
+    const hasIndex = localStorateItems.some((obj) => obj.id === id);
 
-    if (index === -1) {
-      setLocalStorage('basket', id);
+    if (!hasIndex) {
+      if (packages) {
+        const updateItems = localStorateItems;
+        updateItems.push({ id, packages });
+        setLocalStorage('basket', updateItems);
+        setBasketItems(getLocalStorage('basket'));
+        return;
+      }
+      const updateItems = localStorateItems;
+      updateItems.push({ id });
+      setLocalStorage('basket', updateItems);
       setBasketItems(getLocalStorage('basket'));
     }
   };
 
-  const removeLocalStorageItem = (id) => {
-    removeLocalStorageItemById('basket', id);
+  const removeLocalStorageItem = (id, packages) => {
+    const item = { id };
+    if (packages) {
+      item.packages = packages;
+    }
+
+    removeLocalStorageItemById('basket', item);
     setBasketItems(getLocalStorage('basket'));
   };
-
-  // We get all the products in the form of a one-dimensional array
-  const allProducts = Object.values(PRODUCTS).flat();
 
   return (
     <BasketContext.Provider

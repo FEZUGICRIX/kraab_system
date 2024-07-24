@@ -1,4 +1,4 @@
-import { json, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import { getProducts } from '@api/getProducts';
@@ -21,6 +21,7 @@ import {
 
 const ProductPage = ({ source }) => {
   const [product, setProduct] = useState(null);
+  const [packages, setPackages] = useState(1);
   const { id } = useParams();
   const root = source[source.length - 1];
 
@@ -46,7 +47,11 @@ const ProductPage = ({ source }) => {
   );
 
   const handleAddToBasket = () => {
-    setLocalStorageItems(id);
+    if (packing_volume) {
+      setLocalStorageItems({ id, packages });
+    } else {
+      setLocalStorageItems({ id });
+    }
     setInBasket(true);
   };
 
@@ -73,7 +78,10 @@ const ProductPage = ({ source }) => {
     height,
     angle_of_dispersion,
     quantity,
+    packing_volume,
   } = product;
+
+  console.log(packing_volume);
 
   const basePath = {
     moduleo_products: '/img/pages/moduleo/',
@@ -85,6 +93,17 @@ const ProductPage = ({ source }) => {
   };
 
   const imagesParse = JSON.parse(images);
+
+  const handlePackagesChange = (event) => {
+    const value = parseInt(event.target.value);
+    console.log(value);
+    setPackages(value);
+  };
+
+  const totalPrice =
+    !isNaN(packages) && packages > 0
+      ? (packages * price * packing_volume).toFixed(2)
+      : (price * packing_volume).toFixed(2);
 
   return (
     <>
@@ -184,23 +203,25 @@ const ProductPage = ({ source }) => {
                   </div>
                 </div>
 
-                <div className="content__description">
-                  {description}
-                  {title === '3d-Konsepti Olohuoneeseen' && (
-                    <div id="special-description">
-                      <div>
-                        <span>Sähköisesti:</span>{' '}
-                        <a href="mailto:Tanjachernova.fi@gmail.com">
-                          Tanjachernova.fi@gmail.com
-                        </a>
+                {description && (
+                  <div className="content__description">
+                    {description}
+                    {title === '3d-Konsepti Olohuoneeseen' && (
+                      <div id="special-description">
+                        <div>
+                          <span>Sähköisesti:</span>{' '}
+                          <a href="mailto:Tanjachernova.fi@gmail.com">
+                            Tanjachernova.fi@gmail.com
+                          </a>
+                        </div>
+                        <div>
+                          <span>Puhelinnumero:</span>{' '}
+                          <a href="tel:+358408601517">+358408601517</a>
+                        </div>
                       </div>
-                      <div>
-                        <span>Puhelinnumero:</span>{' '}
-                        <a href="tel:+358408601517">+358408601517</a>
-                      </div>
-                    </div>
-                  )}
-                </div>
+                    )}
+                  </div>
+                )}
               </div>
 
               <div className="content__available">
@@ -231,19 +252,61 @@ const ProductPage = ({ source }) => {
               </div>
 
               <div className="content__buttons">
-                <select
-                  defaultValue=""
-                  name="size"
-                  id="size"
-                  className="content__size"
-                >
-                  <option value="" disabled>
-                    Valitse koko
-                  </option>
-                  <option value={1}>1</option>
-                  <option value={2}>2</option>
-                  <option value={3}>3</option>
-                </select>
+                {packing_volume && (
+                  <div className="calculator">
+                    <div className="calculator__container">
+                      <h3 className="calculator__title">
+                        Laske tuotteen hinta
+                      </h3>
+
+                      <div className="calculator__input">
+                        <div className="calculator__subtitle">
+                          Pakkausten lukumäärä
+                        </div>
+                        <div className="calculator__input-input">
+                          <input
+                            value={packages}
+                            onChange={handlePackagesChange}
+                            type="number"
+                            min={1}
+                            id="packages"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="calculator__price-meter">
+                        <div className="calculator__subtitle">
+                          Neliöhinta
+                        </div>
+                        <div className="calculator__product-price">
+                          <div id="product-price">{price}</div>
+                          <span>/m&sup2;</span>
+                        </div>
+                      </div>
+
+                      <div className="calculator__info">
+                        <div className="calculator__order order">
+                          <div className="order__quantity">
+                            <div className="calculator__subtitle">
+                              Tilattava määrä
+                            </div>
+                            <div className="packing-volume">
+                              1 paketti =
+                              {<span>{packing_volume} m&sup2;</span>}
+                            </div>
+                          </div>
+
+                          <div className="order__total">
+                            <div className="calculator__subtitle">
+                              Yhteensä
+                            </div>
+                            <span id="total-price">{totalPrice}€</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 {inBasket ? (
                   <button

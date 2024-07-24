@@ -18,12 +18,7 @@ const Footer = () => {
                 Veteraanintie 2, 06100 Porvoo, Finland
               </div>
               <a href=" tel:+358452525100">+358 45 2525100</a>
-              <a
-                href="mailto:info@kraabmod.fi
-"
-              >
-                info@kraabmod.fi
-              </a>
+              <a href="mailto:info@kraabmod.fi">info@kraabmod.fi</a>
             </div>
 
             <div className="footer__info-social">
@@ -137,8 +132,8 @@ https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
               <div className="link__title">LISÄÄ LINKKI</div>
               <ul className="link__list">
                 <li>
-                  <NavLink to="blog" className={setActive}>
-                    Blogi
+                  <NavLink to="catalogs" className={setActive}>
+                    Luettelot
                   </NavLink>
                 </li>
                 <li>
@@ -157,33 +152,6 @@ https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
                   </NavLink>
                 </li>
               </ul>
-            </div>
-          </div>
-
-          <div className="footer__blog blog">
-            <div className="blog__title title">BLOGISTA</div>
-
-            <div className="blog__items">
-              <div className="blog__item">
-                <div className="blog__item-title">
-                  26 <span>May</span>
-                </div>
-                <div className="blog__item-text">
-                  Suuren yrityksen viimeisimmän projektin tulosten
-                  lähettäminen!
-                </div>
-                <div className="blog__item-comments">3 kommentit</div>
-              </div>
-              <div className="blog__item">
-                <div className="blog__item-title">
-                  27 <span>May</span>
-                </div>
-                <div className="blog__item-text">
-                  Suuren yrityksen viimeisimmän projektin tulosten
-                  lähettäminen!
-                </div>
-                <div className="blog__item-comments">3 kommentit</div>
-              </div>
             </div>
           </div>
         </div>

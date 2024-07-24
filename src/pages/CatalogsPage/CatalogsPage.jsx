@@ -7,10 +7,10 @@ import catalogJM from '../../pdf/catalog-JM_compressed (1).pdf';
 import catalogFlor from '../../pdf/Flor catalog.pdf';
 import catalogDenkirs from '../../pdf/Catalog DENKIRS (1) (1).pdf';
 
-const BlogPage = () => {
+const CatalogsPage = () => {
   return (
     <>
-      <Breadcrumbs pageTitle="BLOGI" />
+      <Breadcrumbs pageTitle="luettelot" />
 
       <section className="blog">
         <div className="container">
@@ -90,4 +90,4 @@ const BlogPage = () => {
   );
 };
 
-export default BlogPage;
+export default CatalogsPage;

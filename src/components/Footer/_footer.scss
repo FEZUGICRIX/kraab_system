@@ -155,23 +155,12 @@
     color: $dark-grey;
   }
 
-  @media (max-width: $breakpoint-lg) {
+  @media (max-width: 750px) {
     &__main {
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 35px;
     }
 
-    &__blog {
-      flex: 1 1 100%;
-      margin-top: 25px;
-      justify-content: center;
-    }
-
-    &__links {
-      margin-top: 30px;
-    }
-  }
-
-  @media (max-width: $breakpoint-xs) {
     &__info {
       max-width: 100%;
     }
