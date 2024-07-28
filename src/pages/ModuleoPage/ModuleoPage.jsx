@@ -16,7 +16,6 @@ const ModuleoPage = () => {
           type: 'get_products',
         });
         setProducts(data.data);
-        console.log(data.data);
       } catch (error) {
         console.error(error);
       }
