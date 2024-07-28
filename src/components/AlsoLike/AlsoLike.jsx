@@ -5,7 +5,6 @@ import Products from '@components/Products/Products';
 
 const AlsoLike = ({ root }) => {
   const [products, setProducts] = useState([]);
-  const basePath = '/img/pages/productPage/';
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -34,7 +33,6 @@ const AlsoLike = ({ root }) => {
               products={products}
               root={root}
               extra={false}
-              basePath={basePath}
             />
           </div>
         </div>

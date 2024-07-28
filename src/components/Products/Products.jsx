@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const Products = ({ products, root, basePath, extra = true }) => {
+const Products = ({ products, root, extra = true }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -17,14 +17,14 @@ const Products = ({ products, root, basePath, extra = true }) => {
         )}
         <div className="products__items product">
           {products.map((item) => {
-            const { id, images, title, colors, price } = item;
+            const { id, images, image_path, title, colors, price } = item;
             const imagesParse = JSON.parse(images);
 
             return (
               <div className="product__item" key={id}>
                 <Link to={`/${root}/product/${id}`}>
                   <img
-                    src={`${basePath}${imagesParse[0]}`}
+                    src={`${image_path}${imagesParse[0]}`}
                     alt="product image"
                     className="product__img"
                   />

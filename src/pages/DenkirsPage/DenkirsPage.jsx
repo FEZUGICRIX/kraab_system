@@ -7,7 +7,6 @@ import Singup from '@components/Singup/Singup';
 
 const DenkirsPage = () => {
   const [products, setProducts] = useState([]);
-  const basePath = '/img/pages/denkirs/';
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -35,7 +34,6 @@ const DenkirsPage = () => {
             <Products
               products={products}
               root="valot"
-              basePath={basePath}
             />
           </div>
         </div>

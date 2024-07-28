@@ -7,7 +7,6 @@ import Singup from '@components/Singup/Singup';
 
 const JmPage = () => {
   const [products, setProducts] = useState([]);
-  const basePath = '/img/pages/jm/';
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -53,7 +52,7 @@ const JmPage = () => {
       <section className="products jm">
         <div className="container">
           <div className="product">
-            <Products products={products} root="jm" basePath={basePath} />
+            <Products products={products} root="jm" />
           </div>
         </div>
       </section>

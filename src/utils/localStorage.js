@@ -1,34 +1,30 @@
+// utils/localStorage.js
 export const getLocalStorage = (key) => {
-  const data = localStorage.getItem(key);
-  return data ? JSON.parse(data) : [];
+  try {
+    const storedData = localStorage.getItem(key);
+    return storedData ? JSON.parse(storedData) : [];
+  } catch (error) {
+    console.error('Ошибка при получении данных из Local Storage:', error);
+    return [];
+  }
 };
 
 export const setLocalStorage = (key, data) => {
   try {
-    const existingData = getLocalStorage(key);
-    const hasIndex = existingData.some((item) => item.id === data.id);
-    if (!hasIndex) {
-      localStorage.setItem(key, JSON.stringify(data));
-    }
+    localStorage.setItem(key, JSON.stringify(data));
   } catch (error) {
-    console.error('Ошибка при установке элемента в localStorage:', error);
+    console.error('Ошибка при сохранении данных в Local Storage:', error);
   }
 };
 
-// export const setLocalStorage = (key, data) => {
-// if (data.length === 0) {
-//   setLocalStorage(key, data);
-// }
-
-// const existingData = getLocalStorage(key);
-// const hasIndex = existingData.some((item) => item.id === data.id);
-// if (!hasIndex) {
-//   localStorage.setItem(key, JSON.stringify(data));
-// }
-// };
-
-export const removeLocalStorageItemById = (key, data) => {
-  const items = getLocalStorage(key);
-  const updateItems = items.filter((item) => item.id != data.id);
-  setLocalStorage(key, updateItems);
+export const removeLocalStorageItemById = (key, item) => {
+  try {
+    const items = getLocalStorage(key);
+    const filteredItems = items.filter(
+      (i) => !(i.id === item.id && (item.packages ? i.packages === item.packages : true))
+    );
+    setLocalStorage(key, filteredItems);
+  } catch (error) {
+    console.error('Ошибка при удалении данных из Local Storage:', error);
+  }
 };

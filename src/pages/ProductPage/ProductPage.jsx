@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { getProducts } from '@api/getProducts';
 import Breadcrumbs from '@Breadcrumbs';
+import Snackbar from '@components/Snackbar/Snackbar';
 import AlsoLike from '@components/AlsoLike/AlsoLike';
 import useBasket from '../../hooks/useBasket';
 
@@ -22,8 +23,8 @@ import {
 const ProductPage = ({ source }) => {
   const [product, setProduct] = useState(null);
   const [packages, setPackages] = useState(1);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
   const { id } = useParams();
-  const root = source[source.length - 1];
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -36,7 +37,6 @@ const ProductPage = ({ source }) => {
     };
 
     fetchProduct();
-
     window.scrollTo(0, 0);
   }, [id]);
 
@@ -53,11 +53,13 @@ const ProductPage = ({ source }) => {
       setLocalStorageItems({ id });
     }
     setInBasket(true);
+    setSnackbarMessage('Tuote on lisätty ostoskoriin');
   };
 
   const handleRemoveFromBasket = () => {
     removeLocalStorageItem(id);
     setInBasket(false);
+    setSnackbarMessage('Tuote on poistettu ostoskorista');
   };
 
   if (!product) {
@@ -65,10 +67,10 @@ const ProductPage = ({ source }) => {
   }
 
   const {
-    catalog,
     sku,
     title,
     images,
+    image_path,
     material,
     price,
     length,
@@ -80,15 +82,6 @@ const ProductPage = ({ source }) => {
     quantity,
     packing_volume,
   } = product;
-
-  const basePath = {
-    moduleo_products: '/img/pages/moduleo/',
-    denkirs_products: '/img/pages/denkirs/',
-    kraabmod_products: '/img/pages/kraabmod/',
-    jm_products: '/img/pages/jm/',
-    favorite_products: '/img/pages/favorites/',
-    alsoLike_products: '/img/pages/productPage/',
-  };
 
   const imagesParse = JSON.parse(images);
 
@@ -127,7 +120,7 @@ const ProductPage = ({ source }) => {
                     <div className="image-container">
                       <img
                         className="images__item"
-                        src={`${basePath[catalog]}${img}`}
+                        src={`${image_path}${img}`}
                         alt="product images"
                       />
                     </div>
@@ -348,6 +341,12 @@ const ProductPage = ({ source }) => {
           </div>
         </div>
       </section>
+
+      <Snackbar
+        message={snackbarMessage}
+        duration={40000}
+        onClose={() => setSnackbarMessage('')}
+      />
 
       {/* <AlsoLike root={root} /> */}
     </>

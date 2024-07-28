@@ -6,7 +6,6 @@ import Products from '@components/Products/Products';
 
 const FavoritesPage = () => {
   const [products, setProducts] = useState([]);
-  const basePath = '/img/pages/favorites/';
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -38,7 +37,6 @@ const FavoritesPage = () => {
             <Products
               products={products}
               root="favorites"
-              basePath={basePath}
             />
           </div>
         </div>

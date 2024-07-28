@@ -1,0 +1,61 @@
+.timeline {
+  margin-bottom: clamp(40px, 5vw, 80px);
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    max-width: 650px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Plus Jakarta Sans;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: #999999;
+    svg {
+      opacity: 0.5;
+    }
+  }
+
+  .active {
+    color: #323334;
+    svg {
+      opacity: 1;
+    }
+  }
+
+  &_line {
+    height: 0.5px;
+    width: 65px;
+    background: #333333;
+  }
+
+  @media (max-width: 600px) {
+    &_line {
+      width: 50px;
+    }
+
+    &__item {
+      font-size: 17px;
+    }
+  }
+  @media (max-width: 490px) {
+    &_line {
+      width: 1px;
+      height: 30px;
+    }
+
+    &__container {
+      flex-direction: column;
+      gap: 5px;
+      font-size: 17px;
+    }
+  }
+}

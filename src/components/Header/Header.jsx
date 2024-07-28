@@ -15,7 +15,7 @@ const Header = () => {
           </Link>
           <div className="header__buttons">
             <NavLink
-              to="basket"
+              to="basket/main"
               className="header__button"
               id="basket-img"
             >

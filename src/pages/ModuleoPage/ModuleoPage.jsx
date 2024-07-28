@@ -7,7 +7,6 @@ import Singup from '@components/Singup/Singup';
 
 const ModuleoPage = () => {
   const [products, setProducts] = useState([]);
-  const basePath = '/img/pages/moduleo/';
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -75,7 +74,7 @@ const ModuleoPage = () => {
       <section className="products">
         <div className="container">
           <div className="product">
-            <Products products={products} root="moduleo" basePath={basePath} />
+            <Products products={products} root="moduleo" />
           </div>
         </div>
       </section>

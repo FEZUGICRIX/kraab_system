@@ -137,7 +137,7 @@ https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="basket" className={setActive}>
+                  <NavLink to="basket/main" className={setActive}>
                     Ostoskori
                   </NavLink>
                 </li>
