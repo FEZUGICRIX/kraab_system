@@ -7,7 +7,6 @@ import Singup from '@components/Singup/Singup';
 
 const KraabmodPage = () => {
   const [products, setProducts] = useState([]);
-  const basePath = '/img/pages/kraabmod/';
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -31,7 +30,7 @@ const KraabmodPage = () => {
       <section className="products kraabmod">
         <div className="container">
           <div className="product">
-            <Products products={products} root="kraabmod" basePath={basePath} />
+            <Products products={products} root="kraabmod" />
           </div>
         </div>
       </section>

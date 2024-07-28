@@ -1,0 +1,50 @@
+.details {
+  font-family: Plus Jakarta Sans;
+
+  &__container {
+    padding: clamp(25px, 5vw, 32px);
+    background: #ededed;
+    max-width: 540px;
+    border-radius: 30px;
+  }
+
+  &__title {
+    font-size: clamp(25px, 5vw, 36px);
+    font-weight: 600;
+    line-height: 48px;
+    letter-spacing: 0.02em;
+    color: #333333;
+    margin-bottom: clamp(0px, 5vw, 35px);
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: clamp(20px, 5vw, 40px) 0;
+    border-bottom: 1px solid #333333;
+    margin-bottom: 12px;
+
+    &__item {
+      display: flex;
+      justify-content: space-between;
+      font-size: clamp(19px, 5vw, 24px);
+      font-weight: 500;
+      line-height: 60px;
+      letter-spacing: 0.03em;
+    }
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    font-size: clamp(21px, 5vw, 24px);
+    font-weight: 500;
+  }
+
+  &__total-price {
+    font-size: clamp(25px, 5vw, 35px);
+  }
+}

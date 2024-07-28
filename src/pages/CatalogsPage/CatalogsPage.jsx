@@ -21,7 +21,7 @@ const CatalogsPage = () => {
                   <h1 className="catalog__title">Catalog Gripps - </h1>
                   <a
                     href={catalogGipps}
-                    download="filename.pdf"
+                    download="catalog-gipps.pdf"
                     className="catalog__link"
                   >
                     Lataa PDF
@@ -31,7 +31,7 @@ const CatalogsPage = () => {
                   <h1 className="catalog__title">Catalog Slim - </h1>
                   <a
                     href={catalogSlim}
-                    download="filename.pdf"
+                    download="catalog-slim.pdf"
                     className="catalog__link"
                   >
                     Lataa PDF
@@ -41,7 +41,7 @@ const CatalogsPage = () => {
                   <h1 className="catalog__title">Catalog Umbra - </h1>
                   <a
                     href={catalogUmbra}
-                    download="filename.pdf"
+                    download="catalog-umbra.pdf"
                     className="catalog__link"
                   >
                     Lataa PDF
@@ -53,7 +53,7 @@ const CatalogsPage = () => {
                   <h1 className="catalog__title">Catalog JM - </h1>
                   <a
                     href={catalogJM}
-                    download="filename.pdf"
+                    download="catalog-JM.pdf"
                     className="catalog__link"
                   >
                     Lataa PDF
@@ -63,7 +63,7 @@ const CatalogsPage = () => {
                   <h1 className="catalog__title">Catalog Flor - </h1>
                   <a
                     href={catalogFlor}
-                    download="filename.pdf"
+                    download="catalog-flor.pdf"
                     className="catalog__link"
                   >
                     Lataa PDF
@@ -73,7 +73,7 @@ const CatalogsPage = () => {
                   <h1 className="catalog__title">Catalog Denkirs - </h1>
                   <a
                     href={catalogDenkirs}
-                    download="filename.pdf"
+                    download="catalog-denkirs.pdf"
                     className="catalog__link"
                   >
                     Lataa PDF

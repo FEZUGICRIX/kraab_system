@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import {
   getLocalStorage,
   removeLocalStorageItemById,
@@ -6,49 +6,66 @@ import {
 } from '../utils/localStorage';
 
 const BasketContext = createContext({
-  amount: 0,
+  basketData: {},
+  setBasketData: () => {},
+  basketAmount: 0,
   basketItems: [],
-  setLocalStorageItems: null,
-  removeLocalStorageItem: null,
+  setLocalStorageItems: () => {},
+  removeLocalStorageItem: () => {},
 });
 
 export const BasketContextProvider = ({ children }) => {
-  const [basketItems, setBasketItems] = useState(
-    getLocalStorage('basket') || []
-  );
+  const [basketData, setBasketData] = useState({});
+  const [basketItems, setBasketItems] = useState(() => getLocalStorage('basket') || []);
 
+  // Синхронизация basketItems с Local Storage
+  useEffect(() => {
+    setLocalStorage('basket', basketItems);
+  }, [basketItems]);
+
+  // Функция добавления/обновления элемента в Local Storage
   const setLocalStorageItems = ({ id, packages }) => {
-    const localStorateItems = getLocalStorage('basket');
-    const hasIndex = localStorateItems.some((obj) => obj.id === id);
+    setBasketItems(prevItems => {
+      const updatedItems = [...prevItems];
+      const index = updatedItems.findIndex(item => item.id === id);
 
-    if (!hasIndex) {
-      if (packages) {
-        const updateItems = localStorateItems;
-        updateItems.push({ id, packages });
-        setLocalStorage('basket', updateItems);
-        setBasketItems(getLocalStorage('basket'));
-        return;
+      if (index === -1) {
+        if (packages) {
+          updatedItems.push({ id, packages });
+        } else {
+          updatedItems.push({ id });
+        }
+      } else {
+        if (packages) {
+          updatedItems[index] = { id, packages };
+        } else {
+          updatedItems[index] = { id };
+        }
       }
-      const updateItems = localStorateItems;
-      updateItems.push({ id });
-      setLocalStorage('basket', updateItems);
-      setBasketItems(getLocalStorage('basket'));
-    }
+
+      return updatedItems;
+    });
   };
 
+  // Функция удаления элемента из Local Storage
   const removeLocalStorageItem = (id, packages) => {
-    const item = { id };
-    if (packages) {
-      item.packages = packages;
-    }
+    setBasketItems(prevItems => {
+      const updatedItems = prevItems.filter(item => {
+        if (packages) {
+          return !(item.id === id && item.packages === packages);
+        }
+        return item.id !== id;
+      });
 
-    removeLocalStorageItemById('basket', item);
-    setBasketItems(getLocalStorage('basket'));
+      return updatedItems;
+    });
   };
 
   return (
     <BasketContext.Provider
       value={{
+        basketData,
+        setBasketData,
         basketAmount: basketItems.length,
         basketItems,
         setLocalStorageItems,

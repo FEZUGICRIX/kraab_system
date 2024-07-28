@@ -9,6 +9,11 @@
 @import '../components/Singup/Singup';
 @import '../components/Products/Products';
 @import '../components/AlsoLike/AlsoLike';
+@import '../components/BasketMain/BasketMain';
+@import '../components/BasketCheckout/BasketCheckout';
+@import '../components/BasketPayment/BasketPayment';
+@import '../components/DetailOrder/DetailOrder';
+@import '../components/TimeLine/TimeLine';
 
 // Pages
 @import '../pages/BrandPage//BrandPage';
@@ -29,7 +34,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 #root {
@@ -111,7 +115,7 @@
 }
 
 .white-btn {
-  padding: 16px 0; 
+  padding: 16px 0;
   color: #222;
 
   font-family: Roboto;

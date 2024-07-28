@@ -65,10 +65,10 @@ const ProductPage = ({ source }) => {
   }
 
   const {
-    catalog,
     sku,
     title,
     images,
+    image_path,
     material,
     price,
     length,
@@ -80,15 +80,6 @@ const ProductPage = ({ source }) => {
     quantity,
     packing_volume,
   } = product;
-
-  const basePath = {
-    moduleo_products: '/img/pages/moduleo/',
-    denkirs_products: '/img/pages/denkirs/',
-    kraabmod_products: '/img/pages/kraabmod/',
-    jm_products: '/img/pages/jm/',
-    favorite_products: '/img/pages/favorites/',
-    alsoLike_products: '/img/pages/productPage/',
-  };
 
   const imagesParse = JSON.parse(images);
 
@@ -127,7 +118,7 @@ const ProductPage = ({ source }) => {
                     <div className="image-container">
                       <img
                         className="images__item"
-                        src={`${basePath[catalog]}${img}`}
+                        src={`${image_path}${img}`}
                         alt="product images"
                       />
                     </div>

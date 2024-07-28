@@ -1,12 +1,18 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 // Layout
 import Layout from '@components/Layout';
 
+// Components
+import BasketMain from './components/BasketMain/BasketMain';
+import BasketCheckout from './components/BasketCheckout/BasketCheckout';
+import BasketPayment from './components/BasketPayment/BasketPayment';
+import BasketConfirmation from './components/BasketConfirmation/BasketConfirmation';
+
 // Pages
 import HomePage from './pages/HomePage/HomePage';
 import BrandPage from './pages/BrandPage/BrandPage';
-import CatalogsPage from './pages/CatalogsPage/CatalogsPage'
+import CatalogsPage from './pages/CatalogsPage/CatalogsPage';
 import AboutUsPage from './pages/AboutUsPage/AboutUsPage';
 import ContactUsPage from './pages/ContactUsPage/ContactUsPage';
 import BasketPage from './pages/BasketPage/BasketPage';
@@ -60,7 +66,17 @@ const App = () => {
             element={<ProductPage source={['favorites']} />}
           />
 
-          <Route path="basket" element={<BasketPage />} />
+          <Route
+            path="basket"
+            element={<Navigate to="/basket/main" replace />}
+          />
+          <Route path="basket" element={<BasketPage />}>
+            <Route path="main" element={<BasketMain />} />
+            <Route path="checkout" element={<BasketCheckout />} />
+            <Route path="payment" element={<BasketPayment />} />
+            <Route path="confirmation" element={<BasketConfirmation />} />
+          </Route>
+
           <Route
             path="basket/product/:id"
             element={<ProductPage source={['basket']} />}
