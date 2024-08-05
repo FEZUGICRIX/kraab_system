@@ -1,6 +1,11 @@
 import React from 'react';
 
-const DetailOrder = ({ subtotal, shippingValue, promoCode }) => {
+const DetailOrder = ({
+  subtotal,
+  shippingValue,
+  totalOrderPrice,
+  promoCode,
+}) => {
   return (
     <div className="details">
       <div className="details__container">
@@ -22,10 +27,13 @@ const DetailOrder = ({ subtotal, shippingValue, promoCode }) => {
         </div>
 
         <div className="basket__hint">Ilmainen toimitus alkaen 500€</div>
-        
+
         <div className="details__total">
           <span>Yhteensä:</span>
-          <span className="details__total-price">{(Number(subtotal) + shippingValue).toFixed(2)}€</span>
+          <span className="details__total-price">
+            {' '}
+            {totalOrderPrice && <span>{totalOrderPrice / 100} </span>}€
+          </span>
         </div>
       </div>
     </div>

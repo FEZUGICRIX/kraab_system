@@ -10,6 +10,7 @@ const BasketMain = () => {
     basketItemsMap,
     totalPrice,
     shippingValue,
+    totalOrderPrice,
   } = useBasketCalculations();
   const [promoCode, setPromoCode] = useState('');
   const navigate = useNavigate();
@@ -112,7 +113,7 @@ const BasketMain = () => {
               <span>Yhteensä</span>
               <div className="line"></div>
               <div>
-                {totalPrice.toFixed(2)} <span className="euro">€</span>
+                {totalPrice} <span className="euro">€</span>
               </div>
             </div>
           </div>
@@ -159,7 +160,9 @@ const BasketMain = () => {
                 <div className="order__total">
                   <span>Yhteensä:</span>
                   <span>
-                    {(totalPrice + shippingValue).toFixed(2)}{' '}
+                    {totalOrderPrice && (
+                      <span>{totalOrderPrice / 100} </span>
+                    )}
                     <span className="euro">€</span>
                   </span>
                 </div>

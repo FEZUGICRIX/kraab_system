@@ -7,7 +7,7 @@ import TimeLine from '../TimeLine/TimeLine';
 import { getFormattedDate } from '../../utils/getFormattedDate';
 
 const BasketCheckout = () => {
-  const { totalPrice, shippingValue, basketItems } =
+  const { totalPrice, shippingValue, totalOrderPrice, basketItems } =
     useBasketCalculations();
   const [formData, setFormData] = useState({
     fullName: '',
@@ -53,6 +53,7 @@ const BasketCheckout = () => {
           <DetailOrder
             subtotal={totalPrice}
             shippingValue={shippingValue}
+            totalOrderPrice={totalOrderPrice}
           />
 
           <div className="checkout__information information">
