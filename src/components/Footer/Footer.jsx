@@ -1,32 +1,27 @@
-import { NavLink } from 'react-router-dom';
-
 const Footer = () => {
-  const setActive = ({ isActive }) => (isActive ? 'active-link' : '');
-
   return (
     <footer className="footer">
-      <div className="footer__container container">
-        <div className="footer__main">
-          <div className="footer__info">
-            <h3 className="footer__title">KRAAB_SYSTEM</h3>
-
-            <div className="footer__info-text">
-              Toteutamme unelmasi kauniissa tiloissa!
+      <div className="container">
+        <div className="footer__container">
+          <div className="footer__info info">
+            <div className="info__logo">
+              <img src="/img/components/footer/logo.png" alt="logo" />
             </div>
-            <div className="footer__info-info">
-              <div className="footer__info-address">
+
+            <div className="info__info">
+              <h5 className="info__subtitle">Scandic Kraab Oy</h5>
+              <div className="info__company-id">Y-tunnus 3443234-6</div>
+              <address className="info__address">
                 Veteraanintie 2, 06100 Porvoo, Finland
-              </div>
-              <a href=" tel:+358452525100">+358 45 2525100</a>
-              <a href="mailto:info@kraabmod.fi">info@kraabmod.fi</a>
+              </address>
             </div>
 
-            <div className="footer__info-social">
+            <div className="info__social">
               {/* facebook */}
               <a href="https://www.facebook.com/kraabmod.fin">
                 <svg
-                  width="10"
-                  height="20"
+                  width="15"
+                  height="30"
                   viewBox="0 0 10 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -37,29 +32,14 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              {/* twitter */}
-              <a href="#">
-                <svg
-                  width="21"
-                  height="20"
-                  viewBox="0 0 21 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.2876 4.93536C17.6921 5.19154 17.0441 5.37591 16.3765 5.44771C17.0696 5.03713 17.5886 4.38847 17.8361 3.62343C17.1858 4.00923 16.4734 4.27975 15.7304 4.42301C15.4199 4.09198 15.0444 3.82826 14.6272 3.64829C14.21 3.46832 13.7601 3.37596 13.3056 3.37696C11.4665 3.37696 9.98744 4.86356 9.98744 6.68784C9.98744 6.94401 10.0186 7.20019 10.0692 7.44666C7.31542 7.30305 4.85942 5.99112 3.22663 3.98247C2.92912 4.48922 2.77321 5.06622 2.77513 5.65343C2.77513 6.80234 3.36092 7.8154 4.25418 8.4112C3.72777 8.39053 3.21368 8.24624 2.75373 7.99006V8.03082C2.75373 9.63968 3.89415 10.973 5.41407 11.2796C5.12869 11.3535 4.83511 11.3913 4.54026 11.3922C4.32424 11.3922 4.1199 11.3708 3.91361 11.3417C4.33397 12.6536 5.55808 13.6065 7.01572 13.6376C5.8753 14.5284 4.44685 15.0524 2.89579 15.0524C2.6175 15.0524 2.36061 15.0427 2.09399 15.0116C3.56526 15.9529 5.31092 16.4963 7.19087 16.4963C13.2939 16.4963 16.6334 11.4543 16.6334 7.07792C16.6334 6.93431 16.6334 6.7907 16.6237 6.64708C17.2698 6.17549 17.8361 5.59133 18.2876 4.93536Z"
-                    fill="white"
-                  />
-                </svg>
-              </a>
               {/* instagram */}
               <a
                 href="
 https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
               >
                 <svg
-                  width="21"
-                  height="20"
+                  width="31"
+                  height="30"
                   viewBox="0 0 21 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -73,8 +53,8 @@ https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
               {/* youtube */}
               <a href="https://www.youtube.com/watch?v=NyBBkh2iEBw">
                 <svg
-                  width="21"
-                  height="20"
+                  width="31"
+                  height="30"
                   viewBox="0 0 21 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -100,8 +80,8 @@ https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
                   <defs>
                     <clipPath id="clip0_434_2506">
                       <rect
-                        width="19.9282"
-                        height="19.873"
+                        width="30"
+                        height="30"
                         fill="white"
                         transform="translate(0.73877)"
                       />
@@ -112,52 +92,14 @@ https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
             </div>
           </div>
 
-          <div className="footer__links">
-            <div className="link">
-              <div className="link__title">SHOPPAILU</div>
-              <ul className="link__list">
-                <li>
-                  <a href="#" className="link__item">
-                    Seuranta
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="link__item">
-                    Arvostelut
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="link">
-              <div className="link__title">LISÄÄ LINKKI</div>
-              <ul className="link__list">
-                <li>
-                  <NavLink to="catalogs" className={setActive}>
-                    Luettelot
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="basket/main" className={setActive}>
-                    Ostoskori
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="favorites" className={setActive}>
-                    Suosikit
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="about-us" className={setActive}>
-                    Tietoa meistä
-                  </NavLink>
-                </li>
-              </ul>
+          <div className="footer__banner banner">
+            <h4 className="banner__titie">
+              TOIMITUS KOKO SUOMEN ALUEELLE
+            </h4>
+            <div className="banner__banner">
+              <img src="/img/components/footer/banner.jpg" alt="banner" />
             </div>
           </div>
-        </div>
-
-        <div className="footer__right">
-          KRAAB_SYSTEM © – All rights reserved
         </div>
       </div>
     </footer>

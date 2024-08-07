@@ -49,7 +49,9 @@ const ContactUsPage = () => {
                   </clipPath>
                 </defs>
               </svg>
-              <span>Veteraanintie 2, 06100 Porvoo, Finland</span>
+              <address>
+                Veteraanintie 2, 06100 <br /> Porvoo, Finland
+              </address>
             </div>
           </div>
         </div>
