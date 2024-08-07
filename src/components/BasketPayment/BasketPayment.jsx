@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
-import { getProducts } from '@api/getProducts';
+import { revolutPayment } from '../../api/revolutPayment';
 import { getFormattedDate } from '../../utils/getFormattedDate';
 import { useBasketCalculations } from '../../hooks/useBasketCalculations';
 import DetailOrder from '../DetailOrder/DetailOrder';
@@ -53,26 +52,21 @@ const BasketPayment = () => {
     };
 
     try {
+      if (!selectedMethod) {
+        return;
+      }
+
       if (selectedMethod === 'revolut') {
-        const response = await axios.post(
-          'https://kraabmod.fi/api/revolut_payment.php',
-          {
-            amount: totalOrderPrice,
-            currency: 'EUR',
-            return_url: 'https://kraabmod.fi/basket/confirmation',
-          }
-        );
-        window.location.href = response.data.checkout_url;
+        await revolutPayment({
+          amount: totalOrderPrice,
+          currency: 'EUR',
+          redirect_url: 'https://kraabmod.fi/basket/confirmation',
+        });
       } else if (selectedMethod === 'stripe') {
-        return 
+        return;
       }
     } catch (error) {
       console.error(error);
-    } finally {
-      const response = await getProducts({
-        type: 'send_order',
-        orderData: orderDataToSend,
-      });
     }
   };
 
@@ -174,7 +168,6 @@ const BasketPayment = () => {
                     name="payment-method"
                     value="stripe"
                     onChange={() => setSelectedMethod('stripe')}
-                    // disabled={true}
                   />
                   <div className="method__info">
                     <img
@@ -189,7 +182,11 @@ const BasketPayment = () => {
             </div>
           </div>
 
-          <button className="black-btn" onClick={handlePayment}>
+          <button
+            disabled={totalPrice == 0}
+            className="black-btn"
+            onClick={handlePayment}
+          >
             Jatka maksamista
           </button>
         </div>

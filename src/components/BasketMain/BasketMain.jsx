@@ -142,13 +142,15 @@ const BasketMain = () => {
                 <div className="order__value">
                   <span>Tilauksen arvo:</span>
                   <span>
-                    {orderValue.toFixed(2)} <span className="euro">€</span>
+                    {!isNaN(orderValue) && orderValue.toFixed(2)}{' '}
+                    <span className="euro">€</span>
                   </span>
                 </div>
                 <div className="order__tax">
                   <span>ALV:</span>
                   <span>
-                    {tax.toFixed(2)} <span className="euro">€</span>
+                    {!isNaN(tax) && tax.toFixed(2)}{' '}
+                    <span className="euro">€</span>
                   </span>
                 </div>
                 <div className="order__shipping">
@@ -169,7 +171,11 @@ const BasketMain = () => {
               </div>
             </div>
 
-            <button className="checkout" onClick={handleCheckout}>
+            <button
+              disabled={totalPrice == 0}
+              className="checkout"
+              onClick={handleCheckout}
+            >
               Jatka kassalle
             </button>
           </div>

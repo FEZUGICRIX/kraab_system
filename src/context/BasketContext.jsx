@@ -1,9 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import {
-  getLocalStorage,
-  removeLocalStorageItemById,
-  setLocalStorage,
-} from '../utils/localStorage';
+import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 
 const BasketContext = createContext({
   basketData: {},
@@ -16,7 +12,9 @@ const BasketContext = createContext({
 
 export const BasketContextProvider = ({ children }) => {
   const [basketData, setBasketData] = useState({});
-  const [basketItems, setBasketItems] = useState(() => getLocalStorage('basket') || []);
+  const [basketItems, setBasketItems] = useState(
+    () => getLocalStorage('basket') || []
+  );
 
   // Синхронизация basketItems с Local Storage
   useEffect(() => {
@@ -25,9 +23,9 @@ export const BasketContextProvider = ({ children }) => {
 
   // Функция добавления/обновления элемента в Local Storage
   const setLocalStorageItems = ({ id, packages }) => {
-    setBasketItems(prevItems => {
+    setBasketItems((prevItems) => {
       const updatedItems = [...prevItems];
-      const index = updatedItems.findIndex(item => item.id === id);
+      const index = updatedItems.findIndex((item) => item.id === id);
 
       if (index === -1) {
         if (packages) {
@@ -49,8 +47,8 @@ export const BasketContextProvider = ({ children }) => {
 
   // Функция удаления элемента из Local Storage
   const removeLocalStorageItem = (id, packages) => {
-    setBasketItems(prevItems => {
-      const updatedItems = prevItems.filter(item => {
+    setBasketItems((prevItems) => {
+      const updatedItems = prevItems.filter((item) => {
         if (packages) {
           return !(item.id === id && item.packages === packages);
         }
@@ -70,6 +68,7 @@ export const BasketContextProvider = ({ children }) => {
         basketItems,
         setLocalStorageItems,
         removeLocalStorageItem,
+        setBasketItems,
       }}
     >
       {children}
