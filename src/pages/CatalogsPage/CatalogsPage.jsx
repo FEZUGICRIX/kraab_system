@@ -5,85 +5,79 @@ import catalogSlim from '../../pdf/Catalog_SLIM27_(EN).pdf';
 import catalogUmbra from '../../pdf/TechMap_UMBRA(EN).pdf';
 import catalogJM from '../../pdf/catalog-JM_compressed (1).pdf';
 import catalogFlor from '../../pdf/Flor catalog.pdf';
-import catalogDenkirs from '../../pdf/Catalog DENKIRS (1) (1).pdf';
+import gallery from '../../pdf/gallery.pdf';
 
 const CatalogsPage = () => {
   return (
     <>
       <Breadcrumbs pageTitle="luettelot" />
 
-      <section className="blog">
+      <section className="catalogs">
         <div className="container">
-          <div className="blog__container">
-            <div className="blog__catalog catalog">
-              <div className="catalog__block">
-                <div className="catalog__item">
-                  <h1 className="catalog__title">Catalog Gripps - </h1>
-                  <a
-                    href={catalogGipps}
-                    download="catalog-gipps.pdf"
-                    className="catalog__link"
-                  >
-                    Lataa PDF
-                  </a>
-                </div>
-                <div className="catalog__item">
-                  <h1 className="catalog__title">Catalog Slim - </h1>
-                  <a
-                    href={catalogSlim}
-                    download="catalog-slim.pdf"
-                    className="catalog__link"
-                  >
-                    Lataa PDF
-                  </a>
-                </div>
-                <div className="catalog__item">
-                  <h1 className="catalog__title">Catalog Umbra - </h1>
-                  <a
-                    href={catalogUmbra}
-                    download="catalog-umbra.pdf"
-                    className="catalog__link"
-                  >
-                    Lataa PDF
-                  </a>
-                </div>
+          <div className="catalogs__container">
+            <div className="catalogs__catalog catalogs">
+              <div className="catalogs__item">
+                <h1 className="catalogs__title">Catalog Gripps - </h1>
+                <a
+                  href={catalogGipps}
+                  download="catalogs-gipps.pdf"
+                  className="catalogs__link"
+                >
+                  Lataa PDF
+                </a>
               </div>
-              <div className="catalog__block">
-                <div className="catalog__item">
-                  <h1 className="catalog__title">Catalog JM - </h1>
-                  <a
-                    href={catalogJM}
-                    download="catalog-JM.pdf"
-                    className="catalog__link"
-                  >
-                    Lataa PDF
-                  </a>
-                </div>
-                <div className="catalog__item">
-                  <h1 className="catalog__title">Catalog Flor - </h1>
-                  <a
-                    href={catalogFlor}
-                    download="catalog-flor.pdf"
-                    className="catalog__link"
-                  >
-                    Lataa PDF
-                  </a>
-                </div>
-                <div className="catalog__item">
-                  <h1 className="catalog__title">Catalog Denkirs - </h1>
-                  <a
-                    href={catalogDenkirs}
-                    download="catalog-denkirs.pdf"
-                    className="catalog__link"
-                  >
-                    Lataa PDF
-                  </a>
-                </div>
+              <div className="catalogs__item">
+                <h1 className="catalogs__title">Catalog Slim - </h1>
+                <a
+                  href={catalogSlim}
+                  download="catalogs-slim.pdf"
+                  className="catalogs__link"
+                >
+                  Lataa PDF
+                </a>
+              </div>
+              <div className="catalogs__item">
+                <h1 className="catalogs__title">Catalog Umbra - </h1>
+                <a
+                  href={catalogUmbra}
+                  download="catalogs-umbra.pdf"
+                  className="catalogs__link"
+                >
+                  Lataa PDF
+                </a>
+              </div>
+              <div className="catalogs__item">
+                <h1 className="catalogs__title">Catalog JM - </h1>
+                <a
+                  href={catalogJM}
+                  download="catalogs-JM.pdf"
+                  className="catalogs__link"
+                >
+                  Lataa PDF
+                </a>
+              </div>
+              <div className="catalogs__item">
+                <h1 className="catalogs__title">Catalog Flor - </h1>
+                <a
+                  href={catalogFlor}
+                  download="catalogs-flor.pdf"
+                  className="catalogs__link"
+                >
+                  Lataa PDF
+                </a>
+              </div>
+              <div className="catalogs__item">
+                <h1 className="catalogs__title">Kuvaston sisältö - </h1>
+                <a
+                  href={gallery}
+                  download="gallery.pdf"
+                  className="catalogs__link"
+                >
+                  Lataa PDF
+                </a>
               </div>
             </div>
           </div>
-
-          {/* <embed src={catalogPdf} width="100%" height="500px" /> */}
         </div>
       </section>
     </>

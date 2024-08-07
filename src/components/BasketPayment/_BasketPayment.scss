@@ -83,6 +83,50 @@
   }
 }
 
+.method {
+  font-family: Plus Jakarta Sans;
+  margin-bottom: 30px;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+  }
+
+  &__title {
+    font-size: clamp(24px, 5vw, 28px);
+    font-weight: 600;
+  }
+
+  &__choosing {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+  }
+
+  &__item-title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  &__img {
+    width: 40px;
+  }
+}
+
 .black-btn {
   padding: 15px !important;
 }

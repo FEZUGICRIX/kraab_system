@@ -10,6 +10,7 @@ const BasketMain = () => {
     basketItemsMap,
     totalPrice,
     shippingValue,
+    totalOrderPrice,
   } = useBasketCalculations();
   const [promoCode, setPromoCode] = useState('');
   const navigate = useNavigate();
@@ -112,7 +113,7 @@ const BasketMain = () => {
               <span>Yhteensä</span>
               <div className="line"></div>
               <div>
-                {totalPrice.toFixed(2)} <span className="euro">€</span>
+                {totalPrice} <span className="euro">€</span>
               </div>
             </div>
           </div>
@@ -141,13 +142,15 @@ const BasketMain = () => {
                 <div className="order__value">
                   <span>Tilauksen arvo:</span>
                   <span>
-                    {orderValue.toFixed(2)} <span className="euro">€</span>
+                    {!isNaN(orderValue) && orderValue.toFixed(2)}{' '}
+                    <span className="euro">€</span>
                   </span>
                 </div>
                 <div className="order__tax">
                   <span>ALV:</span>
                   <span>
-                    {tax.toFixed(2)} <span className="euro">€</span>
+                    {!isNaN(tax) && tax.toFixed(2)}{' '}
+                    <span className="euro">€</span>
                   </span>
                 </div>
                 <div className="order__shipping">
@@ -159,14 +162,20 @@ const BasketMain = () => {
                 <div className="order__total">
                   <span>Yhteensä:</span>
                   <span>
-                    {(totalPrice + shippingValue).toFixed(2)}{' '}
+                    {totalOrderPrice && (
+                      <span>{totalOrderPrice / 100} </span>
+                    )}
                     <span className="euro">€</span>
                   </span>
                 </div>
               </div>
             </div>
 
-            <button className="checkout" onClick={handleCheckout}>
+            <button
+              disabled={totalPrice == 0}
+              className="checkout"
+              onClick={handleCheckout}
+            >
               Jatka kassalle
             </button>
           </div>

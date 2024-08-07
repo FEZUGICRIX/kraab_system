@@ -1,5 +1,6 @@
 .snackbar {
   position: fixed;
+  z-index: 10;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -20,13 +21,13 @@
   &.enter {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(-20px);
   }
 
   &.exit {
     opacity: 0;
     visibility: hidden;
-    transform: translateX(-50%) translateY(100%);
+    transform: translateX(-50%) translateY(0);
   }
 
   .snackbar-message {

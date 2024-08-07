@@ -344,7 +344,7 @@ const ProductPage = ({ source }) => {
 
       <Snackbar
         message={snackbarMessage}
-        duration={40000}
+        duration={2000}
         onClose={() => setSnackbarMessage('')}
       />
 

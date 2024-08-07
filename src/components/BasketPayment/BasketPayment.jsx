@@ -1,14 +1,22 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { getProducts } from '@api/getProducts';
+import { revolutPayment } from '../../api/revolutPayment';
 import { getFormattedDate } from '../../utils/getFormattedDate';
 import { useBasketCalculations } from '../../hooks/useBasketCalculations';
 import DetailOrder from '../DetailOrder/DetailOrder';
 import TimeLine from '../TimeLine/TimeLine';
 
 const BasketPayment = () => {
-  const { basketProducts, basketItemsMap, totalPrice, shippingValue } =
-    useBasketCalculations();
+  const [selectedMethod, setSelectedMethod] = useState('');
+  const {
+    basketProducts,
+    basketItemsMap,
+    totalPrice,
+    shippingValue,
+    totalOrderPrice,
+  } = useBasketCalculations();
+
   const navigate = useNavigate();
 
   const handlePayment = async () => {
@@ -44,14 +52,21 @@ const BasketPayment = () => {
     };
 
     try {
-      const response = await getProducts({
-        type: 'send_order',
-        orderData: orderDataToSend,
-      });
+      if (!selectedMethod) {
+        return;
+      }
 
-      navigate('/basket/payment');
+      if (selectedMethod === 'revolut') {
+        await revolutPayment({
+          amount: totalOrderPrice,
+          currency: 'EUR',
+          redirect_url: 'https://kraabmod.fi/basket/confirmation',
+        });
+      } else if (selectedMethod === 'stripe') {
+        return;
+      }
     } catch (error) {
-      console.error('Ошибка при отправке заказа:', error);
+      console.error(error);
     }
   };
 
@@ -70,6 +85,7 @@ const BasketPayment = () => {
             <DetailOrder
               subtotal={totalPrice}
               shippingValue={shippingValue}
+              totalOrderPrice={totalOrderPrice}
             />
 
             <div className="payment__details">
@@ -123,7 +139,54 @@ const BasketPayment = () => {
             </div>
           </div>
 
-          <button className="black-btn" onClick={handlePayment}>
+          <div className="method">
+            <div className="method__container">
+              <h3 className="method__title">Valitse maksutapa:</h3>
+
+              <div className="method__choosing">
+                <label className="method__item">
+                  <input
+                    type="radio"
+                    id="revolut"
+                    name="payment-method"
+                    value="revolut"
+                    onChange={() => setSelectedMethod('revolut')}
+                  />
+                  <div className="method__info">
+                    <img
+                      className="method__img"
+                      src="https://assets.revolut.com/assets/favicons/safari-pinned-tab.svg"
+                      alt="payment method image"
+                    />
+                    <h5 className="method__item-title">Revolut</h5>
+                  </div>
+                </label>
+                <label className="method__item">
+                  <input
+                    type="radio"
+                    id="stripe"
+                    name="payment-method"
+                    value="stripe"
+                    onChange={() => setSelectedMethod('stripe')}
+                  />
+                  <div className="method__info">
+                    <img
+                      className="method__img"
+                      src="https://assets.ctfassets.net/fzn2n1nzq965/01hMKr6nEEGVfOuhsaMIXQ/c424849423b5f036a8892afa09ac38c7/favicon.ico"
+                      alt="payment method image"
+                    />
+                    <h5 className="method__item-title">Stripe</h5>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <button
+            disabled={totalPrice == 0}
+            className="black-btn"
+            onClick={handlePayment}
+          >
             Jatka maksamista
           </button>
         </div>
