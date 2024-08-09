@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { revolutPayment } from '../../api/revolutPayment';
 import { getFormattedDate } from '../../utils/getFormattedDate';
 import { useBasketCalculations } from '../../hooks/useBasketCalculations';
 import DetailOrder from '../DetailOrder/DetailOrder';
 import TimeLine from '../TimeLine/TimeLine';
+import { stripePayment } from '../../api/stripePayment';
 
 const BasketPayment = () => {
   const [selectedMethod, setSelectedMethod] = useState('');
@@ -16,8 +16,6 @@ const BasketPayment = () => {
     shippingValue,
     totalOrderPrice,
   } = useBasketCalculations();
-
-  const navigate = useNavigate();
 
   const handlePayment = async () => {
     const orderDataRaw = localStorage.getItem('orderData');
@@ -63,7 +61,11 @@ const BasketPayment = () => {
           redirect_url: 'https://kraabmod.fi/basket/confirmation',
         });
       } else if (selectedMethod === 'stripe') {
-        return;
+        await stripePayment({
+          amount: totalOrderPrice,
+          successUrl: 'https://kraabmod.fi/basket/confirmation',
+        });
+        
       }
     } catch (error) {
       console.error(error);
