@@ -15,6 +15,7 @@ export const revolutPayment = async ({
     });
     localStorage.removeItem('payment_id');
     localStorage.setItem('payment_id', response.data.id);
+    localStorage.setItem('payment_method', 'revolut');
 
     window.location.href = response.data.checkout_url;
   } catch (error) {
