@@ -1,36 +1,16 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { getProducts } from '@api/getProducts';
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 
 import CardSwiper from '@components/CardSwiper/CardSwiper';
 import Singup from '@components/Singup/Singup';
+import Modal from '../../components/Modal/Modal';
 
 const HomePage = () => {
-  const [newsProducts, setNewsProducts] = useState([]);
-
-  useEffect(() => {
-    const fetchBasketProducts = async () => {
-      try {
-        const promises = [306, 405, 507].map(async (id) => {
-          const product = await getProducts({ type: 'get_product', id });
-          return product;
-        });
-
-        const products = await Promise.all(promises);
-        const filteredProducts = products.filter(
-          (product) => product !== null
-        );
-        setNewsProducts(filteredProducts);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchBasketProducts();
-  }, []);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <>
@@ -68,7 +48,7 @@ const HomePage = () => {
 
       <section className="about">
         <div className="about__container container">
-          <h1 className="about__title home-page-title">meistä</h1>
+          <h2 className="about__title title">meistä</h2>
 
           <div className="about__content">
             <div className="about__item">
@@ -88,81 +68,243 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="news">
-        <div className="news__container container">
-          <h1 className="news__title home-page-title">UUTISIA</h1>
-          <div className="news__swiper">
-            <Swiper
-              spaceBetween={30}
-              slidesPerView={3}
-              breakpoints={{
-                1300: {
-                  slidesPerView: 2,
-                  centeredSlides: false,
-                },
-                1280: {
-                  slidesPerView: 2,
-                  centeredSlides: false,
-                },
-                1105: {
-                  slidesPerView: 1,
-                },
-                500: {
-                  slidesPerView: 1,
-                },
-                0: {
-                  slidesPerView: 1,
-                },
-              }}
-              autoplay={{
-                delay: 1500,
-                disableOnInteraction: false,
-              }}
-              modules={[Autoplay]}
-              className="mySwiper"
-            >
-              <div className="news__items">
-                {newsProducts.map((item) => {
-                  const catalogMap = {
-                    306: 'valot',
-                    405: 'kraabmod',
-                    507: 'jm',
-                  };
+      <section className="cards">
+        <div className="container">
+          <Swiper
+            spaceBetween={30}
+            slidesPerView={2}
+            breakpoints={{
+              1075: {
+                slidesPerView: 3,
+              },
+              655: {
+                slidesPerView: 2,
+              },
+              0: {
+                slidesPerView: 1,
+              },
+            }}
+            autoplay={{
+              delay: 10000,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
+            className="mySwiper"
+          >
+            <div className="cards__container">
+              <SwiperSlide>
+                <div className="item">
+                  <img
+                    src="/img/pages/home/system_integration.png"
+                    alt="card img"
+                    className="item__img"
+                  />
+                  <div className="item__content">
+                    <h5 className="item__title">
+                      RAITOJEN INTEGROINTI JÄRJESTELMÄT
+                    </h5>
 
-                  const basePate = {
-                    306: '/img/pages/denkirs/',
-                    405: '/img/pages/kraabmod/',
-                    507: '/img/pages/jm/',
-                  };
+                    <p className="item__description">
+                      Raadin integrointijärjestelmä mahdollistaa
+                      monimutkaisten valaistusratkaisujen toteuttamisen
+                      asuin- ja liiketiloissa. Se piilottaa muoviosat
+                      (sovittimet, liittimet jne.) ja luo minimalistisen
+                      muotoilun.
+                    </p>
 
-                  const imagesParse = JSON.parse(item.images);
-                  const catalog = catalogMap[item.id] || '';
+                    <div className="item__images">
+                      <img
+                        src="/img/pages/home/system_integration01.png"
+                        alt="mini-img"
+                      />
+                      <img
+                        src="/img/pages/home/system_integration02.png"
+                        alt="mini-img"
+                      />
+                      <img
+                        src="/img/pages/home/system_integration03.png"
+                        alt="mini-img"
+                      />
+                      <img
+                        src="/img/pages/home/system_integration04.png"
+                        alt="mini-img"
+                      />
+                    </div>
 
-                  return (
-                    <SwiperSlide key={item.id}>
-                      <div className="news__item">
-                        <Link to={`${catalog}/product/${item.id}`}>
-                          <img
-                            src={`${basePate[item.id]}${imagesParse[0]}`}
-                            alt="product image"
-                            className="news__item-img"
-                          />
-                        </Link>
-                        <div className="news__item-title">
-                          <Link to={`${catalog}/product/${item.id}`}>
-                            {item.title}
-                          </Link>
-                        </div>
-                        <div className="news__price">{item.price}€</div>
-                      </div>
-                    </SwiperSlide>
-                  );
-                })}
-              </div>
-            </Swiper>
-          </div>
+                    <button className="cards__order" onClick={openModal}>
+                      Ota yhteyttä as
+                    </button>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="item">
+                  <img
+                    src="/img/pages/home/baseboard.png"
+                    alt="card img"
+                    className="item__img"
+                  />
+                  <div className="item__content">
+                    <h5 className="item__title">VARJO JALKALISTAT</h5>
+
+                    <div className="item__description">
+                      Piilolista yhdistää lattian ja seinien värit,
+                      tasoittaen siirtymät, vaikka pinnat olisivat
+                      epätasaiset. Tämä on erinomainen ratkaisu piilossa
+                      oleville oville. Lisäksi piilotettu lista
+                      mahdollistaa huonekalujen asettamisen aivan seinää
+                      vasten ilman esteitä.
+                    </div>
+
+                    <div className="item__images">
+                      <img
+                        src="/img/pages/home/baseboard01.png"
+                        alt="mini-img"
+                      />
+                      <img
+                        src="/img/pages/home/baseboard02.png"
+                        alt="mini-img"
+                      />
+                    </div>
+
+                    <button className="cards__order" onClick={openModal}>
+                      Ota yhteyttä as
+                    </button>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="item">
+                  <img
+                    src="/img/pages/home/window.png"
+                    alt="card img"
+                    className="item__img"
+                  />
+                  <div className="item__content">
+                    <h5 className="item__title">VAALET IKKUNAT</h5>
+
+                    <div className="item__description">
+                      Valoaukko on kangasvenytetyn katon valaiseva osa,
+                      joka muotoillaan halutusti. Se laajentaa tilan tuntua
+                      ja voi olla eri muotoisia ja kokoisia. Valoaukot
+                      voivat olla suorakulmioita, ympyröitä, soikeita jne.,
+                      ja niissä käytetään kangasta tai PVC-materiaalia.
+                    </div>
+
+                    <div className="item__images">
+                      <img
+                        src="/img/pages/home/window01.png"
+                        alt="mini-img"
+                      />
+                      <img
+                        src="/img/pages/home/window02.png"
+                        alt="mini-img"
+                      />
+                      <img
+                        src="/img/pages/home/window03.png"
+                        alt="mini-img"
+                      />
+                    </div>
+
+                    <button className="cards__order" onClick={openModal}>
+                      Ota yhteyttä as
+                    </button>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="item">
+                  <img
+                    src="/img/pages/home/ceiling.png"
+                    alt="card img"
+                    className="item__img"
+                  />
+                  <div className="item__content">
+                    <h5 className="item__title">kelluva katto</h5>
+
+                    <div className="item__description">
+                      Leijuvan katon efekti saavutetaan LED-nauhalla katon
+                      reunoilla. Säädettävä etäisyys seinästä luo pehmeää
+                      valoa, joka piilottaa epätasaisuudet. SLOTT VILLAR
+                      MINI -profiili on itsestään tukeva, vakioetäisyys 25
+                      mm, ja hajotin tuottaa tasaisen valon.
+                    </div>
+
+                    <div className="item__images">
+                      <img
+                        src="/img/pages/home/ceiling01.png"
+                        alt="mini-img"
+                      />
+                      <img
+                        src="/img/pages/home/ceiling02.png"
+                        alt="mini-img"
+                      />
+                      <img
+                        src="/img/pages/home/ceiling03.png"
+                        alt="mini-img"
+                      />
+                      <img
+                        src="/img/pages/home/ceiling04.png"
+                        alt="mini-img"
+                      />
+                    </div>
+
+                    <button className="cards__order" onClick={openModal}>
+                      Ota yhteyttä as
+                    </button>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="item">
+                  <img
+                    src="/img/pages/home/shadow_ceiling.png"
+                    alt="card img"
+                    className="item__img"
+                  />
+                  <div className="item__content">
+                    <h5 className="item__title">VARJOKATTO</h5>
+
+                    <div className="item__description">
+                      Varjokatto ei kosketa seiniä ja luo selkeän
+                      varjoviivan. Se sopii sekä sileille että
+                      teksturoiduille seinille ja poistaa peittävän nauhan
+                      tarpeen. Kankaan ja seinän rako luo vaikutelman, että
+                      katto ei kosketa pintoja, ja musta profiili piilottaa
+                      järjestelmän osat.
+                    </div>
+
+                    <div className="item__images">
+                      <img
+                        src="/img/pages/home/shadow_ceiling01.png"
+                        alt="mini-img"
+                      />
+                      <img
+                        src="/img/pages/home/shadow_ceiling02.png"
+                        alt="mini-img"
+                      />
+                      <img
+                        src="/img/pages/home/shadow_ceiling03.png"
+                        alt="mini-img"
+                      />
+                      <img
+                        src="/img/pages/home/shadow_ceiling04.png"
+                        alt="mini-img"
+                      />
+                    </div>
+
+                    <button className="cards__order" onClick={openModal}>
+                      Ota yhteyttä as
+                    </button>
+                  </div>
+                </div>
+              </SwiperSlide>
+            </div>
+          </Swiper>
         </div>
       </section>
+
+      <Modal isOpen={isModalOpen} onClose={closeModal} />
 
       <Singup />
     </>

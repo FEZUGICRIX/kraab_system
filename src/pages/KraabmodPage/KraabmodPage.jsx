@@ -26,11 +26,11 @@ const KraabmodPage = () => {
 
   return (
     <>
-      <Breadcrumbs pageTitle="Kraabmod" previousPages={['brand']} />
+      <Breadcrumbs pageTitle="Kraab Slim" previousPages={['brand']} />
       <section className="products kraabmod">
         <div className="container">
           <div className="product">
-            <Products products={products} root="kraabmod" />
+            <Products products={products} root="kraab-slim" />
           </div>
         </div>
       </section>

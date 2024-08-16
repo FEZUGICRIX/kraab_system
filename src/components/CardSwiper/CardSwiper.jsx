@@ -8,9 +8,9 @@ const CardSwiper = () => {
   return (
     <section className="project">
       <div className="project__container container">
-        <h1 className="project__title title home-page-title">
+        <h2 className="project__title title">
           Projektiisi keskitytään parhaillaan
-        </h1>
+        </h2>
 
         <div className="card">
           <Swiper
@@ -38,10 +38,10 @@ const CardSwiper = () => {
               },
             }}
             autoplay={{
-              delay: 1500,
-              disableOnInteraction: false,
+              // delay: 1500,
+              // disableOnInteraction: false,
             }}
-            modules={[Autoplay]}
+            // modules={[Autoplay]}
             className="mySwiper"
           >
             <div className="cards__items">
@@ -57,8 +57,8 @@ const CardSwiper = () => {
 
                   <div className="card__arrow">
                     <svg
-                      width="74"
-                      height="75"
+                      width="60"
+                      height="60"
                       viewBox="0 0 74 75"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -79,9 +79,9 @@ const CardSwiper = () => {
               </SwiperSlide>
 
               <SwiperSlide>
-                <Link to="/kraabmod" className="card__item">
+                <Link to="/kraab-slim" className="card__item">
                   <div className="card__number">02</div>
-                  <h5 className="card__title">kraabmod</h5>
+                  <h5 className="card__title">Kraab slim</h5>
                   <img
                     src={'./img/components/cardSwiper/02.png'}
                     className="card__img"
@@ -90,8 +90,8 @@ const CardSwiper = () => {
 
                   <div className="card__arrow">
                     <svg
-                      width="74"
-                      height="75"
+                      width="60"
+                      height="60"
                       viewBox="0 0 74 75"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -123,8 +123,8 @@ const CardSwiper = () => {
 
                   <div className="card__arrow">
                     <svg
-                      width="74"
-                      height="75"
+                      width="60"
+                      height="60"
                       viewBox="0 0 74 75"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -156,8 +156,8 @@ const CardSwiper = () => {
 
                   <div className="card__arrow">
                     <svg
-                      width="74"
-                      height="75"
+                      width="60"
+                      height="60"
                       viewBox="0 0 74 75"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -189,8 +189,8 @@ const CardSwiper = () => {
 
                   <div className="card__arrow">
                     <svg
-                      width="74"
-                      height="75"
+                      width="60"
+                      height="60"
                       viewBox="0 0 74 75"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"

@@ -14,8 +14,9 @@ const BasketPayment = () => {
     basketItemsMap,
     totalPrice,
     shippingValue,
+    tax,
     totalOrderPrice,
-  } = useBasketCalculations();
+  } = useBasketCalculations();  
 
   const handlePayment = async () => {
     const orderDataRaw = localStorage.getItem('orderData');
@@ -88,6 +89,7 @@ const BasketPayment = () => {
               subtotal={totalPrice}
               shippingValue={shippingValue}
               totalOrderPrice={totalOrderPrice}
+              tax={tax}
             />
 
             <div className="payment__details">
