@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { getProducts } from '@api/getProducts';
 import Breadcrumbs from '@Breadcrumbs';
 import Products from '@components/Products/Products';
-import Singup from '@components/Singup/Singup';
 
 const JmPage = () => {
   const [products, setProducts] = useState([]);
@@ -57,7 +56,6 @@ const JmPage = () => {
         </div>
       </section>
 
-      <Singup />
     </>
   );
 };

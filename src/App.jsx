@@ -16,13 +16,13 @@ import CatalogsPage from './pages/CatalogsPage/CatalogsPage';
 import AboutUsPage from './pages/AboutUsPage/AboutUsPage';
 import ContactUsPage from './pages/ContactUsPage/ContactUsPage';
 import BasketPage from './pages/BasketPage/BasketPage';
-import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import GalleryPage from './pages/GalleryPage/GalleryPage';
 import ModuleoPage from './pages/ModuleoPage/ModuleoPage';
 import ProductPage from './pages/ProductPage/ProductPage';
 import DenkirsPage from './pages/DenkirsPage/DenkirsPage';
-import KraabmodPage from './pages/KraabmodPage/KraabmodPage';
+import KraabSlimPage from './pages/KraabSlimPage/KraabSlimPage';
 import JmPage from './pages/JmPage/JmPage';
+import KraabGippsPage from './pages/KraabGippsPage/KraabGippsPage';
 
 const App = () => {
   return (
@@ -48,22 +48,22 @@ const App = () => {
             element={<ProductPage source={['brand', 'valot']} />}
           />
 
-          <Route path="kraab-slim" element={<KraabmodPage />} />
+          <Route path="kraab-slim" element={<KraabSlimPage />} />
           <Route
             path="kraab-slim/product/:id"
             element={<ProductPage source={['brand', 'kraab-slim']} />}
+          />
+
+          <Route path="kraab-gipps" element={<KraabGippsPage />} />
+          <Route
+            path="kraab-gipps/product/:id"
+            element={<ProductPage source={['brand', 'kraab-gipps']} />}
           />
 
           <Route path="jm" element={<JmPage />} />
           <Route
             path="jm/product/:id"
             element={<ProductPage source={['brand', 'jm']} />}
-          />
-
-          <Route path="favorites" element={<FavoritesPage />} />
-          <Route
-            path="favorites/product/:id"
-            element={<ProductPage source={['favorites']} />}
           />
 
           <Route

@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { getProducts } from '@api/getProducts';
 import Breadcrumbs from '@Breadcrumbs';
 import Products from '@components/Products/Products';
-import Singup from '@components/Singup/Singup';
 
 const DenkirsPage = () => {
   const [products, setProducts] = useState([]);
@@ -39,7 +38,6 @@ const DenkirsPage = () => {
         </div>
       </section>
 
-      <Singup />
     </>
   );
 };

@@ -1,159 +1,77 @@
-.home-page-title {
-  font-family: Plus Jakarta Sans;
-  color: #222;
-  text-transform: uppercase;
-  font-size: 50px;
-  font-weight: 700;
-  line-height: 75.6px;
-  text-align: center;
-
-  @media (max-width: $breakpoint-md) {
-    font-size: 30px;
-  }
-  @media (max-width: $breakpoint-xs) {
-    font-size: 25px;
-  }
-}
-
 .dreams {
   position: relative;
   overflow: hidden;
-  margin-top: 33px;
-  padding-top: 32px;
-  border-top: 1px solid #222;
   width: 100%;
-  border-bottom: 1px solid #222;
-  height: 639px;
-  background: $homePage-color;
 
-  &__img {
+  &__container {
     position: absolute;
-    right: -10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &__title {
+    position: absolute;
+    top: 10vw;
+    left: 10vw;
+    font-size: clamp(27px, 10vw, 50px);
+    line-height: 50px;
+    font-family: Montserrat;
+    max-width: 790px;
+    text-shadow: 4px 3px 6px rgba(0, 0, 0, 1);
+    color: $white;
+  }
+  &__subtitle {
+    position: absolute;
+    top: clamp(300px, 5vw, 30vw);
+    left: 10vw;
+    font-size: clamp(19px, 3.5vw, 26px);
+    text-shadow: 5px 3px 5px rgba(0, 0, 0, 1);
+    font-family: Roboto;
+    color: $white;
+    width: 100%;
+    max-width: 550px;
+    line-height: 35px;
+    padding-right: 30px;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
 
     img {
-      border-radius: 63px 0px 0px 0px;
-      background-size: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(60%);
     }
   }
 
-  &__content {
-    margin-top: 74px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    max-width: 565px;
-  }
-
-  &__img-sider {
-    position: absolute;
-    left: 0;
-  }
-
-  @media (max-width: $breakpoint-xl) {
-    &__img {
-      right: -200px;
-      width: 45%;
-    }
-
-    &__mini-img {
-      width: 420px;
+  @media (max-width: 750px) {
+    .image-container {
+      height: 40vh !important;
     }
 
     &__title {
-      font-size: clamp(45px, 4vw, 55px);
+      top: clamp(20px, 5vw, 5vw);
+      left: 5vw;
+      font-size: clamp(25px, 10vw, 50px);
+      line-height: 40px;
     }
-
-    &__content {
-      margin-left: 100px;
-      gap: 10px;
-    }
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    &__img {
-      display: none;
-    }
-
-    &__img-sider {
-      left: 0;
-    }
-
-    &__title {
-      font-size: clamp(45px, 6vw, 70px);
-    }
-
-    &__content {
-      position: absolute;
-      right: 110px;
-      margin-top: 74px;
-      margin-left: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0px;
-      max-width: 565px;
-    }
-
-    &__mini-img {
-      width: 300px;
+    &__subtitle {
+      top: clamp(180px, 5vw, 10vw);
+      left: 5vw;
+      font-size: clamp(20px, 3.5vw, 26px);
+      line-height: 30px;
     }
   }
 
-  @media (max-width: 625px) {
-    &__title {
-      font-size: 40px;
-    }
-
-    &__content {
-      margin-left: 45px;
-    }
-
-    &__img-sider {
-      left: -20px;
+  @media (min-width: 850px) {
+    .image-container {
+      height: 500px;
     }
   }
-
-  @media (max-width: 545px) {
-    &__title {
-      font-size: 33px;
-    }
-  }
-
-  @media (max-width: $breakpoint-xs) {
-    & {
-      height: auto;
-    }
-
-    &__mini-img {
-      width: 250px;
-    }
-    &__img-sider {
-      display: none;
-    }
-
-    &__content {
-      padding: 00px 0 40px 0;
-      display: flex;
-      justify-content: center;
-      position: static;
-      margin: 0;
-    }
-
-    .main-title {
-      font-size: clamp(30px, 6vw, 40px);
-      text-align: center;
-    }
-
-    &__title {
-      font-size: clamp(30px, 6vw, 30px);
-    }
-  }
-}
-
-.grey-block {
-  background: #eae9e7;
-  height: 100px;
 }
 
 .about {
@@ -212,22 +130,15 @@
 
 .cards {
   margin: auto;
-  margin-bottom: 80px;
+  margin-top: clamp(5px, 1vw, 30px);
   font-family: Plus Jakarta Sans;
+  margin: 40px 0;
 
   .swiper-wrapper {
     display: flex;
     align-items: center;
-  }
-
-  .mySwiper {
-    width: 100%;
-  }
-
-  .swiper-slide {
-    display: flex;
-    align-items: stretch; // Растягивает элементы по высоте
-    // height: 100%;
+    height: 100%;
+    padding: 35px 0px;
   }
 
   .item {
@@ -236,16 +147,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 355px;
 
     &__img {
       width: 100%;
       border-radius: 20px;
-      object-fit: cover; // Для корректного отображения изображений
+      object-fit: cover;
     }
 
     &__content {
       padding: 10px;
-      flex: 1; // Позволяет содержимому растягиваться по высоте
+      flex: 1;
     }
 
     &__title {

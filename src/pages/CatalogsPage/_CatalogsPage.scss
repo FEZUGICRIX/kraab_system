@@ -19,6 +19,7 @@
 
     &__item {
       display: flex;
+      justify-content: space-between;
       gap: 5px;
       font-size: 20px;
     }
@@ -41,6 +42,10 @@
     @media (max-width: 760px) {
       & {
         grid-template-columns: repeat(1, 1fr);
+      }
+
+      &__item {
+        justify-content: space-between;
       }
     }
   }
