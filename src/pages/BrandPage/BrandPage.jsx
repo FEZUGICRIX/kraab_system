@@ -1,16 +1,21 @@
 import Breadcrumbs from '@Breadcrumbs';
 import CardSwiper from '@components/CardSwiper/CardSwiper';
-import SingUp from '@components/Singup/Singup';
 
 const BrandPage = () => {
   return (
     <>
       <Breadcrumbs pageTitle="BRÄNDI" />
 
+      <CardSwiper />
+
       <section className="brand">
         <div className="container">
           <div className="brand__container">
-            <img src={'./img/pages/brand/mini.png'} alt="brand" />
+            <img
+              className="brand__img"
+              src={'./img/pages/brand/brand.jpg'}
+              alt="brand"
+            />
 
             <div className="brand__text">
               Tarjoamme tuotteita kuten alumiiniprofiileja, jotka sopivat
@@ -23,9 +28,6 @@ const BrandPage = () => {
           </div>
         </div>
       </section>
-
-      <CardSwiper />
-      <SingUp />
     </>
   );
 };

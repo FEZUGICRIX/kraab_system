@@ -1,287 +1,75 @@
-.home-page-title {
-  font-family: Plus Jakarta Sans;
-  color: #222;
-  text-transform: uppercase;
-  font-size: 60px;
-  font-weight: 700;
-  line-height: 75.6px;
-  text-align: center;
-
-  @media (max-width: $breakpoint-md) {
-    font-size: 40px;
-  }
-  @media (max-width: $breakpoint-xs) {
-    font-size: 30px;
-  }
-}
-
 .dreams {
   position: relative;
   overflow: hidden;
-  margin-top: 33px;
-  padding-top: 32px;
-  border-top: 1px solid #222;
   width: 100%;
-  border-bottom: 1px solid #222;
-  height: 639px;
-  background: $homePage-color;
 
-  // .main-title {
-  //   align-self: flex-start;
-  // }
-
-  // &__title-right {
-  //   align-self: flex-end;
-  // }
-  &__title-left {
-    text-align-last: left;
-  }
-  &__img {
+  &__container {
     position: absolute;
-    right: -10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &__title {
+    position: absolute;
+    top: 10vw;
+    left: 10vw;
+    font-size: clamp(27px, 10vw, 50px);
+    line-height: 50px;
+    font-family: Montserrat;
+    max-width: 790px;
+    text-shadow: 4px 3px 6px rgba(0, 0, 0, 1);
+    color: $white;
+  }
+  &__subtitle {
+    position: absolute;
+    top: clamp(300px, 5vw, 30vw);
+    left: 10vw;
+    font-size: clamp(19px, 3.5vw, 26px);
+    text-shadow: 5px 3px 5px rgba(0, 0, 0, 1);
+    font-family: Roboto;
+    color: $white;
+    width: 100%;
+    max-width: 550px;
+    line-height: 35px;
+    padding-right: 30px;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
 
     img {
-      border-radius: 63px 0px 0px 0px;
-      background-size: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(60%);
     }
   }
 
-  &__content {
-    margin-top: 74px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    max-width: 565px;
-  }
-
-  &__img-sider {
-    position: absolute;
-    left: 0;
-  }
-
-  @media (max-width: $breakpoint-xl) {
-    &__img {
-      right: -200px;
-      width: 45%;
-    }
-
-    &__mini-img {
-      width: 420px;
+  @media (max-width: 750px) {
+    .image-container {
+      height: 40vh !important;
     }
 
     &__title {
-      font-size: clamp(45px, 4vw, 55px);
+      top: clamp(20px, 5vw, 5vw);
+      left: 5vw;
+      font-size: clamp(25px, 10vw, 50px);
+      line-height: 40px;
     }
-
-    &__content {
-      margin-left: 100px;
-      gap: 10px;
-    }
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    &__img {
-      display: none;
-    }
-
-    &__img-sider {
-      left: 0;
-    }
-
-    &__title {
-      font-size: clamp(45px, 6vw, 70px);
-    }
-
-    &__content {
-      position: absolute;
-      right: 110px;
-      margin-top: 74px;
-      margin-left: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0px;
-      max-width: 565px;
-    }
-
-    &__mini-img {
-      width: 300px;
+    &__subtitle {
+      top: clamp(180px, 5vw, 10vw);
+      left: 5vw;
+      font-size: clamp(20px, 3.5vw, 26px);
+      line-height: 30px;
     }
   }
 
-  @media (max-width: 625px) {
-    &__title {
-      font-size: 40px;
-    }
-
-    &__content {
-      margin-left: 45px;
-    }
-
-    &__img-sider {
-      left: -20px;
-    }
-  }
-
-  @media (max-width: 545px) {
-    &__title {
-      font-size: 33px;
-    }
-  }
-
-  @media (max-width: $breakpoint-xs) {
-    & {
-      height: auto;
-    }
-
-    &__mini-img {
-      width: 250px;
-    }
-    &__img-sider {
-      display: none;
-    }
-
-    &__content {
-      padding: 00px 0 40px 0;
-      display: flex;
-      justify-content: center;
-      position: static;
-      margin: 0;
-    }
-
-    .main-title {
-      font-size: clamp(30px, 6vw, 40px);
-      text-align: center;
-    }
-
-    &__title {
-      font-size: clamp(30px, 6vw, 40px);
-    }
-  }
-}
-
-.grey-block {
-  background: #eae9e7;
-  height: 145px;
-}
-
-.project {
-  margin-top: 65px;
-
-  .card {
-    display: flex;
-    gap: 37px;
-    overflow: hidden;
-    margin: 72px 0;
-
-    &__item {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      flex-direction: column;
-      background: #222222;
-      width: 366.97px;
-      height: 548.61px;
-      border-radius: 36.82px 0px 36.82px 36.82px;
-      padding: 16px;
-
-      &::after {
-        content: '';
-        background: $white;
-        position: absolute;
-        top: -12px;
-        right: -27px;
-        width: 106.78px;
-        height: 78.55px;
-        border-radius: 47.87px;
-      }
-    }
-
-    &__number {
-      font-family: Montserrat;
-      color: #ffe7d9;
-      font-size: 23.32px;
-      font-style: italic;
-      font-weight: 400;
-      line-height: 28.43px;
-      text-align: center;
-      vertical-align: center;
-
-      padding: 8.59px 14.05px 7.59px 11.05px;
-      max-width: 49.09px;
-      max-height: 44.18px;
-
-      border-radius: 77.32px;
-      border: 1.23px solid;
-    }
-
-    &__title {
-      font-family: Roboto;
-      color: #ffe4cc;
-      font-size: 34px;
-      font-weight: 500;
-      line-height: 39.84px;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    &__img {
-      height: 385px;
-      border-radius: 30px;
-    }
-
-    &__arrow {
-      cursor: pointer;
-      position: absolute;
-      bottom: 0px;
-      right: 0px;
-      background: #454545;
-      border-radius: 47.87px;
-    }
-
-    @media (max-width: $breakpoint-lg) {
-      & {
-        margin: 60px 0;
-      }
-    }
-
-    @media (max-width: $breakpoint-xs) {
-      & {
-        margin: 40px 0;
-      }
-
-      &__item {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        background: #222222;
-        width: 257px;
-        height: 383px;
-        border-radius: 36.82px 0px 36.82px 36.82px;
-        padding: 16px;
-      }
-
-      &__img {
-        width: 100%;
-        height: 267px;
-      }
-
-      &__title {
-        font-size: 26px;
-      }
-
-      &__arrow svg {
-        width: 50px;
-        height: 50px;
-      }
-    }
-
-    @media (max-width: $breakpoint-xs) {
-      & {
-        margin-top: 35px;
-      }
+  @media (min-width: 850px) {
+    .image-container {
+      height: 500px;
     }
   }
 }
@@ -340,70 +128,74 @@
   }
 }
 
-.news {
-  &__swiper {
+.cards {
+  margin: auto;
+  margin-top: clamp(5px, 1vw, 30px);
+  font-family: Plus Jakarta Sans;
+  margin: 40px 0;
+
+  .swiper-wrapper {
     display: flex;
-    gap: 75px;
-    padding: 128px 0;
+    align-items: center;
+    height: 100%;
+    padding: 35px 0px;
   }
 
-  &__item {
+  .item {
+    box-shadow: 8px 8px 11px 5px rgba(34, 60, 80, 0.16);
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    justify-content: space-between;
+    width: 355px;
 
-    &-img {
-      max-width: 400px;
+    &__img {
       width: 100%;
       border-radius: 20px;
+      object-fit: cover;
     }
-  }
 
-  &__item-title {
-    margin-top: auto;
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 21.09px;
-    text-transform: uppercase;
-
-    a {
-      color: $dark-black;
+    &__content {
+      padding: 10px;
+      flex: 1;
     }
-  }
 
-  &__price {
-    margin-top: auto;
-    font-family: Roboto;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 28.13px;
-  }
-
-  @media (max-width: $breakpoint-lg) {
-    &__items {
-      padding: 90px;
+    &__title {
+      text-transform: uppercase;
+      font-weight: 550;
+      font-size: clamp(21px, 5vw, 24px);
+      text-align: center;
+      margin-bottom: 20px;
     }
-  }
 
-  @media (max-width: 580px) {
-    &__item-img {
+    &__description {
+      font-family: Roboto;
+      font-size: clamp(16.5px, 5vw, 18px);
+      line-height: 25.13px;
+      margin-bottom: 20px; // Уменьшено, чтобы не занимать слишком много места
+    }
+
+    &__images {
+      display: flex;
+      justify-content: space-around;
       width: 100%;
+
+      img {
+        width: 22%;
+        border-radius: 10px;
+      }
     }
   }
-  @media (max-width: $breakpoint-md) {
-    &__swiper {
-      padding: 70px;
-    }
-  }
-  @media (max-width: $breakpoint-sm) {
-    &__swiper {
-      padding: 55px;
-    }
-  }
-  @media (max-width: $breakpoint-xs) {
-    &__swiper {
-      padding: 40px;
-    }
+
+  &__order {
+    cursor: pointer;
+    margin-top: 20px; // Уменьшено, чтобы не занимать слишком много места
+    background: #000;
+    padding: 15px 30px; // Уменьшено, чтобы соответствовать дизайну
+    border-radius: 10px;
+    font-size: 18px; // Уменьшено, чтобы соответствовать дизайну
+    color: #fff; // Изменено для читаемости
+    width: 100%;
+    text-align: center; // Для выравнивания текста по центру
   }
 }

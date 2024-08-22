@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { getProducts } from '@api/getProducts';
 import Breadcrumbs from '@Breadcrumbs';
 import Products from '@components/Products/Products';
-import Singup from '@components/Singup/Singup';
 
 const ModuleoPage = () => {
   const [products, setProducts] = useState([]);
@@ -78,8 +77,6 @@ const ModuleoPage = () => {
           </div>
         </div>
       </section>
-
-      <Singup />
     </>
   );
 };

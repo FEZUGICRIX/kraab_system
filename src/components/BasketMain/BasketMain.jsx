@@ -9,6 +9,7 @@ const BasketMain = () => {
     removeLocalStorageItem,
     basketItemsMap,
     totalPrice,
+    tax,
     shippingValue,
     totalOrderPrice,
   } = useBasketCalculations();
@@ -18,8 +19,6 @@ const BasketMain = () => {
   const handleRemoveItem = (id) => {
     removeLocalStorageItem(id);
   };
-  const orderValue = totalPrice * 0.86;
-  const tax = totalPrice * 0.24;
 
   const handleCheckout = () => {
     setBasketData((prevData) => ({
@@ -142,7 +141,7 @@ const BasketMain = () => {
                 <div className="order__value">
                   <span>Tilauksen arvo:</span>
                   <span>
-                    {!isNaN(orderValue) && orderValue.toFixed(2)}{' '}
+                    {!isNaN(totalPrice) && totalPrice.toFixed(2)}{' '}
                     <span className="euro">€</span>
                   </span>
                 </div>

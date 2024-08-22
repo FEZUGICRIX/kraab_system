@@ -5,6 +5,7 @@ const DetailOrder = ({
   shippingValue,
   totalOrderPrice,
   promoCode,
+  tax,
 }) => {
   return (
     <div className="details">
@@ -19,6 +20,10 @@ const DetailOrder = ({
           <div className="info__item">
             <div className="info__item-title">Toimituskulut:</div>
             {shippingValue}€
+          </div>
+          <div className="info__item">
+            <div className="info__item-title">ALV: </div>
+            {tax}€
           </div>
           <div className="info__item">
             <div className="info__item-title">Kampanjakoodi:</div>

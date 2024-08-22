@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { getProducts } from '@api/getProducts';
 import Breadcrumbs from '@Breadcrumbs';
 import Snackbar from '@components/Snackbar/Snackbar';
-import AlsoLike from '@components/AlsoLike/AlsoLike';
 import useBasket from '../../hooks/useBasket';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -347,8 +346,6 @@ const ProductPage = ({ source }) => {
         duration={2000}
         onClose={() => setSnackbarMessage('')}
       />
-
-      {/* <AlsoLike root={root} /> */}
     </>
   );
 };

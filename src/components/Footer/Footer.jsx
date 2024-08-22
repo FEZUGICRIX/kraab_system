@@ -10,7 +10,7 @@ const Footer = () => {
 
             <div className="info__info">
               <h5 className="info__subtitle">Scandic Kraab Oy</h5>
-              <div className="info__company-id">Y-tunnus 3443234-6</div>
+              <div>Y-tunnus 3443234-6</div>
               <address className="info__address">
                 Veteraanintie 2, 06100 Porvoo, Finland
               </address>

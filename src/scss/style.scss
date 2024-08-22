@@ -3,12 +3,9 @@
 @import './variables';
 
 // Components
-@import '../components/Header/header';
 @import '../components/Footer/footer';
 @import '../components/CardSwiper/CardSwiper';
-@import '../components/Singup/Singup';
 @import '../components/Products/Products';
-@import '../components/AlsoLike/AlsoLike';
 @import '../components/BasketMain/BasketMain';
 @import '../components/BasketCheckout/BasketCheckout';
 @import '../components/BasketPayment/BasketPayment';
@@ -23,13 +20,12 @@
 @import '../pages/BasketPage/BasketPage';
 @import '../pages/CatalogsPage//CatalogsPage';
 @import '../pages/ContactUsPage/ContactUsPage';
-@import '../pages/FavoritesPage/FavoritesPage';
 @import '../pages/HomePage/HomePage';
 @import '../pages/GalleryPage/GalleryPage';
 @import '../pages/ModuleoPage/ModuleoPage';
 @import '../pages/ProductPage/ProductPage';
 @import '../pages/DenkirsPage/DenkirsPage';
-@import '../pages/KraabmodPage/KraabmodPage';
+@import '../pages/KraabSlimPage/KraabSlimPage';
 @import '../pages/JmPage/JmPage';
 
 * {
@@ -48,9 +44,9 @@
   font-family: Plus Jakarta Sans;
   color: #222;
   text-transform: uppercase;
-  font-size: 60px;
+  font-size: 45px;
   font-weight: 700;
-  line-height: 75.6px;
+  line-height: 41.6px;
   text-align: center;
 
   @media (max-width: $breakpoint-md) {

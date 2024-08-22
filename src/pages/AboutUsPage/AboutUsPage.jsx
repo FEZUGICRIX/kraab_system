@@ -30,7 +30,7 @@ const AboutUsPage = () => {
           <div className="advantages__container">
             <h4 className="advantages__title">Meidän etumme</h4>
             <div className="advantages__content">
-              <div className="advantages__item line">
+              <div className="advantages__item">
                 <div className="advantages__item-img">
                   <svg
                     width="58"
@@ -54,12 +54,9 @@ const AboutUsPage = () => {
                   standardisertifikaateilla. Käytämme vain hyväksi
                   todettujen merkkien tuotteita.
                 </div>
-                <a href="#" className="advantages__item-link">
-                  Read More
-                </a>
               </div>
 
-              <div className="advantages__item line">
+              <div className="advantages__item">
                 <div className="advantages__item-img">
                   <svg
                     width="40"
@@ -107,12 +104,9 @@ const AboutUsPage = () => {
                   korkealaatuista, hyväksi todettua puuta, joka säilyttää
                   virheettömän ulkonäkönsä ja palvelee sinua vuosien ajan.
                 </div>
-                <a href="#" className="advantages__item-link">
-                  Read More
-                </a>
               </div>
 
-              <div className="advantages__item line">
+              <div className="advantages__item">
                 <div className="advantages__item-img">
                   <svg
                     width="55"
@@ -136,9 +130,6 @@ const AboutUsPage = () => {
                   suunnittelijamme, suunnittelijamme, insinöörimme ja
                   arkkitehtimme ovat sertifioituja ammattilaisia.
                 </div>
-                <a href="#" className="advantages__item-link">
-                  Read More
-                </a>
               </div>
 
               <div className="advantages__item">
@@ -165,9 +156,6 @@ const AboutUsPage = () => {
                   standardisertifikaateilla. Käytämme vain hyväksi
                   todettujen merkkien tuotteita.
                 </div>
-                <a href="#" className="advantages__item-link">
-                  Read More
-                </a>
               </div>
 
               <div className="advantages__item">
@@ -201,9 +189,6 @@ const AboutUsPage = () => {
                   kulutushyödykkeiden, lakkojen, maalien ja kemikaalien
                   laatuun.
                 </div>
-                <a href="#" className="advantages__item-link">
-                  Read More
-                </a>
               </div>
 
               <div className="advantages__item">
@@ -237,58 +222,6 @@ const AboutUsPage = () => {
                   standardisertifikaatilla. Käytämme vain tuotteita
                   tunnetuilta ja luotettavilta merkeiltä.
                 </div>
-                <a href="#" className="advantages__item-link">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="run-text">
-        <div className="run-text__container">
-          <div className="run-text__content">
-            käynnistä hanke. käynnistä hanke. käynnistä hanke. käynnistä
-            hanke. käynnistä hanke.
-          </div>
-        </div>
-      </section>
-
-      <section className="questions">
-        <div className="container">
-          <div className="questions__container">
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="questions__form"
-            >
-              <input
-                type="text"
-                id="name"
-                className="questions__input"
-                placeholder="Nimesi"
-              />
-              <input
-                type="tel"
-                id="telephone"
-                className="questions__input"
-                placeholder="Puhelinnumerosi"
-              />
-              <textarea
-                // type="text"
-                id="question"
-                className="questions__input"
-                placeholder="Kysymyksesi"
-              ></textarea>
-
-              <input type="submit" id="submit" value="Lähetä" />
-            </form>
-
-            <div className="questions__text">
-              <h2 className="questions__title">JOTAIN KYSYTTÄVÄÄ?</h2>
-              <div className="questions__sub-title">
-                Kirjoita meille, niin varmistamme vastaavamme kaikkiin
-                kysymyksiisi ja annamme kattavan konsultaation.
               </div>
             </div>
           </div>
