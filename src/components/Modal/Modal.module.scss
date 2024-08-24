@@ -162,7 +162,7 @@
   margin-bottom: 10px;
 }
 
-input[type='file'] {
+.fileInput {
   display: none; /* Прячем стандартный элемент */
 }
 
@@ -195,8 +195,8 @@ input[type='file'] {
   text-decoration: none;
 }
 
-input[type='checkbox'],
-input[type='radio'] {
+.checkbox,
+.radio {
   appearance: none;
   /* Задаем размеры */
   width: 18px;
@@ -207,18 +207,18 @@ input[type='radio'] {
   position: relative; /* Позиционирование для псевдо-элементов */
 }
 
-input[type='radio'] {
+.radio {
   border-radius: 50%;
 }
 
 /* Стиль для состояния "выбрано" */
-input[type='checkbox']:checked,
-input[type='radio']:checked {
+.checkbox:checked,
+.radio:checked {
   background-color: #18a999; /* Цвет фона при выборе */
 }
 
 /* Стиль галочки для чекбокса */
-input[type='checkbox']:checked::before {
+.checkbox:checked::before {
   content: '\2714'; /* Символ галочки */
   position: absolute;
   top: 50%;
@@ -229,7 +229,7 @@ input[type='checkbox']:checked::before {
 }
 
 /* Стиль точки для радиокнопки */
-input[type='radio']:checked::before {
+.radio:checked::before {
   content: '';
   position: absolute;
   top: 50%;

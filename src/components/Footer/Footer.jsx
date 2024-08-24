@@ -1,22 +1,24 @@
+import styles from './Footer.module.scss';
+
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className={styles.footer}>
       <div className="container">
-        <div className="footer__container">
-          <div className="footer__info info">
-            <div className="info__logo">
+        <div className={styles.footer__container}>
+          <div className={styles.footer__info}>
+            <div className={styles.info__logo}>
               <img src="/img/components/footer/logo.png" alt="logo" />
             </div>
-
-            <div className="info__info">
-              <h5 className="info__subtitle">Scandic Kraab Oy</h5>
-              <div>Y-tunnus 3443234-6</div>
-              <address className="info__address">
+            <div className={styles.info__info}>
+              <h5 className={styles.info__subtitle}>Scandic Kraab Oy</h5>
+              <div className={styles.info__companyId}>
+                Y-tunnus 3443234-6
+              </div>
+              <address className={styles.info__address}>
                 Veteraanintie 2, 06100 Porvoo, Finland
               </address>
             </div>
-
-            <div className="info__social">
+            <div className={styles.info__social}>
               {/* facebook */}
               <a href="https://www.facebook.com/kraabmod.fin">
                 <svg
@@ -33,10 +35,7 @@ const Footer = () => {
                 </svg>
               </a>
               {/* instagram */}
-              <a
-                href="
-https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
-              >
+              <a href="https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv">
                 <svg
                   width="31"
                   height="30"
@@ -92,11 +91,11 @@ https://www.instagram.com/kraab_system?igsh=ejRneG5iZmxzdTJv"
             </div>
           </div>
 
-          <div className="footer__banner banner">
-            <h4 className="banner__titie">
+          <div className={(styles.footer__banner, styles.banner)}>
+            <h4 className={styles.banner__titie}>
               TOIMITUS KOKO SUOMEN ALUEELLE
             </h4>
-            <div className="banner__banner">
+            <div className={styles.banner__banner}>
               <img src="/img/components/footer/banner.jpg" alt="banner" />
             </div>
           </div>

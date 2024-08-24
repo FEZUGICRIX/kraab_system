@@ -1,10 +1,13 @@
+'use client';
+
 import { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import useBasket from '../../hooks/useBasket';
-import styles from './Header.module.scss'; // Импорт модульных стилей
+import Link from 'next/link';
+import useBasket from '@/hooks/useBasket';
+import styles from './Header.module.scss';
 
 const Header = () => {
   const { basketAmount } = useBasket();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const setActive = ({ isActive }) => (isActive ? styles.activeLink : '');
@@ -20,7 +23,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={`${styles.headerContainer} container`}>
-        <Link to="/" className={styles.headerTitle}>
+        <Link href="/" className={styles.headerTitle}>
           <img
             src="/img/components/header/logo_black.png"
             alt="logo"
@@ -52,32 +55,33 @@ const Header = () => {
         <nav className={styles.headerNavDesktop}>
           <ul className={styles.headerList}>
             <li className={styles.headerListItem}>
-              <NavLink to="brand" className={setActive}>
+              <Link href="/brand" className={setActive}>
                 BRÄNDI
-              </NavLink>
+              </Link>
             </li>
             <li className={styles.headerListItem}>
-              <NavLink to="catalogs" className={setActive}>
+              <Link href="/catalogs" className={setActive}>
                 tuotteet
-              </NavLink>
+              </Link>
             </li>
             <li className={styles.headerListItem}>
-              <NavLink to="about-us" className={setActive}>
+              <Link href="/about" className={setActive}>
                 MEISTÄ
-              </NavLink>
+              </Link>
             </li>
             <li className={styles.headerListItem}>
-              <NavLink to="contact-us" className={setActive}>
+              <Link href="/contacts" className={setActive}>
                 Yhteystiedot
-              </NavLink>
+              </Link>
             </li>
           </ul>
 
           <div className={styles.headerButtons}>
-            <NavLink to="basket/main" className={styles.headerBasketImg}>
+            <Link href="/basket/main" className={styles.headerBasketImg}>
               <span className={styles.headerBasketAmount}>
                 {basketAmount}
               </span>
+
               <svg
                 width="25"
                 height="29"
@@ -98,14 +102,13 @@ const Header = () => {
                   fill="#222222"
                 />
               </svg>
-            </NavLink>
+            </Link>
           </div>
         </nav>
 
         <nav
-          className={`${styles.headerNavMobile} ${
-            isMenuOpen ? styles.open : ''
-          }`}
+          className={`${styles.headerNavMobile} 
+          ${isMenuOpen ? styles.open : ''}`}
         >
           <button className={styles.headerClose} onClick={closeMenu}>
             <svg
@@ -126,45 +129,45 @@ const Header = () => {
           </button>
           <ul className={styles.headerList}>
             <li className={styles.headerListItem}>
-              <NavLink
-                to="brand"
+              <Link
+                href="/brand"
                 className={setActive}
                 onClick={closeMenu}
               >
                 BRÄNDI
-              </NavLink>
+              </Link>
             </li>
             <li className={styles.headerListItem}>
-              <NavLink
-                to="catalogs"
+              <Link
+                href="/catalogs"
                 className={setActive}
                 onClick={closeMenu}
               >
                 luettelot
-              </NavLink>
+              </Link>
             </li>
             <li className={styles.headerListItem}>
-              <NavLink
-                to="about-us"
+              <Link
+                href="/about"
                 className={setActive}
                 onClick={closeMenu}
               >
                 MEISTÄ
-              </NavLink>
+              </Link>
             </li>
             <li className={styles.headerListItem}>
-              <NavLink
-                to="contact-us"
+              <Link
+                href="/contact"
                 className={setActive}
                 onClick={closeMenu}
               >
                 Yhteystiedot
-              </NavLink>
+              </Link>
             </li>
           </ul>
           <div className={styles.headerButtons}>
-            <NavLink
-              to="basket/main"
+            <Link
+              href="/basket/main"
               className={styles.headerButton}
               id="basket-img"
               onClick={closeMenu}
@@ -190,7 +193,7 @@ const Header = () => {
                   fill="#222222"
                 />
               </svg>
-            </NavLink>
+            </Link>
           </div>
         </nav>
       </div>

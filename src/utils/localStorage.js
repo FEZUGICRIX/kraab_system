@@ -1,5 +1,6 @@
-// utils/localStorage.js
 export const getLocalStorage = (key) => {
+  if (typeof window === 'undefined') return [];
+
   try {
     const storedData = localStorage.getItem(key);
     return storedData ? JSON.parse(storedData) : [];
@@ -10,6 +11,8 @@ export const getLocalStorage = (key) => {
 };
 
 export const setLocalStorage = (key, data) => {
+  if (typeof window === 'undefined') return;
+
   try {
     localStorage.setItem(key, JSON.stringify(data));
   } catch (error) {
@@ -18,6 +21,8 @@ export const setLocalStorage = (key, data) => {
 };
 
 export const removeLocalStorageItemById = (key, item) => {
+  if (typeof window === 'undefined') return;
+
   try {
     const items = getLocalStorage(key);
     const filteredItems = items.filter(

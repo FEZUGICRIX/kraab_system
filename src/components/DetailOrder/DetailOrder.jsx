@@ -1,4 +1,4 @@
-import React from 'react';
+import styles from './DetailOrder.module.scss';
 
 const DetailOrder = ({
   subtotal,
@@ -8,35 +8,38 @@ const DetailOrder = ({
   tax,
 }) => {
   return (
-    <div className="details">
-      <div className="details__container">
-        <div className="details__title">Yksityiskohtainen tilaus</div>
+    <div className={styles.details}>
+      <div className={styles.details__container}>
+        <div className={styles.details__title}>
+          Yksityiskohtainen tilaus
+        </div>
 
-        <div className="details__info info">
-          <div className="info__item">
-            <div className="info__item-title">Yhteensä:</div>
+        <div className={`${styles.details__info} ${styles.info}`}>
+          <div className={styles.info__item}>
+            <div className={styles.info__itemTitle}>Yhteensä:</div>
             {subtotal}€
           </div>
-          <div className="info__item">
-            <div className="info__item-title">Toimituskulut:</div>
+          <div className={styles.info__item}>
+            <div className={styles.info__itemTitle}>Toimituskulut:</div>
             {shippingValue}€
           </div>
-          <div className="info__item">
-            <div className="info__item-title">ALV: </div>
+          <div className={styles.info__item}>
+            <div className={styles.info__itemTitle}>ALV: </div>
             {tax}€
           </div>
-          <div className="info__item">
-            <div className="info__item-title">Kampanjakoodi:</div>
+          <div className={styles.info__item}>
+            <div className={styles.info__itemTitle}>Kampanjakoodi:</div>
             {promoCode ? <span>{promoCode}€</span> : '-'}
           </div>
         </div>
 
-        <div className="basket__hint">Ilmainen toimitus alkaen 500€</div>
+        <div className={styles.basket__hint}>
+          Ilmainen toimitus alkaen 500€
+        </div>
 
-        <div className="details__total">
+        <div className={styles.details__total}>
           <span>Yhteensä:</span>
-          <span className="details__total-price">
-            {' '}
+          <span className={styles.details__totalPrice}>
             {totalOrderPrice && <span>{totalOrderPrice / 100} </span>}€
           </span>
         </div>

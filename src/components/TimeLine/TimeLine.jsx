@@ -1,15 +1,15 @@
-import React from 'react';
+import styles from './TimeLine.module.scss';
 
 const TimeLine = ({ step }) => {
   return (
-    <div className="timeline">
-      <div className="timeline__container">
+    <div className={styles.timeline}>
+      <div className={styles.timeline__container}>
         <div
-          className={`timeline__item ${
-            step == 'checkout' ? 'active' : ''
+          className={`${styles.timeline__item} ${
+            step === 'checkout' ? styles.active : ''
           }`}
         >
-          <div className="timeline__img">
+          <div className={styles.timeline__img}>
             <svg
               width="48"
               height="48"
@@ -27,15 +27,17 @@ const TimeLine = ({ step }) => {
               />
             </svg>
           </div>
-          <div className="tileline__title">1. Kassa</div>
+          <div className={styles.timeline__title}>1. Kassa</div>
         </div>
 
-        <div className="timeline_line"></div>
+        <div className={styles.timeline__line}></div>
 
         <div
-          className={`timeline__item ${step == 'payment' ? 'active' : ''}`}
+          className={`${styles.timeline__item} ${
+            step === 'payment' ? styles.active : ''
+          }`}
         >
-          <div className="timeline__img">
+          <div className={styles.timeline__img}>
             <svg
               width="48"
               height="55"
@@ -65,17 +67,17 @@ const TimeLine = ({ step }) => {
               />
             </svg>
           </div>
-          <div className="tileline__title">2. Maksu</div>
+          <div className={styles.timeline__title}>2. Maksu</div>
         </div>
 
-        <div className="timeline_line"></div>
+        <div className={styles.timeline__line}></div>
 
         <div
-          className={`timeline__item ${
-            step == 'confirmation' ? 'active' : ''
+          className={`${styles.timeline__item} ${
+            step === 'confirmation' ? styles.active : ''
           }`}
         >
-          <div className="timeline__img">
+          <div className={styles.timeline__img}>
             <svg
               width="48"
               height="48"
@@ -91,7 +93,7 @@ const TimeLine = ({ step }) => {
               />
             </svg>
           </div>
-          <div className="tileline__title">3. Vahvistus</div>
+          <div className={styles.timeline__title}>3. Vahvistus</div>
         </div>
       </div>
     </div>

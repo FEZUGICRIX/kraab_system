@@ -322,7 +322,7 @@ const Modal = ({ isOpen, onClose }) => {
                   accept=".pdf, .jpg, .jpeg, .png"
                   onChange={handleFileChange}
                   multiple
-                  id="file-input"
+                  className={styles.fileInput}
                 />
                 {fileNames.length > 0 && (
                   <ul className={styles.fileList}>

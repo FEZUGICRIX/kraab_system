@@ -1,4 +1,4 @@
-import { sendEmail } from '../api/sendEmail';
+import { sendEmail } from '@/api/sendEmail';
 import { getStateRevolut } from './getStateRevolut';
 
 export const processOrder = async (

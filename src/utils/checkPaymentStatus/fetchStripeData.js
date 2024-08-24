@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { sendEmail } from '../../api/sendEmail';
+import { sendEmail } from '@/api/sendEmail';
 
 export const fetchStripeData = async ({
   orderData,
@@ -58,7 +58,7 @@ export const fetchStripeData = async ({
       if (!emailSent) {
         await sendEmail({ orderData: orderDataToSend });
         console.log('email sent succsesful');
-        
+
         setEmailSent(true);
       }
     }

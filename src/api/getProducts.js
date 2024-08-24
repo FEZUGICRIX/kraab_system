@@ -10,6 +10,8 @@ export const getProducts = async ({ type, catalog = null, id = null }) => {
       url += `get_products.php?catalog=${catalog}`;
     } else if (type === 'get_product' && id) {
       url += `get_product.php?id=${id}`;
+    } else if (type === 'get_all_products') {
+      url += `get_all_product_Ids.php`;
     } else {
       throw new Error('Invalid parameters');
     }

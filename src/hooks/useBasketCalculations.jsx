@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { getProducts } from '@api/getProducts';
-import useBasket from '../hooks/useBasket';
+import { getProducts } from '@/api/getProducts';
+import useBasket from '@/hooks/useBasket';
 import { getCalculateOrder } from '../api/getCalculateOrder';
 
 export const useBasketCalculations = () => {

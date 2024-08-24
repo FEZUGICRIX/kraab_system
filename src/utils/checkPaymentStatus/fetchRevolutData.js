@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { sendEmail } from '../../api/sendEmail';
+import { sendEmail } from '@/api/sendEmail';
 
 export const fetchRevolutData = async ({
   orderData,
@@ -10,7 +10,7 @@ export const fetchRevolutData = async ({
   basketProducts,
   basketItemsMap,
   totalPrice,
-  shippingValue
+  shippingValue,
 }) => {
   try {
     setBasketItems([]);
@@ -29,7 +29,8 @@ export const fetchRevolutData = async ({
         return;
       }
 
-      const { fullName, email, phone, address, state, city, zip } = orderData;
+      const { fullName, email, phone, address, state, city, zip } =
+        orderData;
 
       const orderDataToSend = {
         fullName,

@@ -1,5 +1,7 @@
+'use client';
+
 import { createContext, useState, useEffect } from 'react';
-import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
+import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 
 const BasketContext = createContext({
   basketData: {},

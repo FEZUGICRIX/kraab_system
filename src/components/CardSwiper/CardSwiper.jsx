@@ -1,24 +1,32 @@
-import { Link } from 'react-router-dom';
+'use client';
+
+import { useEffect } from 'react';
+import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import styles from './CardSwiper.module.scss';
 
 const CardSwiper = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <section className="project">
-      <div className="project__container container">
+    <section className={styles.project}>
+      <div className={`${styles.project__container} container`}>
         <h2
-          className="project__title title"
+          className={`${styles.project__title} title`}
           data-aos="fade-up"
           data-aos-duration="400"
         >
           Projektiisi keskitytään parhaillaan
         </h2>
 
-        <div className="card">
+        <div className={styles.card}>
           <Swiper
             spaceBetween={30}
             slidesPerView={3}
@@ -54,20 +62,20 @@ const CardSwiper = () => {
             pagination={{
               clickable: true,
             }}
-            className="mySwiper"
+            className={`${styles.mySwiper} mySwiper`}
           >
-            <div className="cards__items">
+            <div className={styles.cards__items}>
               <SwiperSlide>
-                <Link to="/moduleo" className="card__item">
-                  <div className="card__number">01</div>
-                  <h5 className="card__title">Moduleo</h5>
+                <Link href="/moduleo" className={styles.card__item}>
+                  <div className={styles.card__number}>01</div>
+                  <h5 className={styles.card__title}>Moduleo</h5>
                   <img
                     src={'./img/components/cardSwiper/01.jpeg'}
-                    className="card__img"
+                    className={styles.card__img}
                     alt="card image"
                   />
 
-                  <div className="card__arrow">
+                  <div className={styles.card__arrow}>
                     <svg
                       width="60"
                       height="60"
@@ -91,16 +99,16 @@ const CardSwiper = () => {
               </SwiperSlide>
 
               <SwiperSlide>
-                <Link to="/kraab-slim" className="card__item">
-                  <div className="card__number">02</div>
-                  <h5 className="card__title">Kraab Slim</h5>
+                <Link href="/kraab-slim" className={styles.card__item}>
+                  <div className={styles.card__number}>02</div>
+                  <h5 className={styles.card__title}>Kraab Slim</h5>
                   <img
                     src={'./img/components/cardSwiper/02.png'}
-                    className="card__img"
+                    className={styles.card__img}
                     alt="card image"
                   />
 
-                  <div className="card__arrow">
+                  <div className={styles.card__arrow}>
                     <svg
                       width="60"
                       height="60"
@@ -124,18 +132,18 @@ const CardSwiper = () => {
               </SwiperSlide>
 
               <SwiperSlide>
-                <Link to="/kraab-gipps" className="card__item">
-                  <div className="card__number">03</div>
-                  <h5 className="card__title">Kraab Gipps</h5>
+                <Link href="/kraab-gipps" className={styles.card__item}>
+                  <div className={styles.card__number}>03</div>
+                  <h5 className={styles.card__title}>Kraab Gipps</h5>
                   <img
                     src={
                       './img/pages/kraab_gipps_products/KRAAB GIPPS.jpg'
                     }
-                    className="card__img"
+                    className={styles.card__img}
                     alt="card image"
                   />
 
-                  <div className="card__arrow">
+                  <div className={styles.card__arrow}>
                     <svg
                       width="60"
                       height="60"
@@ -159,16 +167,16 @@ const CardSwiper = () => {
               </SwiperSlide>
 
               <SwiperSlide>
-                <Link to="/valot" className="card__item">
-                  <div className="card__number">04</div>
-                  <h5 className="card__title">Valot</h5>
+                <Link href="/valot" className={styles.card__item}>
+                  <div className={styles.card__number}>04</div>
+                  <h5 className={styles.card__title}>Valot</h5>
                   <img
                     src={'./img/components/cardSwiper/03.png'}
-                    className="card__img"
+                    className={styles.card__img}
                     alt="card image"
                   />
 
-                  <div className="card__arrow">
+                  <div className={styles.card__arrow}>
                     <svg
                       width="60"
                       height="60"
@@ -192,16 +200,16 @@ const CardSwiper = () => {
               </SwiperSlide>
 
               <SwiperSlide>
-                <Link to="/gallery" className="card__item">
-                  <div className="card__number">05</div>
-                  <h5 className="card__title">3D rendering</h5>
+                <Link href="/gallery" className={styles.card__item}>
+                  <div className={styles.card__number}>05</div>
+                  <h5 className={styles.card__title}>3D rendering</h5>
                   <img
                     src={'./img/components/cardSwiper/04.png'}
-                    className="card__img"
+                    className={styles.card__img}
                     alt="card image"
                   />
 
-                  <div className="card__arrow">
+                  <div className={styles.card__arrow}>
                     <svg
                       width="60"
                       height="60"
@@ -225,16 +233,16 @@ const CardSwiper = () => {
               </SwiperSlide>
 
               <SwiperSlide>
-                <Link to="/jm" className="card__item">
-                  <div className="card__number">06</div>
-                  <h5 className="card__title">JM</h5>
+                <Link href="/jm" className={styles.card__item}>
+                  <div className={styles.card__number}>06</div>
+                  <h5 className={styles.card__title}>JM</h5>
                   <img
                     src={'./img/components/cardSwiper/05.png'}
-                    className="card__img"
+                    className={styles.card__img}
                     alt="card image"
                   />
 
-                  <div className="card__arrow">
+                  <div className={styles.card__arrow}>
                     <svg
                       width="60"
                       height="60"

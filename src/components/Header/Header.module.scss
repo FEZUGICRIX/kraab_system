@@ -86,12 +86,6 @@
         text-transform: uppercase;
         text-decoration-line: underline;
         text-underline-offset: 4px;
-        transition: 0.5s ease all;
-
-        &:hover {
-          text-shadow: 3px 2px 5px rgba(89,77,85,0.94);
-          font-size: 16.1px;
-        }
       }
     }
   }
