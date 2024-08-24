@@ -1,0 +1,70 @@
+// Media breakpoints
+$breakpoint-xl: 1440px;
+$breakpoint-lg: 1280px;
+$breakpoint-md: 1024px;
+$breakpoint-sm: 820px;
+$breakpoint-xs: 470px;
+$breakpoint-s: 400px;
+
+// Font colors
+$white: #fff;
+$black: #000;
+$dark-black: #323334;
+$dark-grey: #909090;
+$dark: #706d6d;
+
+// Background colors
+$footer-color: #222;
+
+.gallery {
+  margin: 45px 0 20px 0;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    row-gap: 50px;
+    column-gap: 9px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    cursor: pointer;
+  }
+
+  &__itemTitle {
+    font-family: Roboto;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 15px;
+    text-transform: capitalize;
+  }
+
+  &__itemImg {
+    width: 100%;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &__gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: $breakpoint-sm) {
+    &__gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: $breakpoint-xs) {
+    &__gallery {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

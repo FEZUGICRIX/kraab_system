@@ -1,0 +1,188 @@
+.header {
+  .headerContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 1px #222 solid;
+    padding: 20px 10px;
+  }
+
+  .headerTitle {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 35.28px;
+    color: #222;
+  }
+
+  .headerMain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .headerButtons {
+    display: flex;
+    gap: 40px;
+    max-width: 200px;
+    margin-left: auto;
+  }
+
+  .headerBasketImg {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      right: -3px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #f2994a;
+    }
+
+    .headerBasketAmount {
+      position: absolute;
+      bottom: 0.5px;
+      right: 1.5px;
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 11.72px;
+    }
+  }
+
+  .headerNavDesktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    width: auto;
+    position: static;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    width: 100%;
+
+    .headerNavContainer {
+      display: flex;
+      margin-top: 0;
+    }
+
+    .headerList {
+      display: flex;
+      flex-direction: row; /* Горизонтальное размещение элементов */
+      gap: 20px;
+
+      a {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20.16px;
+        color: #222;
+        text-transform: uppercase;
+        text-decoration-line: underline;
+        text-underline-offset: 4px;
+      }
+    }
+  }
+
+  .headerNavMobile {
+    display: none; /* Скрыть меню на десктопе по умолчанию */
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 0 0 18px 18px;
+
+    .headerNavContainer {
+      display: block;
+      margin-top: 30px;
+    }
+
+    &.open {
+      transform: translateY(0); /* Показываем меню */
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .headerButtons {
+      margin: 10px 0 0 0;
+    }
+
+    .headerList {
+      display: flex;
+      flex-direction: column; /* Вертикальное размещение элементов */
+      gap: 15px;
+
+      a {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20.16px;
+        color: #222;
+        text-transform: uppercase;
+        text-decoration-line: underline;
+        text-underline-offset: 4px;
+      }
+    }
+  }
+
+  .headerBurger,
+  .headerClose {
+    display: none; /* Прячем бургер и крестик по умолчанию */
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .headerNavDesktop {
+      display: none; /* Скрыть десктопное меню на мобильных устройствах */
+    }
+
+    .headerBurger {
+      display: block; /* Отображаем бургер на мобильных устройствах */
+      margin-left: auto;
+    }
+
+    .headerButtons {
+      margin: 10px 0 0 0;
+    }
+
+    .headerClose {
+      display: block; /* Отображаем крестик в меню */
+      margin-left: auto;
+    }
+
+    .headerNavMobile {
+      display: block; /* Показываем мобильное меню */
+      width: 100%; /* Убедимся, что меню занимает всю ширину экрана */
+    }
+  }
+
+  @media (min-width: 769px) {
+    .headerNavMobile {
+      display: none; /* Скрыть мобильное меню на десктопных устройствах */
+    }
+
+    .headerNavDesktop {
+      display: flex; /* Отображаем десктопное меню */
+    }
+  }
+}
