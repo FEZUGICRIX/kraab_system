@@ -1,0 +1,52 @@
+.gallery {
+  margin: 45px 0 20px 0;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    row-gap: 50px;
+    column-gap: 9px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    cursor: pointer;
+  }
+
+  &__item-title {
+    font-family: Roboto;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 15px;
+    text-transform: capitalize;
+  }
+
+  &__item-img {
+    width: 100%;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &__gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: $breakpoint-sm) {
+    &__gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: $breakpoint-xs) {
+    &__gallery {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

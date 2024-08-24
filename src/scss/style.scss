@@ -1,0 +1,165 @@
+@import './reset';
+@import './fonts';
+@import './variables';
+
+// Components
+@import '../components/Footer/footer';
+@import '../components/CardSwiper/CardSwiper';
+@import '../components/Products/Products';
+@import '../components/BasketMain/BasketMain';
+@import '../components/BasketCheckout/BasketCheckout';
+@import '../components/BasketPayment/BasketPayment';
+@import '../components/BasketConfirmation/BasketConfirmation';
+@import '../components/DetailOrder/DetailOrder';
+@import '../components/TimeLine/TimeLine';
+@import '../components/Snackbar/Snackbar';
+
+// Pages
+@import '../pages/BrandPage//BrandPage';
+@import '../pages/AboutUsPage/AboutUsPage';
+@import '../pages/BasketPage/BasketPage';
+@import '../pages/CatalogsPage//CatalogsPage';
+@import '../pages/ContactUsPage/ContactUsPage';
+@import '../pages/HomePage/HomePage';
+@import '../pages/GalleryPage/GalleryPage';
+@import '../pages/ModuleoPage/ModuleoPage';
+@import '../pages/ProductPage/ProductPage';
+@import '../pages/DenkirsPage/DenkirsPage';
+@import '../pages/KraabSlimPage/KraabSlimPage';
+@import '../pages/JmPage/JmPage';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.title {
+  font-family: Plus Jakarta Sans;
+  color: #222;
+  text-transform: uppercase;
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 41.6px;
+  text-align: center;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 40px;
+  }
+  @media (max-width: $breakpoint-xs) {
+    font-size: 30px;
+  }
+}
+
+.main {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.nav-title {
+  margin-top: 38px;
+  color: $dark-black;
+  font-family: Plus Jakarta Sans;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20.16px;
+  text-align: center;
+  text-transform: uppercase;
+
+  a {
+    color: $dark-black;
+  }
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+
+  font-family: Plus Jakarta Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.16px;
+  color: #323334;
+
+  text-transform: uppercase;
+}
+
+.black-btn {
+  padding: 16px 0;
+  color: $white;
+  background: #222;
+
+  font-family: Roboto;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18.75px;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  transition: 0.4s all ease;
+
+  &:hover {
+    background: $white;
+    color: #222;
+    border: 1px solid #222;
+  }
+}
+
+.white-btn {
+  padding: 16px 0;
+  color: #222;
+
+  font-family: Roboto;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18.75px;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  transition: 0.4s all ease;
+
+  &:hover {
+    color: #999292;
+  }
+}
+
+.active-link {
+  color: $dark !important;
+  font-weight: bold;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mySwiper {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1296px;
+  margin: auto;
+}
+
+@media (max-width: $breakpoint-xl) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  .container {
+    padding: 0 20px;
+  }
+}
