@@ -1,13 +1,10 @@
-// app/product/[id]/page.js
-
-import { getProducts } from '@/api/getProducts';
 import ProductClient from './ProductClient';
 
 // Функция для генерации параметров для статической генерации
 export async function generateStaticParams() {
-  const ids = await getProducts({ type: 'get_all_products' });
+  const ids = [{ id: 0 }, { id: 1 }, { id: 2 }];
 
-  return ids.productIds.map((id) => ({
+  return ids.map((id) => ({
     id: id.toString(),
   }));
 }

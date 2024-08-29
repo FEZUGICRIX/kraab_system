@@ -1,7 +1,7 @@
 'use client';
 
+import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { getProducts } from '@/api/getProducts';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import Products from '@/components/Products/Products';
 
@@ -11,11 +11,10 @@ const KraabGippsClient = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const data = await getProducts({
-          catalog: 'kraab_gipps_products',
-          type: 'get_products',
-        });
-        setProducts(data.data);
+        const response = await axios.get(
+          '/api/products?catalog=kraab_gipps_products'
+        );
+        setProducts(response.data);
       } catch (error) {
         console.error(error);
       }

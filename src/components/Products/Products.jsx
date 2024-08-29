@@ -12,7 +12,7 @@ const Products = ({ products }) => {
       <div className={styles.products__container}>
         <div className={(styles.product, styles.products__items)}>
           {products.map((item) => {
-            const { id, images, image_path, title, colors, price } = item;
+            const { id, images, image_path, title, price } = item;
             const imagesParse = JSON.parse(images);
 
             return (
@@ -28,22 +28,6 @@ const Products = ({ products }) => {
                 <Link href={`/product/${id}`}>
                   <div className={styles.product__title}>{title}</div>
                 </Link>
-
-                {colors && (
-                  <div className={styles.product__colors}>
-                    {colors.map((color, index) => (
-                      <div
-                        key={index}
-                        style={{
-                          width: 10,
-                          height: 10,
-                          background: color,
-                          borderRadius: 10,
-                        }}
-                      ></div>
-                    ))}
-                  </div>
-                )}
 
                 <div className={styles.product__price}>{price}€</div>
               </div>

@@ -1,9 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { getProducts } from '@/api/getProducts';
+import axios from 'axios';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import Products from '@/components/Products/Products';
-import styles from './page.module.scss';
 
 const ModuleoClient = () => {
   const [products, setProducts] = useState([]);
@@ -11,11 +10,10 @@ const ModuleoClient = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await getProducts({
-          catalog: 'moduleo_products',
-          type: 'get_products',
-        });
-        setProducts(data.data);
+        const response = await axios.get(
+          '/api/products?catalog=moduleo_products'
+        );
+        setProducts(response.data);
       } catch (error) {
         console.error(error);
       }

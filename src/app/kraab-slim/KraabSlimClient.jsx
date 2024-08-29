@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getProducts } from '@/api/getProducts';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import Products from '@/components/Products/Products';
 import styles from './page.module.scss';
+import axios from 'axios';
 
 const KraabSlimPage = () => {
   const [products, setProducts] = useState([]);
@@ -12,11 +12,10 @@ const KraabSlimPage = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const data = await getProducts({
-          catalog: 'kraab_slim_products',
-          type: 'get_products',
-        });
-        setProducts(data.data);
+        const response = await axios.get(
+          '/api/products?catalog=kraab_slim_products'
+        );
+        setProducts(response.data);
       } catch (error) {
         console.error(error);
       }
