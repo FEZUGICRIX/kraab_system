@@ -38,7 +38,6 @@ $footer-color: #222;
   }
 
   &__text {
-    font-family: Montserrat;
     font-size: 18px;
     font-weight: 400;
     line-height: 27px;
@@ -178,7 +177,6 @@ $footer-color: #222;
   }
 
   &__title {
-    font-family: Montserrat;
     font-size: 30px;
     font-weight: 700;
     line-height: 36.57px;
@@ -202,21 +200,18 @@ $footer-color: #222;
 
     &Title {
       margin: 20px 0 32px 0;
-      font-family: Montserrat;
       font-size: clamp(19px, 5vw, 22px);
       font-weight: 700;
       line-height: 23.16px;
     }
 
     &Text {
-      font-family: Montserrat;
       font-size: clamp(16px, 5vw, 17px);
       font-weight: 450;
       line-height: 23px;
     }
 
     &Link {
-      font-family: Montserrat;
       font-size: 15px;
       font-weight: 700;
       color: #393939;
@@ -242,7 +237,6 @@ $footer-color: #222;
 }
 
 .accountTitle {
-  font-family: Montserrat;
   font-size: 28px;
   font-weight: 700;
   line-height: 34.13px;

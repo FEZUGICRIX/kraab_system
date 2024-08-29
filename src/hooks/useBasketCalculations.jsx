@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { getProducts } from '@/api/getProducts';
 import useBasket from '@/hooks/useBasket';
-import { getCalculateOrder } from '../api/getCalculateOrder';
+import axios from 'axios';
 
 export const useBasketCalculations = () => {
   const { basketItems, removeLocalStorageItem, setBasketData } =
@@ -19,10 +18,20 @@ export const useBasketCalculations = () => {
         }, {});
 
         // Fetch products
-        const products = await Promise.all(
-          rawProducts.map((id) => getProducts({ type: 'get_product', id }))
+        const productRequests = rawProducts.map((id) =>
+          axios
+            .get(`/api/product?id=${id}`)
+            .catch((error) => ({ error, id }))
         );
-        const filteredProducts = products.filter(Boolean);
+
+        const productResponses = await Promise.all(productRequests);
+
+        // Filter successful responses and extract data
+        const filteredProducts = productResponses
+          .map((item) => item.data)
+          .filter((response) => !response.error) // Exclude error responses
+          .map((response) => response.data); // Extract data
+
         setBasketProducts(filteredProducts);
 
         // Fetch order calculation
@@ -30,8 +39,17 @@ export const useBasketCalculations = () => {
           basketProducts: filteredProducts,
           basketItemsMap,
         };
-        const response = await getCalculateOrder({ requestData });
-        setOrderCalculation(response);
+
+        const { data } = await axios.post(
+          '/api/calculateOrder',
+          requestData,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        );
+        setOrderCalculation(data);
       } catch (error) {
         console.error('Ошибка при получении данных:', error);
       }

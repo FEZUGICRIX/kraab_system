@@ -21,7 +21,7 @@ const BasketMainClient = () => {
   const router = useRouter();
 
   const handleRemoveItem = (id) => {
-    removeLocalStorageItem(id);
+    removeLocalStorageItem(String(id));
   };
 
   const handleCheckout = () => {
@@ -93,7 +93,7 @@ const BasketMainClient = () => {
                     </div>
                     <button
                       className={styles.basket__productClose}
-                      onClick={() => handleRemoveItem(item.id)}
+                      onClick={() => handleRemoveItem(String(item.id))}
                     >
                       <svg
                         width="18"

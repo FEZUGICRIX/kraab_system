@@ -6,7 +6,6 @@
   .paymentDetails {
     &Title {
       margin-bottom: 30px;
-      font-family: Plus Jakarta Sans;
       font-size: clamp(25px, 5vw, 36px);
       font-weight: 600;
       line-height: 48px;
@@ -26,7 +25,6 @@
     flex-direction: column;
     gap: 20px;
     max-width: 500px;
-    font-family: Plus Jakarta Sans;
 
     &__item {
       display: flex;
@@ -83,7 +81,6 @@
 }
 
 .method {
-  font-family: Plus Jakarta Sans;
   margin-bottom: 30px;
   &__container {
     display: flex;

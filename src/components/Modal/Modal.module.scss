@@ -1,6 +1,5 @@
 .modalOverlay {
   overflow: auto;
-  font-family: 'Roboto', sans-serif;
   position: fixed;
   top: 0;
   left: 0;
@@ -190,7 +189,6 @@
   cursor: pointer;
   border-radius: 4px; /* Округлые углы */
   font-size: 16px;
-  font-family: Arial, sans-serif;
   text-align: center;
   text-decoration: none;
 }

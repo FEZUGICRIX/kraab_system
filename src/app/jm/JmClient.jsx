@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-
-import { getProducts } from '@/api/getProducts';
+import axios from 'axios';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import Products from '@/components/Products/Products';
 
@@ -12,11 +11,10 @@ const JmPage = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const data = await getProducts({
-          catalog: 'jm_products',
-          type: 'get_products',
-        });
-        setProducts(data.data);
+        const response = await axios.get(
+          '/api/products?catalog=jm_products'
+        );
+        setProducts(response.data);
       } catch (error) {
         console.error(error);
       }

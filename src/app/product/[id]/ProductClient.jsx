@@ -1,8 +1,8 @@
 'use client';
 
+import axios from 'axios';
 import { useParams, notFound } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { getProducts } from '@/api/getProducts';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import Snackbar from '@/components/Snackbar/Snackbar';
 import useBasket from '@/hooks/useBasket';
@@ -27,14 +27,13 @@ const ProductPage = ({ source }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const data = await getProducts({ type: 'get_product', id });
+        const response = await axios.get(`/api/product?id=${id}`);
 
-        if (!data) {
+        if (!response) {
           notFound(); // перенаправить на 404, если продукт не найден
         } else {
-          setProduct(data);
+          setProduct(response.data.data);
         }
-        setProduct(data);
       } catch (error) {
         console.error(error);
       }

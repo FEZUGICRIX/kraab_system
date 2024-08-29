@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import { BasketContextProvider } from '@/context/BasketContext';
+require('dotenv').config();
 import '../styles/globals.scss';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -15,6 +16,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fi">
       <head>
+        <meta
+          name="google-site-verification"
+          content="google0d7f85f3645b10c5"
+        />
         <link rel="icon" type="image/svg+xml" href="/favicon.png" />
       </head>
       <body className={inter.className}>
