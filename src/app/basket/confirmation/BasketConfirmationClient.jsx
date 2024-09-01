@@ -21,33 +21,33 @@ const BasketConfirmation = () => {
   const { setBasketItems } = useBasket();
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setPaymentId(localStorage.getItem('payment_id'));
-      setPaymentMethod(localStorage.getItem('payment_method'));
-    }
-  }, []);
+    if (typeof window === 'undefined') return;
 
-  useEffect(() => {
-    if (!totalPrice || !paymentId) {
-      console.log('Total price or payment ID is not available yet.');
+    const storedPaymentId = localStorage.getItem('payment_id');
+    const storedPaymentMethod = localStorage.getItem('payment_method');
+
+    if (!storedPaymentId) {
+      router.push('/');
       return;
     }
 
-    const orderDataRaw =
-      typeof window !== 'undefined'
-        ? localStorage.getItem('orderData')
-        : null;
+    setPaymentId(storedPaymentId);
+    setPaymentMethod(storedPaymentMethod);
+
+    const orderDataRaw = localStorage.getItem('orderData');
     const orderData = orderDataRaw ? JSON.parse(orderDataRaw) : null;
 
     const fetchRevolutData = async () => {
       try {
         setBasketItems([]);
         const response = await axios.post(
-          'https://kraabmod.fi/api/revolut_confirmation.php',
+          '/api/revolutCheckPaymentStatus',
           {
-            order_id: paymentId,
+            order_id: storedPaymentId,
           }
         );
+
+        console.log(response.data);
 
         if (
           response.data &&
@@ -82,10 +82,9 @@ const BasketConfirmation = () => {
             }),
           };
 
+          // Отправка заказа по email, если это еще не было сделано
           if (!emailSent) {
-            await sendEmail({
-              orderData: orderDataToSend,
-            });
+            // await sendEmail({ orderData: orderDataToSend });
             setEmailSent(true);
           }
         }
@@ -100,17 +99,18 @@ const BasketConfirmation = () => {
       try {
         setBasketItems([]);
         const response = await axios.post(
-          'https://kraabmod.fi/api/stripe_confirmation.php',
+          '/api/stripeCheckPaymentStatus',
           {
-            session_id: paymentId,
+            session_id: storedPaymentId,
           }
         );
 
-        if (
-          response.data &&
-          response.data.status === 'complete' &&
-          !emailSent
-        ) {
+        if (response.data.status !== 'complete') {
+          router.push('/');
+          return;
+        }
+
+        if (response.data && !emailSent) {
           if (!orderData) {
             console.error('Нет данных заказа в localStorage');
             return;
@@ -142,10 +142,15 @@ const BasketConfirmation = () => {
             }),
           };
 
+          // Отправка заказа по email, если это еще не было сделано
           if (!emailSent) {
-            const response = await sendEmail({
-              orderData: orderDataToSend,
-            });
+            // await axios.post('/api/sendOrder', {
+            //   orderData: orderDataToSend,
+            // });
+
+            // const response = await sendEmail({
+            //   orderData: orderDataToSend,
+            // });
             setEmailSent(true);
           }
         }
@@ -156,21 +161,14 @@ const BasketConfirmation = () => {
       }
     };
 
-    if (paymentId) {
-      if (paymentMethod === 'revolut') {
-        fetchRevolutData();
-      } else if (paymentMethod === 'stripe') {
-        fetchStripeData();
-      }
+    if (storedPaymentMethod === 'revolut') {
+      fetchRevolutData();
+    } else if (storedPaymentMethod === 'stripe') {
+      fetchStripeData();
     } else {
       setLoading(false);
     }
-  }, [totalPrice, paymentId, paymentMethod, emailSent]);
-
-  if (!paymentId) {
-    router.push('/');
-    return null;
-  }
+  }, []);
 
   if (loading) {
     return <h1>Загрузка...</h1>;

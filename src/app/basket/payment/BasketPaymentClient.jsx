@@ -1,8 +1,7 @@
 'use client';
 
+import axios from 'axios';
 import { useEffect, useState } from 'react';
-
-import { revolutPayment } from '@/api/revolutPayment';
 import { getFormattedDate } from '@/utils/getFormattedDate';
 import { useBasketCalculations } from '@/hooks/useBasketCalculations';
 import { stripePayment } from '@/api/stripePayment';
@@ -66,16 +65,31 @@ const BasketPaymentClient = () => {
       }
 
       if (selectedMethod === 'revolut') {
-        await revolutPayment({
+        const response = await axios.post('/api/revolutPayment', {
           amount: totalOrderPrice,
           currency: 'EUR',
           redirect_url: 'https://kraabmod.fi/basket/confirmation',
         });
+
+        localStorage.removeItem('payment_id');
+        localStorage.setItem('payment_id', response.data.id);
+        localStorage.setItem('payment_method', 'revolut');
+
+        window.location.href = response.data.checkout_url;
       } else if (selectedMethod === 'stripe') {
-        await stripePayment({
+        const response = await axios.post('/api/stripePayment', {
           amount: totalOrderPrice,
-          successUrl: 'https://kraabmod.fi/basket/confirmation',
+          currency: 'EUR',
+          redirect_url: 'https://kraabmod.fi/basket/confirmation',
         });
+
+        localStorage.removeItem('payment_id');
+        localStorage.setItem('payment_id', response.data.id);
+        localStorage.setItem('payment_method', 'stripe');
+
+        // cs_test_a1bOnC66PLa13hIFn31hpojDIBKgBKymaCYjf5yxRP2S0fxBwZCwVIoAYy
+
+        window.location.href = response.data.url;
       }
     } catch (error) {
       console.error(error);
