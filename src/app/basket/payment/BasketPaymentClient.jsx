@@ -4,7 +4,6 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { getFormattedDate } from '@/utils/getFormattedDate';
 import { useBasketCalculations } from '@/hooks/useBasketCalculations';
-import { stripePayment } from '@/api/stripePayment';
 import DetailOrder from '@/components/DetailOrder/DetailOrder';
 import TimeLine from '@/components/TimeLine/TimeLine';
 import styles from './page.module.scss';
@@ -86,8 +85,6 @@ const BasketPaymentClient = () => {
         localStorage.removeItem('payment_id');
         localStorage.setItem('payment_id', response.data.id);
         localStorage.setItem('payment_method', 'stripe');
-
-        // cs_test_a1bOnC66PLa13hIFn31hpojDIBKgBKymaCYjf5yxRP2S0fxBwZCwVIoAYy
 
         window.location.href = response.data.url;
       }

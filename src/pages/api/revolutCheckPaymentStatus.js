@@ -41,7 +41,6 @@ export default async function handler(req, res) {
     });
 
     // Возвращаем ответ
-    console.log('success');
     return res.status(response.status).json(response.data);
   } catch (error) {
     // Обработка ошибок

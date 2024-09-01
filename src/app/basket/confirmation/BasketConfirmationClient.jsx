@@ -47,8 +47,6 @@ const BasketConfirmation = () => {
           }
         );
 
-        console.log(response.data);
-
         if (
           response.data &&
           response.data.state === 'completed' &&
