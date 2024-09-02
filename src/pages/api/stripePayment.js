@@ -35,11 +35,11 @@ export default async function handler(req, res) {
     'payment_method_types[]': 'card',
     'line_items[0][price_data][currency]': data.currency,
     'line_items[0][price_data][product_data][name]':
-      data.description || 'Product',
+      data.description || 'Tilaus',
     'line_items[0][price_data][unit_amount]': data.amount,
     'line_items[0][quantity]': '1',
     mode: 'payment',
-    success_url: data.redirect_url || 'https://your-site.com/success',
+    success_url: data.redirect_url || 'https://kraabmod.fi/',
     cancel_url: data.cancel_url || 'https://kraabmod.fi/',
   });
 

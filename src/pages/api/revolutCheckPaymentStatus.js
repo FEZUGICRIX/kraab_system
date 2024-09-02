@@ -31,7 +31,7 @@ export default async function handler(req, res) {
   const apiUrl = process.env.NEXT_PUBLIC_REVOLUT_URL;
 
   try {
-    const response = await axios.get(`${apiUrl}${data.order_id}`, {
+    const response = await axios.get(`${apiUrl}/${data.order_id}`, {
       headers: {
         Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json',

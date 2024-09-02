@@ -47,6 +47,11 @@ const BasketConfirmation = () => {
           }
         );
 
+        if (response.data.state !== 'completed') {
+          router.push('/');
+          return;
+        }
+
         if (
           response.data &&
           response.data.state === 'completed' &&

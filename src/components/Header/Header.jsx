@@ -168,11 +168,13 @@ const Header = () => {
           <div className={styles.headerButtons}>
             <Link
               href="/basket/main"
-              className={styles.headerButton}
-              id="basket-img"
+              className={styles.headerBasketImg}
               onClick={closeMenu}
             >
-              <span className={styles.basketAmount}>{basketAmount}</span>
+              <span className={styles.headerBasketAmount}>
+                {basketAmount}
+              </span>
+
               <svg
                 width="25"
                 height="29"
