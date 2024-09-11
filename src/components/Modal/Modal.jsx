@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styles from './Modal.module.scss';
-import { clientDataEmail } from '../../api/clientDataEmail';
 
 const Modal = ({ isOpen, onClose }) => {
   const [state, setState] = useState({
@@ -141,7 +141,7 @@ const Modal = ({ isOpen, onClose }) => {
     });
 
     try {
-      await clientDataEmail(formData);
+      await axios.post('/api/clientDataEmail', formData);
 
       setFileNames([]);
       setState({
@@ -215,7 +215,7 @@ const Modal = ({ isOpen, onClose }) => {
 
               <div className={styles.checkboxGroup}>
                 <h3 style={{ fontSize: 20, marginBottom: 15 }}>Huone:</h3>
-                
+
                 {[
                   '3d-konsepti olohuoneeseen',
                   'Monimutkainen',

@@ -3,7 +3,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { sendEmail } from '@/api/sendEmail';
 import { useBasketCalculations } from '@/hooks/useBasketCalculations';
 import TimeLine from '@/components/TimeLine/TimeLine';
 import useBasket from '@/hooks/useBasket';
@@ -11,16 +10,35 @@ import styles from './page.module.scss';
 
 const BasketConfirmation = () => {
   const [loading, setLoading] = useState(true);
-  const [emailSent, setEmailSent] = useState(false);
-  const [paymentId, setPaymentId] = useState(null);
-  const [paymentMethod, setPaymentMethod] = useState(null);
+  const [isBasketLoaded, setIsBasketLoaded] = useState(false); // Для отслеживания состояния загрузки корзины
   const router = useRouter();
 
-  const { basketProducts, basketItemsMap, totalPrice, shippingValue } =
-    useBasketCalculations();
+  const {
+    basketProducts,
+    basketItemsMap,
+    tax,
+    totalPrice,
+    shippingValue,
+    totalOrderPrice,
+  } = useBasketCalculations();
   const { setBasketItems } = useBasket();
 
   useEffect(() => {
+    if (
+      !basketProducts ||
+      totalPrice === undefined ||
+      shippingValue === undefined
+    ) {
+      // Данные корзины еще не загружены
+      return;
+    }
+
+    setIsBasketLoaded(true); // Корзина загружена
+  }, [basketProducts, totalPrice, shippingValue]);
+
+  useEffect(() => {
+    if (!isBasketLoaded) return; // Ждём, пока корзина загрузится
+
     if (typeof window === 'undefined') return;
 
     const storedPaymentId = localStorage.getItem('payment_id');
@@ -31,11 +49,10 @@ const BasketConfirmation = () => {
       return;
     }
 
-    setPaymentId(storedPaymentId);
-    setPaymentMethod(storedPaymentMethod);
-
     const orderDataRaw = localStorage.getItem('orderData');
     const orderData = orderDataRaw ? JSON.parse(orderDataRaw) : null;
+
+    let isEmailSent = false; // Локальный флаг для отслеживания
 
     const fetchRevolutData = async () => {
       try {
@@ -47,15 +64,10 @@ const BasketConfirmation = () => {
           }
         );
 
-        if (response.data.state !== 'completed') {
-          router.push('/');
-          return;
-        }
-
         if (
           response.data &&
           response.data.state === 'completed' &&
-          !emailSent
+          !isEmailSent
         ) {
           if (!orderData) {
             console.error('Нет данных заказа в localStorage');
@@ -75,7 +87,8 @@ const BasketConfirmation = () => {
             zip,
             time: response.data.updated_at,
             shippingValue,
-            totalPrice: (totalPrice + shippingValue).toFixed(2),
+            tax,
+            totalPrice: (totalOrderPrice / 100).toFixed(2),
             items: basketProducts.map((item) => {
               const basketItem = basketItemsMap[item.id];
               return {
@@ -85,11 +98,8 @@ const BasketConfirmation = () => {
             }),
           };
 
-          // Отправка заказа по email, если это еще не было сделано
-          if (!emailSent) {
-            // await sendEmail({ orderData: orderDataToSend });
-            setEmailSent(true);
-          }
+          await axios.post('/api/sendEmail', orderDataToSend);
+          isEmailSent = true; // Устанавливаем флаг после отправки email
         }
       } catch (error) {
         console.error('Ошибка при получении данных заказа:', error);
@@ -113,7 +123,7 @@ const BasketConfirmation = () => {
           return;
         }
 
-        if (response.data && !emailSent) {
+        if (response.data && !isEmailSent) {
           if (!orderData) {
             console.error('Нет данных заказа в localStorage');
             return;
@@ -135,7 +145,8 @@ const BasketConfirmation = () => {
             zip,
             time: date.toISOString(),
             shippingValue,
-            totalPrice: (totalPrice + shippingValue).toFixed(2),
+            tax,
+            totalPrice: (totalOrderPrice / 100).toFixed(2),
             items: basketProducts.map((item) => {
               const basketItem = basketItemsMap[item.id];
               return {
@@ -145,17 +156,8 @@ const BasketConfirmation = () => {
             }),
           };
 
-          // Отправка заказа по email, если это еще не было сделано
-          if (!emailSent) {
-            // await axios.post('/api/sendOrder', {
-            //   orderData: orderDataToSend,
-            // });
-
-            // const response = await sendEmail({
-            //   orderData: orderDataToSend,
-            // });
-            setEmailSent(true);
-          }
+          await axios.post('/api/sendEmail', orderDataToSend);
+          isEmailSent = true; // Устанавливаем флаг
         }
       } catch (error) {
         console.error('Ошибка при получении данных заказа:', error);
@@ -171,7 +173,7 @@ const BasketConfirmation = () => {
     } else {
       setLoading(false);
     }
-  }, []);
+  }, [isBasketLoaded]); // Выполняем только после загрузки данных корзины
 
   if (loading) {
     return <h1>Загрузка...</h1>;
