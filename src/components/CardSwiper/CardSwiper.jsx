@@ -137,7 +137,7 @@ const CardSwiper = () => {
                   <h5 className={styles.card__title}>Kraab Gipps</h5>
                   <img
                     src={
-                      './img/pages/kraab_gipps_products/KRAAB GIPPS.jpg'
+                      './img/pages/kraab_gipps_products/KRAAB-GIPPS.jpg'
                     }
                     className={styles.card__img}
                     alt="card image"
