@@ -6,6 +6,7 @@ const Modal = ({ isOpen, onClose }) => {
   const [state, setState] = useState({
     step: 1,
     selectedTypes: [],
+    selectedRepairs: [],
     installation: '',
     repairStageDescription: '',
     hasProject: false,
@@ -36,6 +37,16 @@ const Modal = ({ isOpen, onClose }) => {
       selectedTypes: checked
         ? [...prevState.selectedTypes, value]
         : prevState.selectedTypes.filter((type) => type !== value),
+    }));
+  };
+
+  const handleRepairChange = (event) => {
+    const { value, checked } = event.target;
+    setState((prevState) => ({
+      ...prevState,
+      selectedRepairs: checked
+        ? [...prevState.selectedRepairs, value]
+        : prevState.selectedRepairs.filter((type) => type !== value),
     }));
   };
 
@@ -136,6 +147,11 @@ const Modal = ({ isOpen, onClose }) => {
       formData.append(`selectedTypes[]`, type);
     });
 
+    // Добавляем selectedRepairs в FormData
+    state.selectedRepairs.forEach((type, index) => {
+      formData.append(`selectedRepairs[]`, type);
+    });
+
     state.files.forEach((file) => {
       formData.append('files[]', file);
     });
@@ -214,7 +230,9 @@ const Modal = ({ isOpen, onClose }) => {
               </div>
 
               <div className={styles.checkboxGroup}>
-                <h3 style={{ fontSize: 20, marginBottom: 15 }}>Huone:</h3>
+                <h3 style={{ fontSize: 20, marginBottom: 15 }}>
+                  Korjaus:
+                </h3>
 
                 {[
                   '3d-konsepti olohuoneeseen',
@@ -234,8 +252,8 @@ const Modal = ({ isOpen, onClose }) => {
                     <input
                       type="checkbox"
                       value={type}
-                      onChange={handleTypeChange}
-                      checked={state.selectedTypes.includes(type)}
+                      onChange={handleRepairChange}
+                      checked={state.selectedRepairs.includes(type)}
                       className={styles.checkbox}
                     />
                     {type}
@@ -318,6 +336,7 @@ const Modal = ({ isOpen, onClose }) => {
                   Valitse tiedosto
                 </label>
                 <input
+                  id="file-input"
                   type="file"
                   accept=".pdf, .jpg, .jpeg, .png"
                   onChange={handleFileChange}
