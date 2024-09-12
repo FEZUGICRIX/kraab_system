@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 import formidable from 'formidable';
 import fs from 'fs';
 
-// Эта функция отключает встроенную обработку body в Next.js, чтобы использовать Formidable
+// Отключение встроенной обработки body в Next.js
 export const config = {
   api: {
     bodyParser: false,
@@ -14,8 +14,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
 
-  // Обрабатываем данные формы и файлы
-  const form = formidable({ multiples: true }); // Используйте новую форму
+  // Обработка данных формы и файлов с использованием Formidable
+  const form = formidable({ multiples: true }); // Включаем поддержку нескольких файлов
 
   form.parse(req, async (err, fields, files) => {
     if (err) {
@@ -25,19 +25,30 @@ export default async function handler(req, res) {
 
     // Данные клиента
     const contact = {
-      firstName: fields.firstName || '',
-      lastName: fields.lastName || '',
-      email: fields.email || '',
-      phone: fields.phone || '',
+      firstName: fields.firstName ? fields.firstName[0] : '',
+      lastName: fields.lastName ? fields.lastName[0] : '',
+      email: fields.email ? fields.email[0] : '',
+      phone: fields.phone ? fields.phone[0] : '',
     };
 
-    const dimensions = fields.dimensions || '';
-    const installation = fields.installation || '';
-    const repairStageDescription = fields.repairStageDescription || '';
-    const hasProject = fields.hasProject || '';
-    const selectedTypes = fields.selectedTypes
-      ? JSON.parse(fields.selectedTypes)
-      : [];
+    const dimensions = fields.dimensions ? fields.dimensions[0] : '';
+    const installation = fields.installation ? fields.installation[0] : '';
+    const repairStageDescription = fields.repairStageDescription
+      ? fields.repairStageDescription[0]
+      : '';
+    const hasProject = fields.hasProject ? fields.hasProject[0] : '';
+
+    // Обработка selectedTypes
+    const selectedTypes = fields['selectedTypes[]'] || [];
+    const typesArray = Array.isArray(selectedTypes)
+      ? selectedTypes
+      : [selectedTypes];
+
+    // Обработка selectedRepairs
+    const selectedRepairs = fields['selectedRepairs[]'] || [];
+    const repairsArray = Array.isArray(selectedRepairs)
+      ? selectedRepairs
+      : [selectedRepairs];
 
     // Создание транспортёра для Nodemailer
     const transporter = nodemailer.createTransport({
@@ -63,17 +74,20 @@ export default async function handler(req, res) {
       <p><strong>Onko projekti:</strong> ${
         hasProject === 'yes' ? 'Kyllä' : 'Ei'
       }</p>
-      <p><strong>Valitut tyypit:</strong> ${
-        selectedTypes.length > 0 ? selectedTypes.join(', ') : 'Ei valittu'
-      }</p>
+      <p><strong>Valitut tyypit:</strong> 
+        ${typesArray.length > 0 ? typesArray.join(', ') : 'Ei valittu'}
+      </p>
+      <p><strong>Valitut korjaukset:</strong> 
+        ${repairsArray.length > 0 ? repairsArray.join(', ') : 'Ei valittu'}
+      </p>
     `;
 
     // Опции письма с вложениями
     let attachments = [];
-    if (files.files) {
-      const uploadedFiles = Array.isArray(files.files)
-        ? files.files
-        : [files.files];
+    if (files['files[]']) {
+      const uploadedFiles = Array.isArray(files['files[]'])
+        ? files['files[]']
+        : [files['files[]']];
 
       uploadedFiles.forEach((file) => {
         const fileContent = fs.readFileSync(file.filepath); // Чтение содержимого файла
