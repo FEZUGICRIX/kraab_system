@@ -48,7 +48,7 @@ $footer-color: #222;
     gap: 12px;
     font-size: 30px;
     font-weight: 500;
-    line-height: 41.82px;
+    line-height: 28px;
     a {
       color: $dark-black;
     }
@@ -99,13 +99,6 @@ $footer-color: #222;
     &__info {
       gap: 20px;
     }
-
-    &__infoDetails {
-      gap: 0px;
-    }
-
-    &__text {
-    }
   }
 
   @media (max-width: $breakpoint-xs) {
@@ -115,6 +108,11 @@ $footer-color: #222;
 
     &__info {
       gap: 10px;
+    }
+
+    svg {
+      width: 40px;
+      height: 40px;
     }
 
     &__text {

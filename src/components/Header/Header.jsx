@@ -157,7 +157,7 @@ const Header = () => {
             </li>
             <li className={styles.headerListItem}>
               <Link
-                href="/contact"
+                href="/contacts"
                 className={setActive}
                 onClick={closeMenu}
               >
