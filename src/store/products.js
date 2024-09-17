@@ -2,42 +2,42 @@ const PRODUCT_DATA = {
   galleryItems: [
     {
       id: 0,
-      title: 'toimisto',
+      title: 'Toimisto',
       img: '/img/pages/gallery/toimisto.jpeg',
     },
     {
       id: 1,
-      title: 'lääkärin',
+      title: 'Lääkärin',
       img: '/img/pages/gallery/laakarin.jpg',
     },
     {
       id: 2,
-      title: 'ravintola',
+      title: 'Ravintola',
       img: '/img/pages/gallery/ravintola.jpeg',
     },
     {
       id: 3,
-      title: 'käytävä',
+      title: 'Käytävä',
       img: '/img/pages/gallery/kaytava.jpeg',
     },
     {
       id: 4,
-      title: 'olohuone',
+      title: 'Olohuone',
       img: '/img/pages/gallery/olohuone.jpeg',
     },
     {
       id: 5,
-      title: 'makuuhuone',
+      title: 'Makuuhuone',
       img: '/img/pages/gallery/makuuhuone.jpeg',
     },
     {
       id: 6,
-      title: 'lastenhuone',
+      title: 'Lastenhuone',
       img: '/img/pages/gallery/lastenhuone.jpeg',
     },
     {
       id: 7,
-      title: 'kylpyhuone',
+      title: 'Kylpyhuone',
       img: '/img/pages/gallery/kylpyhuone.jpeg',
     },
     {
@@ -47,7 +47,7 @@ const PRODUCT_DATA = {
     },
     {
       id: 9,
-      title: 'hotelli',
+      title: 'Hotelli',
       img: '/img/pages/gallery/hoteli.jpeg',
     },
     {
